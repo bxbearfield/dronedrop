@@ -1,0 +1,24 @@
+<div id="settingsPane">
+	<div id="leftCol">
+		<ul id="leftColNav">
+			<li><a class="leftColItem" id="viewProfile">Personal Settings</a></li>
+			<li><a class="leftColItem" id="loginSec">Login Security</a></li>
+			<li class="listBreak"></li>
+			<li><a class="leftColItem" id="socialNetworks">Social Networks</a></li>
+		</ul>
+	</div>
+	
+	<div id="rightCol">
+		<div id="rtColHeader">
+			<div>
+				<h2> Personal Account Settings</h2>
+			</div>
+		</div>
+		
+		<div id="tabContent"></div>	
+		
+		<div class="formErr">
+			<?php if(isset($_GET['err'])){echo $_GET['err'];} ?>
+		</div>
+	</div>
+</div>

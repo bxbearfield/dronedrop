@@ -1,0 +1,107 @@
+<div class="content signup" id="signUpPane">
+	<section id="signupdiv">
+		<div id="signupfb">
+			<p>Make log-in a breeze.<br>
+				Skip email validation by clicking<br>
+				the Facebook&#8482; log-in button below<br>
+				and signing up with Facebook.<br></p>
+			<!-- <fb:login-button 
+				scope="public_profile,email"
+				onlogin="checkLoginState();">
+			</fb:login-button> -->
+			<div class="verticalLine"></div>
+			<div 
+				scope="public_profile,email,user_birthday"
+				onlogin="checkLoginState();"
+				class="fb-login-button" 
+				data-width="" 
+				data-size="large" 
+				data-button-type="login_with" 
+				data-auto-logout-link="false" 
+				data-use-continue-as="false"
+			>
+				Sign Up With Facebook 
+			</div>
+			<div class="verticalLine"></div>
+		</div>
+		
+		<div id="signupform" class="clearfix">	
+		  <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validate_signup()">
+			  <legend class="signupinfo">
+			  		Sign up and connect now!<br>
+					Validate your e-mail and password to <br>
+					connect with thousands of users <br>
+					worldwide!  
+			  </legend> 
+			   
+			  <table id="signuptable">
+				  <tr>
+					<td><input type="hidden" class="signup>" id="fbAuth" name="fbAuth" value="false" /></td>
+				  </tr>
+				  <tr>
+					<td><label for="email2">Email/Username*:</label></td>
+					<td><input type="text" class="signup <?php if (isset($email2) && empty($email2) || $formErr || $formErr1) echo 'yellow'; ?>" id="email2" name="email2" size="20" value="<?php if (!empty($email2)) echo $email2; ?>" /></td>
+				  </tr>
+				  <tr>
+					<td><label for="email3">Confirm Email*:</label></td>
+					<td><input type="text" class="signup <?php if (isset($email3) && empty($email3) || $formErr || $formErr1) echo 'yellow'; ?>" id="email3" name="email3" size="20" value="<?php if (!empty($email3)) echo $email3; ?>" /></td>
+				  </tr>
+				  <tr>
+					<td><label for="firstname">First Name*:</label></td>
+					<td><input type="text" class="signup <?php if (isset($firstname) && empty($firstname) || $formErr2) echo 'yellow'; ?>" id="firstname" name="firstname" size="15" value="<?php if (!empty($firstname)) echo $firstname; ?>" /></td><br />
+				  </tr>
+				  <tr>
+				  	<td><label for="lastname">Last Name*:</label></td>
+				  	<td><input type="text" class="signup <?php if (isset($lastname) && empty($lastname) || $formErr3) echo 'yellow'; ?>" id="lastname" name="lastname" size="15" value="<?php if (!empty($lastname)) echo $lastname; ?>" /></td>
+				  </tr>
+				  	<tr>
+						<td><label for="dob">Date of Birth*:</label></td> <!-- color code for mm/dd/yyyy is #757575 -->
+						<td><input placeholder="mm/dd/yyyy" type="text" class="signup <?php if (isset($dob) && empty($dob) || $formErr6) echo 'yellow'; ?>" id="dob" name="dob" size="15" value="<?php if (!empty($_POST['dob'])) echo $_POST['dob']; ?>" /></td>
+					</tr>
+					<tr>
+						<td><label for="gender">Gender:</label></td>
+						<td> 
+							<input class="gender" name="gender" type="radio" value="1" <?php if(isset($_POST['gender']) && $_POST['gender'] == 1) echo 'checked'; ?>/><span class="radioLabel">M</span> 
+							<input class="gender" name="gender" type="radio" value="2" <?php if(isset($_POST['gender']) && $_POST['gender'] == 2) echo 'checked'; ?>/><span class="radioLabel">F</span>  
+						</td>
+					</tr>
+					<tr>
+					  <td><label class="td1" for="password2">Password*:</label></td>
+					  <td><input type="password" class="signup <?php if ($formErr4 || (isset($password2) && empty($password2))) echo 'yellow'; ?>" size="15" id="password2" name="password2" /></td>
+					</tr>	
+					<tr>
+					  <td><label class="td1" for="password3">Confirm Password*:</label></td>
+					  <td><input type="password" class="signup <?php if ($formErr4 || (isset($password3) && empty($password3))) echo 'yellow'; ?>" size="15" id="password3" name="password3" /></td>
+					</tr>	
+					<tr>
+					  <td id="asterisk" colspan="2">
+						  *Indicates mandatory field
+					  </td>
+					  <td></td>
+					</tr >
+					<tr>
+					  <td colspan="2" align="right">
+						<input type="reset" value="Reset" name="reset" id="resetbtn"/>
+					  	<input type="submit" onclick="this.innerText='Submitting…';" value="Sign Up Now" name="signup" id="signupbtn"/>
+					  </td>
+					</tr> 
+					</tr>
+						<td>
+							<div class="formMsg">
+								<div>
+									<?php if(!empty($formErr))echo $formErr.'<br>'; ?>
+									<?php if(!empty($formErr1))echo $formErr1.'<br>'; ?>
+									<?php if(!empty($formErr2))echo $formErr2.'<br>'; ?>
+									<?php if(!empty($formErr3))echo $formErr3.'<br>'; ?>
+									<?php if(!empty($formErr6))echo $formErr6.'<br>'; ?>
+									<?php if(!empty($formErr4))echo $formErr4.'<br>'; ?>
+									<?php if(!empty($formErr5))echo $formErr5.'<br>'; ?>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+		  	</form>
+		</div>
+	</section>
+</div></body>

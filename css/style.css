@@ -1,0 +1,1037 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* BODY FORMAT */
+/*----------------------------------------------------------------------------------*/
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  font-family: sans-serif;
+  background-color: aqua;
+  line-height: 1.8em;
+}
+
+div.content {
+  background: aqua url(../images/highres.jpg) no-repeat 70% 0%;
+  background-size: 100% 100%;
+  color: white;
+  width: 100%;
+  text-align: center;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+div.content.signup {
+  font-size: 20px;
+  background: aqua url(../images/spongebobblank.jpg) no-repeat 70% 0%;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+div.content.signup div#localContent {
+  margin-top: 60px;
+}
+
+div.content.editprofile {
+  background: aqua url(../images/spongebobblank.jpg) no-repeat 70% 0%;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+div.content.chatPage {
+  background: aqua url(../images/SBSP_PRE_E3-Credits.png) no-repeat 70% 0%;
+  background-size: 100% 100%;
+  position: fixed;
+}
+
+header, section, footer, aside, nav, article, figure, figcaption, hgroup, li {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0 0 .5em 0;
+  font-weight: normal;
+  color: #ffd600;
+  letter-spacing: .07em;
+}
+
+h2 {
+  font-size: 1.9em;
+  margin: 0 0 1em 0;
+  font-weight: normal;
+  color: #ffd600;
+  letter-spacing: .15em;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 0 0 1em 0;
+  font-weight: normal;
+  color: #ffd600;
+  letter-spacing: .2em;
+}
+
+li a {
+  color: white;
+  font: 16px Arial;
+  padding: 0;
+}
+
+li a:hover {
+  color: #ffd600;
+  font: 16px Arial;
+}
+
+ul li {
+  list-style: none;
+  font: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #fff51c;
+}
+
+i.fas, i.far {
+  font-family: 'Fontawesome';
+  font-style: normal;
+  color: white;
+}
+
+i.fas:hover, i.far:hover {
+  color: #fff51c;
+}
+
+i.fas.check, i.far.check {
+  color: #5ad45a;
+}
+
+i.fas.close, i.far.close {
+  color: red !important;
+  margin-right: 5px !important;
+  font-size: 15px !important;
+}
+
+span.radioLabel {
+  margin-left: 5px;
+  margin-right: 13px;
+  vertical-align: middle;
+}
+
+/* a:hover {text-decoration: underline}; */
+article {
+  text-align: center;
+}
+
+p.subtext {
+  margin: 5px 0 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+div.login {
+  position: relative;
+}
+
+div.login div.loginErrMsg {
+  margin-top: -20px;
+  margin-left: 15px;
+  position: absolute;
+  color: yellow;
+  line-height: 1;
+  font-size: 10px;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+.mtp {
+  margin-top: 10px;
+}
+
+.mbm {
+  margin-bottom: 10px;
+}
+
+.ptp {
+  padding-top: 10px;
+}
+
+.pbm {
+  padding-bottom: 10px;
+}
+
+/* 
+input[type="text"] {width: 130px;}
+ */
+label {
+  margin-left: 10px;
+}
+
+#col2 {
+  float: right;
+  margin: 20px;
+}
+
+div#content {
+  border: 2px solid yellow;
+  min-height: 728px;
+  margin: 0px auto;
+  position: relative;
+  clear: both;
+}
+
+.nav_logged_out {
+  position: relative;
+  z-index: 1;
+}
+
+.nav_logged_out div.hamburger {
+  padding: 20px;
+  cursor: pointer;
+  float: right;
+  font-size: 35px;
+}
+
+.nav_logged_out div.hamburger.hide {
+  display: none;
+}
+
+.nav_logged_out div#showHamburger {
+  visibility: hidden;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 215px;
+  background-color: rgba(50, 192, 218, 0.8);
+  font-size: 35px;
+  padding: 10px;
+  overflow: hidden;
+  height: 143px;
+}
+
+.nav_logged_out div#showHamburger div#hamburgerContent {
+  position: relative;
+}
+
+.nav_logged_out div#showHamburger ul {
+  display: inline-block;
+}
+
+.nav_logged_out div#showHamburger ul li {
+  margin-bottom: 6px;
+  padding: 2px 45px;
+}
+
+.nav_logged_out div#showHamburger ul li:hover {
+  background-color: #3fadc0;
+}
+
+div#localContent {
+  position: relative;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+div#settingsPane {
+  margin-top: 2%;
+  margin-left: 1%;
+  display: inline-block;
+  -webkit-box-shadow: 0 0 15px 1px gray;
+          box-shadow: 0 0 15px 1px gray;
+  color: white;
+  padding: 40px;
+  min-height: 500px;
+  border-radius: 8px;
+  background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.5) 0%, rgba(31, 199, 218, 0.5) 51%, rgba(44, 181, 232, 0.5) 75%);
+}
+
+section#signupdiv {
+  position: absolute;
+  margin: 5% 0 0 7.5%;
+  -webkit-box-shadow: 0 0 15px 1px gray;
+          box-shadow: 0 0 15px 1px gray;
+  color: white;
+  padding: 70px;
+  min-width: 900px;
+  width: 85%;
+  border-radius: 8px;
+  background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.5) 0%, rgba(31, 199, 218, 0.5) 51%, rgba(44, 181, 232, 0.5) 75%);
+}
+
+section#signupdiv div#signupform {
+  position: relative;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-right: 3px solid #1fc7da;
+}
+
+section#signupdiv div#signupform div.formMsg {
+  font-size: 12px;
+  color: #fff51c;
+  position: absolute;
+  line-height: 1.1em;
+}
+
+section#signupdiv div#signupform input.yellow {
+  background-color: #fff51c;
+}
+
+section#signupdiv table#signuptable {
+  margin: 0px auto;
+  font-size: 18px;
+  text-align: initial;
+}
+
+section#signupdiv table#signuptable td#asterisk {
+  font-size: 12px;
+  padding-left: 14px;
+}
+
+section#signupdiv div#signupfb {
+  float: right;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section#signupdiv div#signupfb p {
+  margin-bottom: 35px;
+}
+
+section#signupdiv div#signupfb div.verticalLine {
+  border-left: 1px solid white;
+  height: 70px;
+  margin: 15px auto;
+  width: 1px;
+}
+
+footer {
+  border: 2px solid yellow;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  max-width: 1024px;
+  margin: 0 auto 0px auto;
+  /* 	clear: both; */
+}
+
+#bottomnav {
+  position: relative;
+  width: 75%;
+  padding: 6% 0;
+  font-size: .85em;
+  margin-left: 15px;
+  border: 1px solid yellow;
+}
+
+#editprof td:nth-child(1),
+#signupdiv td:nth-child(1) {
+  /* 	text-align: right; */
+  padding-right: 13px;
+}
+
+/*--------------- TOP LEFT LOGO-------------- */
+#toplogo {
+  -webkit-transform: rotate(-30deg);
+          transform: rotate(-30deg);
+  margin-right: 20px;
+  margin-top: 6px;
+  width: auto;
+  float: left;
+}
+
+/*------------------- TOP NAVIGATION-----------------*/
+#navbar {
+  top: 0;
+  position: relative;
+  margin: 0 0 0 18%;
+  width: 500px;
+  padding: 16px 0;
+  text-align: left;
+}
+
+ul.menu_standard li {
+  display: inline-block;
+  margin-right: 15%;
+}
+
+/*------------------------------------- BUTTONS AND INPUT FIELDS -------------------------------------------*/
+#navbuttons {
+  position: relative;
+  margin-top: 10px;
+  margin-right: 5px;
+  float: right;
+}
+
+section#loginform {
+  background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.8) 0%, rgba(31, 200, 219, 0.8) 51%, rgba(44, 181, 232, 0.8) 75%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 8px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  width: 300px;
+}
+
+div.fieldContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+div.fieldContainer label {
+  margin-right: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+input.loginfield, input.signup, .viewme {
+  padding: 2px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+#terms {
+  text-decoration: none;
+  color: #ffd600;
+}
+
+a#terms:hover {
+  color: yellow;
+}
+
+#welcome {
+  /* fff51c yellow*/
+  text-align: center;
+  position: relative;
+  margin: 5em auto 2em 12%;
+  width: 75%;
+  color: white;
+}
+
+#welcomemsg {
+  margin-top: 28px;
+}
+
+button,
+.button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  background-color: #199cd8;
+  background-clip: border-box;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  outline: none;
+  font-size: 12px;
+  font-weight: 400px;
+  letter-spacing: 1px;
+  padding: 0 17px;
+  text-transform: uppercase;
+  line-height: 40px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  cursor: pointer;
+}
+
+button:hover,
+.button:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #1581b2;
+  color: #fff;
+}
+
+/* Active */
+button:active,
+.button:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+  background-color: #199cd8;
+}
+
+form.topbutton {
+  display: inline;
+  margin-left: 4px;
+}
+
+.topbutton:hover {
+  cursor: pointer;
+}
+
+.button2, #signup {
+  background-color: #fff51c !important;
+  border: 1px solid #e7e6e6 !important;
+}
+
+#button1 {
+  width: 13.5em;
+}
+
+.button2 {
+  width: 14.5em;
+}
+
+.button2:hover, #signup:hover {
+  background-color: #ffd600 !important;
+}
+
+/*----------------------------------------- MY PROFILE ----------------------------------------------*/
+div.sunsetFilter {
+  background-image: linear-gradient(141deg, rgba(31, 218, 177, 0.6) 70%, rgba(50, 192, 218, 0.8) 50%, rgba(236, 222, 29, 0.8) 91%);
+}
+
+div.sunsetFilter div.myProfilePgNav {
+  background-color: rgba(50, 192, 218, 0.8);
+  -webkit-box-shadow: 0px 0px 13px 1px #3b3a3a;
+          box-shadow: 0px 0px 13px 1px #3b3a3a;
+  position: relative;
+}
+
+section.myprofile {
+  margin-top: 20px;
+  position: relative;
+  height: 645px;
+  color: white;
+}
+
+section.myprofile section#myProfile div.noData {
+  border: 3px dashed #ffffff8c;
+  border-radius: 6px;
+  margin: 0 3%;
+  height: 250px;
+  color: #ffffff8c;
+  cursor: pointer;
+}
+
+section.myprofile section#myProfile div.noData:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+section.myprofile section#myProfile #demographics {
+  display: inline-block;
+  height: 450px;
+  -webkit-box-shadow: -3px 0px 15px 2px #3b3a3a;
+          box-shadow: -3px 0px 15px 2px #3b3a3a;
+  border-radius: 6px;
+  background-image: linear-gradient(141deg, rgba(50, 192, 218, 0.8) 50%, rgba(236, 222, 29, 0.8) 91%);
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 22px;
+  margin-top: 3px;
+}
+
+section.myprofile section#myProfile #demographics p {
+  text-align: left;
+}
+
+section.myprofile section#myProfile #demographics > div {
+  display: inline-block;
+}
+
+section.myprofile section#myProfile #demographics div.noData {
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  margin-bottom: 10px;
+  border-radius: 100px;
+}
+
+section.myprofile section#myProfile #demographics i#profilePic {
+  display: inline-block;
+  font-size: 145px;
+  color: #ffffff8c;
+  margin-top: 60px;
+  margin-bottom: 55px;
+}
+
+section.myprofile section#myProfile #demographics img#profilePic {
+  border: 3px solid white;
+  border-radius: 100px;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+  background-color: gray;
+}
+
+section.myprofile section#myProfile div.chat {
+  font: 13px "Trebuchet MS", sans-serif;
+  display: inline-block;
+  vertical-align: top;
+  height: 450px;
+  padding: 10px 20px;
+  margin-top: 3px;
+  -webkit-box-shadow: 0 0px 15px 2px #3b3a3a;
+          box-shadow: 0 0px 15px 2px #3b3a3a;
+  border-radius: 6px;
+  width: 340px;
+  background-image: linear-gradient(141deg, rgba(50, 192, 218, 0.8) 20%, rgba(236, 222, 29, 0.8) 61%);
+}
+
+section.myprofile section#myProfile div.chat .chatstatus,
+section.myprofile section#myProfile div.chat .chatmsgs,
+section.myprofile section#myProfile div.chat textarea,
+section.myprofile section#myProfile div.chat .chatname {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+section.myprofile section#myProfile div.chat div#disconnect {
+  position: relative;
+}
+
+section.myprofile section#myProfile div.chat div#disconnect input.chatname {
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: none;
+  width: 100%;
+}
+
+section.myprofile section#myProfile div.chat div#disconnect button.disconnect {
+  position: absolute;
+  right: 0px;
+}
+
+section.myprofile section#myProfile div.chat div.chatmsg {
+  margin-bottom: 15px;
+}
+
+section.myprofile section#myProfile div.chat div.chatmsg span.msgName {
+  font-weight: 800;
+}
+
+section.myprofile section#myProfile div.chat div.chatmsg.connectmsg {
+  font-style: italic;
+  text-align: center;
+}
+
+section.myprofile section#myProfile div.chat div#outputStatus {
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+section.myprofile section#myProfile div.chat textarea {
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  height: 45px;
+  border-top: none;
+  border-bottom: none;
+  resize: none;
+  padding-bottom: 5px;
+}
+
+section.myprofile section#myProfile div.chat div.chatstatus {
+  border: none;
+  color: white;
+  padding-left: 1px;
+}
+
+section.myprofile section#myProfile div.chat div.chatmsgs {
+  color: black;
+  background: white;
+  height: 320px;
+  overflow-y: scroll;
+  text-align: left;
+}
+
+section.myprofile section#myProfile div.chat div.chatmsgs div#chatBoxText {
+  margin-top: 100px;
+  text-align: center;
+  color: #bbb;
+  font-size: 20px;
+}
+
+section.myprofile section#myProfile div.chat button.disconnect {
+  font-size: 8px;
+  padding: 18px 3px 15px 3px;
+  line-height: 0px;
+  border-radius: 0 10px 0 0;
+  letter-spacing: .3px;
+  display: inline;
+  border: 1px solid #bbb;
+  border-bottom: none;
+  border-left: none;
+  cursor: pointer;
+}
+
+section.myprofile section#myProfile article#chatMembers {
+  display: inline-block;
+  vertical-align: top;
+  height: 450px;
+  padding: 10px 12px;
+  overflow: scroll;
+  margin-top: 3px;
+  -webkit-box-shadow: 2px 0px 15px 1px #3b3a3a;
+          box-shadow: 2px 0px 15px 1px #3b3a3a;
+  border-radius: 6px;
+  background-image: linear-gradient(-141deg, rgba(50, 192, 218, 0.8) 40%, rgba(236, 222, 29, 0.8) 80%);
+}
+
+section.myprofile section#myProfile article#chatMembers div.usersOnline {
+  margin: 0px 10px 10px;
+  display: inline-block;
+}
+
+section.myprofile section#myProfile article#chatMembers p.subtextScroll {
+  margin-bottom: 10px;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.userBurger {
+  cursor: pointer;
+  position: absolute;
+  padding: 15px;
+  top: 8px;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.userBurger i.burgerDots {
+  font-size: 22px;
+  margin-left: 5px;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.userBurger i.burgerDots.hide {
+  display: none;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.userBurger i.burgerDots:hover {
+  -webkit-box-shadow: 0 10px 35px 5px yellowgreen;
+          box-shadow: 0 10px 35px 5px yellowgreen;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.userBurgerOpen {
+  display: none;
+  position: relative;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.userBurgerOpen.open {
+  display: initial;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.userBurgerOpen div.userBurgerMenu {
+  position: absolute;
+  overflow: hidden;
+  top: 22px;
+  left: -100px;
+  background-color: rgba(153, 205, 50, 0.8);
+  padding-left: 5px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 15px .5px gray;
+          box-shadow: 0 2px 15px .5px gray;
+  -webkit-animation: example .5s;
+          animation: example .5s;
+}
+
+@-webkit-keyframes example {
+  from {
+    left: 0px;
+    width: 0px;
+  }
+  to {
+    left: -100px;
+    width: 113px;
+  }
+}
+
+@keyframes example {
+  from {
+    left: 0px;
+    width: 0px;
+  }
+  to {
+    left: -100px;
+    width: 113px;
+  }
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.userBurgerOpen div.userBurgerMenu .scrollIcons {
+  padding-right: 7px;
+  margin-right: 13px;
+  cursor: pointer;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll div.demosScroll {
+  padding-left: 15px;
+  line-height: 1.3em;
+  font-size: 13px;
+  text-align: left;
+  width: 150px;
+  white-space: nowrap;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.scrollIcons {
+  padding: 0 10px;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.scrollIcons.hide {
+  display: none;
+}
+
+section.myprofile section#myProfile article#chatMembers table.userScroll td.scrollIcons:hover {
+  cursor: pointer;
+}
+
+section.myprofile section#myProfile section.instagram {
+  text-align: center;
+}
+
+section.myprofile section#myProfile article#instagram {
+  display: inline-block;
+  width: 100%;
+  max-width: 964px;
+  min-height: 290px;
+  max-height: 700px;
+  overflow: auto;
+  margin-top: 7px;
+  margin-bottom: 60px;
+  overflow: auto;
+  -webkit-box-shadow: 0 0 15px 2px #3b3a3a;
+          box-shadow: 0 0 15px 2px #3b3a3a;
+  border-radius: 6px;
+  background-image: linear-gradient(141deg, rgba(236, 222, 29, 0.8) 20%, rgba(50, 192, 218, 0.8) 61%);
+}
+
+section.myprofile section#myProfile article#instagram img.igImage {
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+section.myprofile section#myProfile article#instagram img.igImage:nth-child(odd) {
+  margin: 0px 30px 30px 30px;
+}
+
+section.myprofile section#myProfile img.myPicScroll {
+  width: 50px;
+  height: 50px;
+  background-color: gray;
+  border-radius: 25px;
+  border: 1px solid white;
+}
+
+section.myprofile section#myProfile div.userStockImg {
+  position: relative;
+  overflow: hidden;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+section.myprofile section#myProfile i.userStockImg {
+  position: absolute;
+  top: 19px;
+  left: 10px;
+  font-size: 39px;
+}
+
+section.myprofile section#myProfile i.userStockImg:hover {
+  color: white;
+}
+
+div.content.viewProfile {
+  background: aqua no-repeat 70% 0%;
+  background-size: 100% 100%;
+  text-align: right;
+}
+
+div.content.viewProfile .nav_logged_out {
+  position: absolute;
+  width: 100%;
+}
+
+div.content.viewProfile article#viewIG {
+  display: inline-block;
+  width: 100%;
+  max-width: 764px;
+  height: 700px;
+  overflow: auto;
+  padding-top: 70px;
+  margin-bottom: 60px;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+div.content.viewProfile article#viewIG img.igImage {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+div.content.viewProfile article#viewIG img.igImage:nth-child(odd) {
+  margin: 0px 10px 10px 10px;
+}
+
+/*------------------------------------------- RESPONSIVE --------------------------------------------- */
+@media only screen and (min-width: 50px) and (max-width: 1060px) {
+  ul.menu_standard li {
+    margin-right: 10%;
+  }
+  section.instagram {
+    width: 888px;
+    display: inline-block;
+  }
+  div.usersOnline {
+    width: 250px;
+  }
+}
+
+@media only screen and (min-width: 50px) and (max-width: 963px) {
+  article#chatMembers,
+  section.instagram {
+    width: 590px;
+  }
+  ul.menu_standard li {
+    margin-right: 7%;
+  }
+  div.usersOnline {
+    width: unset;
+  }
+  section.myprofile section#myProfile article#instagram img.igImage:nth-child(odd) {
+    margin: 0px 0px 30px 30px;
+  }
+}
+
+@media only screen and (min-width: 50px) and (max-width: 918px) {
+  div#showHamburger.openHamburger {
+    visibility: visible;
+    -webkit-animation: openHamburger .7s;
+            animation: openHamburger .7s;
+  }
+  @-webkit-keyframes openHamburger {
+    from {
+      height: 0px;
+    }
+    to {
+      height: 143px;
+    }
+  }
+  @keyframes openHamburger {
+    from {
+      height: 0px;
+    }
+    to {
+      height: 143px;
+    }
+  }
+  div#showHamburger.openHamburger div#hamburgerContent {
+    -webkit-animation: ul .7s;
+            animation: ul .7s;
+  }
+  @-webkit-keyframes ul {
+    from {
+      margin-top: -140px;
+    }
+    to {
+      margin-top: 0px;
+    }
+  }
+  @keyframes ul {
+    from {
+      margin-top: -140px;
+    }
+    to {
+      margin-top: 0px;
+    }
+  }
+  .welcome {
+    margin-top: 60%;
+  }
+  #toplogo {
+    border: none;
+    display: hidden;
+  }
+  nav.myProfileNav {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+  }
+  #button1 {
+    width: 9.5em;
+  }
+  .button2 {
+    width: 10.5em;
+  }
+  .open {
+    height: 300px;
+  }
+}
+
+@media only screen and (min-width: 50px) and (max-width: 814px) {
+  #navbuttons {
+    display: none;
+  }
+  ul.menu_standard li {
+    display: none;
+  }
+  div.editProfileNav, div.loginNav {
+    background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.8) 0%, rgba(31, 199, 218, 0.8) 51%, rgba(44, 181, 232, 0.8) 75%);
+    -webkit-box-shadow: 0px 0px 13px 1px #3b3a3a;
+            box-shadow: 0px 0px 13px 1px #3b3a3a;
+  }
+}
+
+@media only screen and (min-width: 50px) and (max-width: 596px) {
+  article#chatMembers,
+  section.instagram,
+  article#demographics {
+    width: 340px;
+  }
+  img.igImage {
+    margin-right: none;
+  }
+  section.myprofile section#myProfile article#instagram img.igImage:nth-child(odd) {
+    margin: 0px 0px 30px 0px;
+  }
+}
+
+@media only screen and (min-width: 50px) and (max-width: 380px) {
+  article#chatMembers,
+  section.instagram,
+  div.usersOnline,
+  article#demographics,
+  section.myprofile section#myProfile div.chat {
+    width: 275px;
+  }
+  section.myprofile section#myProfile article#instagram img.igImage {
+    width: 180px;
+    height: 180px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

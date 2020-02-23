@@ -1,0 +1,11 @@
+#<IfModule mod_rewrite.so>
+    Options +FollowSymLinks
+    # Turn on the RewriteEngine
+    RewriteEngine On
+    #  Rules
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # NC = Non Case Sensitive
+    # L = Last rule a specific condition will match
+    RewriteRule ^(.*.\.*\..*)$ ./viewprofile.php [NC,L]
+#</IfModule>

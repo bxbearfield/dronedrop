@@ -1,0 +1,68 @@
+<body>
+	<div class="content">
+		<?php include_once('navigation.php'); ?>
+
+		<div id="localContent">
+			<section id="welcome">
+				<h2 id="maintitle">
+					<img 
+						src="https://fontmeme.com/permalink/191102/ee08a900acd579362ed17d6ba53149bf.png" 
+						alt="spongebob-squarepants-font" border="0"
+					>
+				</h2>
+
+				<img 
+					src="https://fontmeme.com/permalink/191101/ade794f02b21086a96e383a7b3c6efd8.png" 
+					alt="spongebob-squarepants-font" border="0"
+				>
+					
+				<p id="welcomemsg">
+					<img 
+						src="https://fontmeme.com/permalink/191102/6b3bce8b51c385f2392568b8980c4704.png" 
+						alt="spongebob-squarepants-font" border="0"
+					>	
+				</p>
+			</section>
+				
+			<section id="loginform">
+				<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="realform">
+					<div class="login">
+						<div class="loginErrMsg">
+							<p> <?php if(!empty($error_msg)) echo $error_msg;?> </p>
+						</div>	
+
+						<div class="fieldContainer">
+							<!-- Login username input and label -->
+							<label for="username">Username:</label>
+							<input type="email" class="loginfield" id="email" name="email"
+							value= "<?php if(!empty($email1)) echo $email1; ?>" /> 
+						</div>	
+
+						<div class="fieldContainer">
+							<!-- Login password input and label -->
+							<label for="password">Password:</label>
+							<input 
+								type="password" class="loginfield" id="password" name="password"
+								value="<?php if(!empty($password1)) echo $password1; ?>" 
+							/> 
+						</div>
+
+						<div>
+							<span>
+								<p class="subtext" >
+									Don't have a login?  <a href="#signUpPane"> Sign up now!</a>
+								</p> 
+							</span>
+						</div>
+
+						<div>
+							<span>
+								<a class="button" id="signup" href="#signUpPane">Sign Up</a>
+								<input type="submit" id="submit" value="Log In" name="login"/>
+							</span>
+						</div>	
+					</div>
+				</form>
+			</section>
+		</div>
+	</div>

@@ -3,9 +3,9 @@
   ini_set('display_errors', 'On');
   //set_error_handler("var_dump");
   require_once('connectvars.php');
-//   echo "<pre>";
-// print_r($GLOBALS);
-// echo "</pre>";
+  // echo "<pre>";
+  // print_r($GLOBALS);
+  // echo "</pre>";
   
   //start session
   session_start();

@@ -23,8 +23,8 @@
     try{
         var port = process.env.PORT || 8080;
         //var socket = io('http://127.0.0.1:8080'); //Main namespace
-        var chatSocket = io(window.location.hostname +':'+ port +'/chat'); //Chat namespace
-        //var chatSocket = io('/chat'); //Chat namespace
+        //var chatSocket = io(window.location.hostname +':'+ port +'/chat'); //Chat namespace
+        var chatSocket = io('/chat'); //Chat namespace
 
     }catch(e){
         //Set status to warn user

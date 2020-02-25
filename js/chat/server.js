@@ -7,7 +7,7 @@ var mongo = require('mongodb').MongoClient,
 	io = require('socket.io')
 ;
 var options = {
-	key: fs.readFileSync('../../../../../xamppfiles/etc/ssl/rootCA.pem'),
+	key: fs.readFileSync('../../../../../xamppfiles/etc/ssl/server.key'),
 	cert: fs.readFileSync('../../../../../xamppfiles/etc/ssl/server.crt'),
     requestCert: false,
     rejectUnauthorized: false

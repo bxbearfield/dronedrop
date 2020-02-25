@@ -1,29 +1,30 @@
-<script>(function() {
+(function() {
     //Get elements 
     var status = getNode('.chatstatus span'),
-    messages = getNode('.chatmsgs'),
-    textarea = getNode('.chat textarea'),
-    chatname = getNode('.chatname'),
-    disconnectBtn = getNode('.disconnect'),
-    chatIcons = document.querySelectorAll('i.startChat'),
-    
-    //Get default chatstatus HTML text
-    statusDefault = status.textContent,
-    
-    setStatus = function(s) {
-        status.textContent = s;
-        if (s !== statusDefault){
-            var delay = setTimeout(function() {
-              setStatus(statusDefault);
-              clearInterval(delay);
-            }, 3000);
+        messages = getNode('.chatmsgs'),
+        textarea = getNode('.chat textarea'),
+        chatname = getNode('.chatname'),
+        chatIcons = document.querySelectorAll('i.startChat'),
+        
+        //Get default chatstatus HTML text
+        statusDefault = status.textContent,
+        
+        setStatus = function(s) {
+            status.textContent = s;
+            if (s !== statusDefault){
+                var delay = setTimeout(function() {
+                setStatus(statusDefault);
+                clearInterval(delay);
+                }, 3000);
+            }
         }
-    };
+    ;
     
     try{
-        var port = 8080;
+        var port = process.env.PORT || 8080;
         //var socket = io('http://127.0.0.1:8080'); //Main namespace
-        var chatSocket = io('http://127.0.0.1:'+ port +'/chat'); //Chat namespace
+        var chatSocket = io(window.location.hostname +':'+ port +'/chat'); //Chat namespace
+        //var chatSocket = io('/chat'); //Chat namespace
 
     }catch(e){
         //Set status to warn user
@@ -34,7 +35,7 @@
   if(chatSocket !== undefined) {
     //Emit socket.io room with custom id
     var chatting = false;
-    var  myRoom = "<?php echo md5($_SESSION['email']); ?>"
+    //Declare var  myRoom = "md5($_SESSION['email'])" in myprofile.php
     chatSocket.emit('join', {myRoom});
     
     function requestChat(roomToJoin){
@@ -229,4 +230,3 @@
 
   }
 })();
-</script>

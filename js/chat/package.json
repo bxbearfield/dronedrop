@@ -1,0 +1,24 @@
+{
+  "name": "bikinibottombuddies",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BBB",
+  "main": "index.php",
+  "dependencies": {
+    "engine.io": "^1.6.11",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.0.0",
+    "jade": "^1.11.0",
+    "mongodb": "^2.1.18",
+    "socket.io": "^1.7.4",
+    "socket.io-adapter": "^0.4.0",
+    "socket.io-client": "^1.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "b.bearfield",
+  "license": "ISC"
+}

@@ -1,0 +1,2 @@
+#Bikini Bottom Buddies Portfolio Project
+This is a small social media app that exhibits front-end and back-end form validation, SQL and no-SQL databases, sockets, design, and partial responsive design using Php and Javascript.

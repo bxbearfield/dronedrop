@@ -1,31 +1,34 @@
 <body>
 	<div class="content chatPage">
         <div class="sunsetFilter">
-		<?php include_once('navigation.php'); ?>
+            <?php include_once('navigation.php'); ?>
 
-		<div id="localContent">
-            <section class="myprofile">
-                <section id="myProfile">
-                    <article id="demographics">
-                        <div>
-                            <?php echo $imgDisplay ?>
-                            <p><?php echo $first_name . ' '. $last_name?></p>
-                            <p>Birthdate: <?php echo $dob?></p>
-                            <p>Gender: <?php echo $gender ?></p>
-                        </div>
-                    </article>
+            <div id="localContent">
+                <section class="myprofile">
+                    <section id="myProfile">
+                        <article id="demographics">
+                            <div>
+                                <?php echo $imgDisplay ?>
+                                <p><?php echo $first_name . ' '. $last_name?></p>
+                                <p>Birthdate: <?php echo $dob?></p>
+                                <p>Gender: <?php echo $gender ?></p>
+                            </div>
+                        </article>
 
-                    <div class="chat">
-                        <div id="disconnect"><input type="text" class="chatname" value="<?php echo $first_name; ?>"></div>
-                        <div class="chatmsgs">
-                            <div id="chatBoxText">Click on a message icon in the 'Chat Members' directory to chat now!</div>
+                        <div class="chat">
+                            <div id="disconnect"><input type="text" class="chatname" value="<?php echo $first_name; ?>"></div>
+                            <div class="chatmsgs">
+                                <div id="chatBoxText">Click on a message icon in the 'Chat Members' directory to chat now!</div>
+                            </div>
+                            <textarea placeholder="Type your message"></textarea>
+                            <div class="chatstatus">Status: <span>Idle</span></div>
                         </div>
-                        <textarea placeholder="Type your message"></textarea>
-                        <div class="chatstatus">Status: <span>Idle</span></div>
-                    </div>
-                
-                    <article id="chatMembers">
-                        <p>Chat Members</p>
-                        <div class="usersOnline"><?php echo $showUsersHTML ?></div>
-                    </article><section class="instagram"><article id="instagram"><p>INSTAGRAM</p><?php echo $showIgFeed ?></article></section>
-            </section>
+                    
+                        <article id="chatMembers">
+                            <p>Chat Members</p>
+                            <div class="usersOnline"><?php echo $showUsersHTML ?></div>
+                        </article><section class="instagram"><article id="instagram"><p>INSTAGRAM</p><?php echo $showIgFeed ?></article></section>
+                </section>
+            </div>
+        </div>
+    </div>

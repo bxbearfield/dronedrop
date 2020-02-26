@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "BBB",
-  "main": "chat.js",
+  "main": "server.js",
   "dependencies": {
     "engine.io": "^1.6.11",
     "express": "^4.17.1",

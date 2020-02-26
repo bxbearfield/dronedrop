@@ -1,5 +1,5 @@
 var express = require('express');
-var fs = require('fs');
+//var fs = require('fs');
 var https = require('https');
 var PORT = process.env.PORT || 8080;
 var mongo = require('mongodb').MongoClient,
@@ -12,9 +12,10 @@ var mongo = require('mongodb').MongoClient,
 //     requestCert: false,
 //     rejectUnauthorized: false
 // };
-var app = express().listen(PORT, () => console.log(`Listening on ${PORT}`));
+var app = express();
+var server = https.createServer(app ).listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-var ioClient = io(app);
+var ioClient = io(server);
 
 mongo.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/chat',{ 
 	//Connect to mongodb database 'chat '

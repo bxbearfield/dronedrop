@@ -503,6 +503,174 @@ form.topbutton {
   background-color: #ffd600 !important;
 }
 
+/*----------------------------------------- EDIT PROFILE ----------------------------------------------*/
+div#settingsPane #leftCol {
+  float: left;
+  padding: 20px 0 0 2px;
+  position: relative;
+  width: 179px;
+  /*     word-wrap: break-word; */
+}
+
+div#settingsPane .showInfo {
+  color: yellow;
+  line-height: 1.2em;
+  font-size: 12px;
+}
+
+div#settingsPane .showInfoValid {
+  margin-left: 10px;
+  line-height: 1.2em;
+  font-size: 10px;
+  color: #d13216;
+}
+
+div#settingsPane #rightCol {
+  padding-top: 15px;
+  position: relative;
+  text-align: left;
+  border-left: 1px solid aqua;
+  margin-left: 179px;
+  min-height: 450px;
+  /*   border: 1px solid yellow; */
+}
+
+div#settingsPane #rtColHeader {
+  margin: 0 20px 0;
+  width: 759px;
+  height: 44px;
+  color: white;
+  text-align: left;
+  border-bottom: 1px solid white;
+}
+
+div#settingsPane #tabContent {
+  padding: 0 20px;
+  width: 759px;
+}
+
+div#settingsPane h4, div#settingsPane div.openPane {
+  margin: 0;
+  min-width: 165px;
+  float: left;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+div#settingsPane li a.selected {
+  background-color: rgba(0, 255, 255, 0.5);
+}
+
+div#settingsPane li a.selected:hover {
+  color: white;
+}
+
+div#settingsPane li.settingsListItem {
+  border-bottom: 1px solid white;
+}
+
+div#settingsPane a.hide, div#settingsPane span.hide {
+  display: none !important;
+}
+
+div#settingsPane li.settingsListItem a:hover, div#settingsPane li.leftColItem a:hover {
+  background-color: rgba(255, 255, 255, 0.356);
+}
+
+div#settingsPane .settingsDisplay {
+  margin-left: 175px;
+  display: block;
+}
+
+div#settingsPane form.settingsForm {
+  border-top: 1px solid white;
+  background-color: #5db6cc !important;
+  padding-right: 155px;
+  font-size: 14px;
+}
+
+div#settingsPane span.settings.formErr {
+  font-size: 10px;
+  margin-left: 7px;
+}
+
+div#settingsPane div.formErr {
+  margin-left: 20px;
+  color: yellow;
+  margin-top: 40px;
+}
+
+div#settingsPane input.red {
+  background-color: yellow !important;
+}
+
+div#settingsPane input.signup.update {
+  margin-bottom: 8px;
+  padding: 3px;
+}
+
+div#settingsPane input.updatebtn {
+  margin: 8px 8px 8px 0;
+  line-height: initial;
+  text-transform: capitalize;
+  padding: 6px;
+  color: yellow;
+}
+
+div#settingsPane input.updatebtn:hover {
+  cursor: pointer;
+}
+
+div#settingsPane .settings.disclaimer {
+  font-size: 14px;
+  line-height: 1.4em !important;
+  background-color: #199cd862;
+  margin-bottom: 3px;
+  margin-top: 5px;
+  padding: 3px;
+  border-radius: 4px;
+}
+
+div#settingsPane span.settingsChange {
+  float: right;
+  padding-right: 10px;
+}
+
+div#settingsPane ul#settingsUl {
+  padding-left: 20px;
+  margin: 0;
+}
+
+div#settingsPane a.leftColItem {
+  cursor: pointer;
+  display: block;
+  padding: 10px  5px;
+}
+
+div#settingsPane a.settingsAnchor {
+  display: block;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+div#settingsPane div.updateInfo {
+  display: none;
+  color: green;
+}
+
+div#settingsPane div.settingsEditorFields {
+  margin-left: 180px;
+  width: 400px;
+  text-align: left;
+}
+
+div#settingsPane div.settingsEditorLabel {
+  margin: 10px;
+  width: 155px;
+  float: left;
+  font: 14px Arial;
+}
+
 /*----------------------------------------- MY PROFILE ----------------------------------------------*/
 div.sunsetFilter {
   background-image: linear-gradient(141deg, rgba(31, 218, 177, 0.6) 70%, rgba(50, 192, 218, 0.8) 50%, rgba(236, 222, 29, 0.8) 91%);

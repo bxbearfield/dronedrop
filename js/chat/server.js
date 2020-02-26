@@ -6,16 +6,15 @@ var mongo = require('mongodb').MongoClient,
 	//ioClient = require('socket.io').listen(port),
 	io = require('socket.io')
 ;
-var options = {
-	key: fs.readFileSync('/server.key'),
-	cert: fs.readFileSync('/server.crt'),
-    requestCert: false,
-    rejectUnauthorized: false
-};
-var app = express();
-var server = https.createServer( options, app ).listen(PORT, () => console.log(`Listening on ${PORT}`));
+// var options = {
+// 	key: fs.readFileSync('/server.key'),
+// 	cert: fs.readFileSync('/server.crt'),
+//     requestCert: false,
+//     rejectUnauthorized: false
+// };
+var app = express().listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-var ioClient = io(server);
+var ioClient = io(app);
 
 mongo.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/chat',{ 
 	//Connect to mongodb database 'chat '

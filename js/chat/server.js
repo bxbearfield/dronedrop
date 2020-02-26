@@ -1,7 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 var https = require('https');
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 var mongo = require('mongodb').MongoClient,
 	//ioClient = require('socket.io').listen(port),
 	io = require('socket.io')

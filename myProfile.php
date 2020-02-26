@@ -77,6 +77,7 @@
 ?>
 
   <!-- <script src="https://127.0.0.1:8080/socket.io/socket.io.js"></script> -->
+  <script src="https://bikinibottombuddies.herokuapp.com:3000/socket.io/socket.io.js"></script>
   <!-- <script src="js/utils.js"></script> -->
   <script src="js/nav.js"></script>
   <?php  echo '<script> myRoom = "'.(isset($_SESSION['email']) ? md5($_SESSION['email']) : '').'";</script>'; ?>

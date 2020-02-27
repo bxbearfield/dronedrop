@@ -2,9 +2,7 @@ var express = require('express');
 var PORT =  8080;
 var mongo = require('mongodb').MongoClient;
 //var ioClient = require('socket.io').listen(port);
-var app = express()
-.use((req, res) => res.sendFile('../../myProfile.php', { root: __dirname }))
-.listen(PORT, () => console.log(`Listening on ${PORT}`));
+var app = express().listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 var ioClient = require('socket.io')(app);
 

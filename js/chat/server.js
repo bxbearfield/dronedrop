@@ -1,7 +1,7 @@
 var express = require('express');
 //var fs = require('fs');
 var http = require('http');
-var PORT = process.env.PORT || 35746;
+//var PORT = process.env.PORT || 35746;
 var mongo = require('mongodb').MongoClient
 	//ioClient = require('socket.io').listen(port),
 	
@@ -13,7 +13,7 @@ var mongo = require('mongodb').MongoClient
 //     rejectUnauthorized: false
 // };
 var app = express();
-var server = http.createServer(app).listen(PORT, () => console.log(`Listening on ${PORT}`));
+var server = http.createServer(app).listen(() => console.log(`Listening`));
 
 var ioClient = require('socket.io')(server);
 

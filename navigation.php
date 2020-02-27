@@ -31,7 +31,7 @@
 			<ul class="menu_standard" id="navbar">
 				<li><a href="login.php">Community</a></li>
 				<li><a href="editprofile.php">Edit Profile</a> </li>
-				<li><a href="myProfile.php"> My Profile </a></li>
+				<li><a href="myprofile.php"> My Profile </a></li>
 			</ul>
 		</nav>
 
@@ -40,7 +40,7 @@
 				<ul>
 					<li><a href="login.php">Community</a></li>
 					<li><a href="editprofile.php">Edit Profile</a> </li>
-					<li><a href="myProfile.php"> My Profile </a></li>
+					<li><a href="myprofile.php"> My Profile </a></li>
 				</ul>
 				<form class="topbutton" method="post" action="logout.php" onsubmit="return logout()">
 					<input type="submit" class="topbutton button2" value="Log Out"/>

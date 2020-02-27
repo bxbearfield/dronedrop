@@ -10,10 +10,11 @@ define( 'IG_APP_REDIRECT_URI', 'https://localhost/bikinibottombuddies/editprofil
 // define('DB_USER', 'root');
 // define('DB_PASSWORD', 'pwd');
 //mysql://bd5b0b761c4a16:e65ab998@us-cdbr-iron-east-04.cleardb.net/heroku_0814bc8535b6a0c?reconnect=true
+mysql://b97492aaf83c16:974395a3@us-cdbr-iron-east-04.cleardb.net/heroku_53849291573f389?reconnect=true
 define('DB_HOST', 'us-cdbr-iron-east-04.cleardb.net');
-define('DB_NAME', 'heroku_0814bc8535b6a0c');
-define('DB_USER', 'bd5b0b761c4a16');
-define('DB_PASSWORD', 'e65ab998');
+define('DB_NAME', 'heroku_53849291573f389');
+define('DB_USER', 'b97492aaf83c16');
+define('DB_PASSWORD', '974395a3');
 
 
 // Define image application constants

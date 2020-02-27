@@ -33,6 +33,7 @@
     
 
   if(chatSocket !== undefined) {
+      console.log('chatSocket working. Room:' + myRoom + '. Socket:' +chatSocket);
     //Emit socket.io room with custom id
     var chatting = false;
     //Declare var  myRoom = "md5($_SESSION['email'])" in myprofile.php

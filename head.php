@@ -11,7 +11,7 @@
   	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-	<script src="js/utils.js" type="text/javascript"></script>
+	<script src="js/utils.js"></script>
 
   	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

@@ -1,10 +1,10 @@
-var express = require('express');
+//ar express = require('express');
 var PORT =  8080;
 var mongo = require('mongodb').MongoClient;
-//var ioClient = require('socket.io').listen(port);
-var app = express().listen(PORT, () => console.log(`Listening on ${PORT}`));
+var ioClient = require('socket.io').listen(PORT);
+// var app = express().listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-var ioClient = require('socket.io')(app);
+// var ioClient = require('socket.io')(app);
 
 mongo.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/chat',{ 
 	//Connect to mongodb database 'chat '

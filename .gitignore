@@ -1,6 +1,6 @@
 /js/vendor
 BBBTemplate.php
 bottomnav.php
-/js/Chat/node_modules
+node_modules
 BBBlocaldata-dump.sql
 bikinibottombuddies.sql

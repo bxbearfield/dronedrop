@@ -1,7 +1,7 @@
 var express = require('express');
 //var fs = require('fs');
 var http = require('http');
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 35746;
 var mongo = require('mongodb').MongoClient
 	//ioClient = require('socket.io').listen(port),
 	

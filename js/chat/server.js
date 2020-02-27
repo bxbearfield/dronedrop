@@ -43,8 +43,9 @@ mongo.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/chat',{
 		});
 
 		getMsgs = function(a,b) {
+			//Set user chat db name to both names combined alphabetically
 			var collName = a < b ? a+b : b+a;
-			coll = mgClient.db('chat').collection(collName); //Connect to database collection and return any saved msgs
+			coll = mgClient.db('heroku_svwhrcmg').collection(collName); //Connect to database collection and return any saved msgs
 			
 			//Emit all msgs in database
 			coll.find().limit(1000).sort({_id: 1}).toArray(function(err, res) {

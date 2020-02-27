@@ -75,7 +75,7 @@
 		
 	require_once('myprofile.html');
 	echo '<script src="js/nav.js"></script>';
-	//echo '<script src="/socket.io/socket.io.js"></script>';
+	echo '<script src="/socket.io/socket.io.js"></script>';
 	echo '<script> myRoom = "'.(isset($_SESSION['email']) ? md5($_SESSION['email']) : '').'";</script>';
 	//echo '<script src="https://127.0.0.1:8080/socket.io/socket.io.js"></script>';
 	echo '<script src="js/chat/chat.js"></script>';

@@ -1,21 +1,11 @@
 var express = require('express');
-//var fs = require('fs');
-var https = require('https');
 var PORT = process.env.PORT || 8080;
 var mongo = require('mongodb').MongoClient,
-	//ioClient = require('socket.io').listen(port),
-	io = require('socket.io')
+	//ioClient = require('socket.io').listen(port)
 ;
-// var options = {
-// 	key: fs.readFileSync('/server.key'),
-// 	cert: fs.readFileSync('/server.crt'),
-//     requestCert: false,
-//     rejectUnauthorized: false
-// };
-var app = express();
-var server = https.createServer(app ).listen(PORT, () => console.log(`Listening on ${PORT}`));
+var app = express().listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-var ioClient = io(server);
+var ioClient = require('socket.io')(app);
 
 mongo.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/chat',{ 
 	//Connect to mongodb database 'chat '

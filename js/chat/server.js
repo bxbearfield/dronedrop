@@ -1,8 +1,7 @@
 var express = require('express');
-var PORT = process.env.PORT || 8080;
-var mongo = require('mongodb').MongoClient,
-	//ioClient = require('socket.io').listen(port)
-;
+var PORT =  8080;
+var mongo = require('mongodb').MongoClient;
+//var ioClient = require('socket.io').listen(port);
 var app = express().listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 var ioClient = require('socket.io')(app);

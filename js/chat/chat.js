@@ -228,5 +228,5 @@
         }
     });
 
-  }
+  }else{console.log('chatSocket undefined:' +chatSocket)}
 })();

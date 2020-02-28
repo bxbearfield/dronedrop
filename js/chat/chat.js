@@ -33,14 +33,14 @@
     
 
   if(chatSocket !== undefined) {
-      console.log('chatSocket working. Room:' + myRoom + '. Socket:' +JSON.stringify(chatSocket));
+      console.log('chatSocket working. Room:' + myRoom);
     //Emit socket.io room with custom id
     var chatting = false;
     //Declare var  myRoom = "md5($_SESSION['email'])" in myprofile.php
     chatSocket.emit('join', {myRoom});
     chatSocket.on('setUp', function(msg){
         console.log(msg);
-    })
+    });
     function requestChat(roomToJoin){
         //Request to connect to private chat room onclick
         chatSocket.emit('sendChatRequest', {

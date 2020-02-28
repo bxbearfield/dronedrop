@@ -16,6 +16,19 @@ var app = express();
 var server = http.createServer(app).listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 var ioClient = require('socket.io')(server);
+ioClient.of('/chat').on('connection', function(socket){
+		var coll = '';
+		var myRoom = '';
+		var getMsgs = null;
+		var sendStatus = function(s) {
+			socket.emit('status', s);
+		};
+		//Join user's own room named after email
+		socket.on('join', function(data) {
+			socket.join(data.myRoom);
+			myRoom = data.myRoom;
+			socket.emit('setUp', 'connected user\'s room');
+		});})
 
 mongo.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/chat',{ 
 	//Connect to mongodb database 'chat '

@@ -25,7 +25,7 @@ mongo.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/chat',{
 	if(err) throw err;
 
 	ioClient.sockets.on('connection', function(socket){
-		
+		socket.emit('setUp', 'connected user\'s room');
 	});
 
 	ioClient.of('/chat').on('connection', function(socket){

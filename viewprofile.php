@@ -21,9 +21,9 @@ for ($i= 0; $i < sizeof($scriptName); $i++) {
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 $command = array_values($requestURI);
 $command = explode('.', $command[0]);
-$first_name = isset($command[0]) ? mysqli_real_escape_strin($dbc,trim($command[0])) : '';
-$last_name =isset($command[1]) ? mysqli_real_escape_strin($dbc,trim($command[1])) : '';
-$user_id =isset($command[2]) ? mysqli_real_escape_strin($dbc,trim($command[2])) : '';
+$first_name = isset($command[0]) ? mysqli_real_escape_string($dbc,trim($command[0])) : '';
+$last_name =isset($command[1]) ? mysqli_real_escape_string($dbc,trim($command[1])) : '';
+$user_id =isset($command[2]) ? mysqli_real_escape_string($dbc,trim($command[2])) : '';
 
 if ($first_name && $last_name && $user_id){
     $query = "SELECT IG_AccessToken, IG_Private, user_id, picture FROM profile WHERE " . 

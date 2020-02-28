@@ -35,11 +35,11 @@ mongo.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/chat',{
 		var sendStatus = function(s) {
 			socket.emit('status', s);
 		};
-
 		//Join user's own room named after email
 		socket.on('join', function(data) {
 			socket.join(data.myRoom);
 			myRoom = data.myRoom;
+			socket.emit('setUp', 'connected user\'s room');
 		});
 
 		getMsgs = function(a,b) {

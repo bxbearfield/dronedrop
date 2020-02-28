@@ -53,10 +53,10 @@ if (mysqli_num_rows($data) == 1) {
 ?>
 
 <body>
-    <div style="background-image: url('images/uploads/user_<?php ($viewUser ? $viewUser : '' )?>/<?php ($viewPic ? $viewPic :'') ?>');" class="content viewProfile">
+    <div style="background-image: url('images/uploads/user_<?php echo $viewUser ?>/<?php echo $viewPic ?>');" class="content viewProfile">
         <?php include_once('navigation.php'); ?>
         <div  id="localContent viewProfile">
-        <section class="instagram"><article id="viewIG"><p><?php echo $command[0].'\'s' ?> Instagram</p><?php ($showIgFeed ? $showIgFeed :'')?></article></section>';
+        <section class="instagram"><article id="viewIG"><p><?php echo $command[0].'\'s' ?> Instagram</p><?php echo $showIgFeed ?></article></section>';
     </div>
     <script src="js/nav.js"></script> 
 </body>

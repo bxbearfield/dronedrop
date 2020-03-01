@@ -4,6 +4,7 @@
         messages = getNode('.chatmsgs'),
         textarea = getNode('.chat textarea'),
         chatname = getNode('.chatname'),
+        disconnectBtn = getNode('.disconnect'),
         chatIcons = document.querySelectorAll('i.startChat'),
         
         //Get default chatstatus HTML text
@@ -21,11 +22,10 @@
     ;
     
     try{
-        //var port = 8080;
+        var port = 8080;
         //var socket = io('http://127.0.0.1:8080'); //Main namespace
-        //var chatSocket = io(window.location.hostname +':'+ port +'/chat'); //Chat namespace
-        var chatSocket = io('/chat'); //Chat namespace
-
+        // var chatSocket = io('http://127.0.0.1:'+ port +'/chat'); //Chat namespace
+        var chatSocket = io('http://68.183.23.97:'+ port +'/chat'); //Chat namespace
     }catch(e){
         //Set status to warn user
         console.log('ERR ERR ERR:\n'+e);
@@ -33,14 +33,11 @@
     
 
   if(chatSocket !== undefined) {
-      console.log('chatSocket working. Room:' + myRoom);
     //Emit socket.io room with custom id
     var chatting = false;
     //Declare var  myRoom = "md5($_SESSION['email'])" in myprofile.php
     chatSocket.emit('join', {myRoom});
-    chatSocket.on('setUp', function(msg){
-        console.log(msg);
-    });
+    
     function requestChat(roomToJoin){
         //Request to connect to private chat room onclick
         chatSocket.emit('sendChatRequest', {
@@ -231,5 +228,5 @@
         }
     });
 
-  }else{console.log('chatSocket undefined:' +chatSocket)}
+  }
 })();

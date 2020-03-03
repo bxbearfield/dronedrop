@@ -16,7 +16,7 @@ var mongo = require('mongodb').MongoClient,
 
 //var ioClient = require('socket.io')(server);
 
-mongo.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/chat',{ 
+mongo.connect('mongodb://http://68.183.23.97:27017/chat',{ 
 	//Connect to mongodb database 'chat '
     useNewUrlParser: true,
     useUnifiedTopology: true

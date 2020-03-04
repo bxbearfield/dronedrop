@@ -22,7 +22,7 @@ mongo.connect('mongodb://http://68.183.23.97:27017/chat',{
     useUnifiedTopology: true
   }, function(err, mgClient){
 	if(err) throw err;
-
+	console.log('MONGO CONNECTED')
 	ioClient.sockets.on('connection', function(socket){
 		socket.emit('setUp', 'connected user\'s room');
 	});

@@ -75,7 +75,7 @@
 	echo '<script> var myRoom = "'.(isset($_SESSION['email']) ? md5($_SESSION['email']) : '').'";</script>';
 	require_once('myprofile.html');
 	echo '<script src="js/nav.js"></script>';
-	echo '<script src="http://68.183.23.97:8080/socket.io/socket.io.js"></script>';
+	echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"></script>';
 	//echo '<script src="http://127.0.0.1:8080/socket.io/socket.io.js"></script>';
 	echo '<script src="js/chat/chat.js"></script>';
 	// echo '</body></html>';

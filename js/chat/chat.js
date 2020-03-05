@@ -4,7 +4,6 @@
         messages = getNode('.chatmsgs'),
         textarea = getNode('.chat textarea'),
         chatname = getNode('.chatname'),
-        disconnectBtn = getNode('.disconnect'),
         chatIcons = document.querySelectorAll('i.startChat'),
         
         //Get default chatstatus HTML text
@@ -24,9 +23,9 @@
     try{
         var port = 8080;
         //var socket = io('http://127.0.0.1:8080'); //Main namespace
-        // var chatSocket = io('http://127.0.0.1:'+ port +'/chat'); //Chat namespace
-        //var chatSocket = io('http://68.183.23.97:'+ port +'/chat'); //Chat namespace
-         var chatSocket = io('/chat'); //Chat namespace
+         var chatSocket = io('http://127.0.0.1:8080/chat'); //Chat namespace
+        // var chatSocket = io('http://68.183.23.97:'+ port +'/chat'); //Chat namespace
+        // var chatSocket = io('/chat'); //Chat namespace
     }catch(e){
         //Set status to warn user
         console.log('ERR ERR ERR:\n'+e);
@@ -184,7 +183,7 @@
                 var message = document.createElement('div');
                 var nameSpan = document.createElement('span');
                 //Set classes
-                message.setAttribute('class', 'chatmsg');
+                message.setAttribute('class', 'chatmsg speech-bubble-'+(data[i].myRoom == myRoom ? 'rt' : 'lt'));
                 nameSpan.setAttribute('class', 'msgName');
                 nameSpan.textContent = data[i].name+ ': ';
                 //Append name and text to div

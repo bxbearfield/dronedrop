@@ -16,7 +16,7 @@ var mongo = require('mongodb').MongoClient,
 
 //var ioClient = require('socket.io')(server);
 
-mongo.connect('mongodb://http://68.183.23.97:27017/chat',{ 
+mongo.connect('mongodb://127.0.0.1:27017/chat',{ 
 	//Connect to mongodb database 'chat '
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -97,8 +97,8 @@ mongo.connect('mongodb://http://68.183.23.97:27017/chat',{
 			if(whitespace.test(name) || whitespace.test(message)) {
 				sendStatus('Name and message is required.');
 			}else{
-				coll.insertOne({name: name, message: message}, function() {
-					ioClient.of('/chat').to(chatroom).emit('output', [data]); // Emit Latest msg to ALL clients use ioClient.emit
+				coll.insertOne({name: name, message: message, myRoom}, function() {
+					ioClient.of('/chat').to(chatroom).emit('output', [{...data, myRoom}]); // Emit Latest msg to ALL clients use ioClient.emit
 					socket.to(chatroom).emit('clearOutputStatus', data); // Clear output status to other user
 					sendStatus({message: "Message sent.", clear: true}); // Update user status to show message sent
 				});

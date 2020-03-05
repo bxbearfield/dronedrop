@@ -789,21 +789,78 @@ section.myprofile section#myProfile div.chat div#disconnect button.disconnect {
 }
 
 section.myprofile section#myProfile div.chat div.chatmsg {
-  margin-bottom: 15px;
+  margin-bottom: 7px;
 }
 
 section.myprofile section#myProfile div.chat div.chatmsg span.msgName {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 section.myprofile section#myProfile div.chat div.chatmsg.connectmsg {
   font-style: italic;
+  float: left;
+  padding: 0 25px;
   text-align: center;
+  margin-bottom: 13px;
+  margin-top: 6px;
+}
+
+section.myprofile section#myProfile div.chat div.chatmsg.speech-bubble-lt {
+  float: left;
+  position: relative;
+  background: rgba(0, 255, 255, 0.5);
+  border-radius: 10px;
+  max-width: 180px;
+  padding: 6px;
+  padding-left: 9px;
+  margin-right: 100px;
+}
+
+section.myprofile section#myProfile div.chat div.chatmsg.speech-bubble-lt:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top-color: rgba(0, 255, 255, 0.5);
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -11px;
+  margin-bottom: -6px;
+}
+
+section.myprofile section#myProfile div.chat div.chatmsg.speech-bubble-rt {
+  float: right;
+  position: relative;
+  background: greenyellow;
+  border-radius: 10px;
+  max-width: 180px;
+  padding: 6px;
+  padding-left: 9px;
+  margin-left: 100px;
+}
+
+section.myprofile section#myProfile div.chat div.chatmsg.speech-bubble-rt:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 94%;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top-color: greenyellow;
+  border-bottom: 0;
+  border-right: 0;
+  margin-right: -10px;
+  margin-bottom: -6px;
 }
 
 section.myprofile section#myProfile div.chat div#outputStatus {
   margin-bottom: 15px;
   font-style: italic;
+  float: left;
 }
 
 section.myprofile section#myProfile div.chat textarea {
@@ -1200,6 +1257,12 @@ div.content.viewProfile article#viewIG img.igImage:nth-child(odd) {
   section.myprofile section#myProfile article#instagram img.igImage {
     width: 180px;
     height: 180px;
+  }
+  section.myprofile section#myProfile div.chat div.chatmsg.speech-bubble-lt {
+    margin-right: 70px;
+  }
+  section.myprofile section#myProfile div.chat div.chatmsg.speech-bubble-rt {
+    margin-left: 70px;
   }
 }
 /*# sourceMappingURL=style.css.map */

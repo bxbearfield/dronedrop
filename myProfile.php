@@ -72,12 +72,11 @@
 		'<img src="images/uploads/user_'.$_SESSION['user_id'].'/'.$picture.'" id="profilePic"/>'
 		:
 		'<a href="editprofile.php?picAdd=1"><div class="noData"><i id="profilePic" class="fas fa-user"></i><div>Click to add photo</div></div></a>';
-		
+	echo '<script> var myRoom = "'.(isset($_SESSION['email']) ? md5($_SESSION['email']) : '').'";</script>';
 	require_once('myprofile.html');
 	echo '<script src="js/nav.js"></script>';
-	echo '<script src="http://68.183.23.97:8080/socket.io/socket.io.js"></script>';
-	echo '<script> myRoom = "'.(isset($_SESSION['email']) ? md5($_SESSION['email']) : '').'";</script>';
-	//echo '<script src="https://127.0.0.1:8080/socket.io/socket.io.js"></script>';
+	//echo '<script src="http://68.183.23.97:8080/socket.io/socket.io.js"></script>';
+	echo '<script src="http://127.0.0.1:8080/socket.io/socket.io.js"></script>';
 	echo '<script src="js/chat/chat.js"></script>';
-	echo '</body></html>';
+	// echo '</body></html>';
 ?>

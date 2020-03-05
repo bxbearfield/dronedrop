@@ -1,9 +1,9 @@
-// var express = require('express');
+ var express = require('express');
 //var fs = require('fs');
-// var http = require('http');
+var http = require('http');
 var PORT = 8080;
-var mongo = require('mongodb').MongoClient,
-	ioClient = require('socket.io').listen(PORT)
+var mongo = require('mongodb').MongoClient
+	//ioClient = require('socket.io').listen(PORT)
 ;
 // var options = {
 // 	key: fs.readFileSync('/server.key'),
@@ -11,10 +11,10 @@ var mongo = require('mongodb').MongoClient,
 //     requestCert: false,
 //     rejectUnauthorized: false
 // };
-// var app = express();
-// var server = http.createServer(app).listen(PORT, () => console.log(`Listening on ${PORT}`));
+ var app = express();
+ var server = http.createServer(app).listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-//var ioClient = require('socket.io')(server);
+var ioClient = require('socket.io')(server);
 
 mongo.connect('mongodb://68.183.23.97:27017/chat',{ 
 	//Connect to mongodb database 'chat '

@@ -15,7 +15,7 @@
         or die("\nSQL_SELECT_ERR: " . mysqli_error($dbc) . "\nSQL_ERR_NO.: " . mysqli_errno($dbc) . "\nQUERY_USED: ". $query );
         mysqli_close($dbc);
 
-        $url = 'http://' . $_SERVER['HTTP_HOST'] . '/bikinibottombuddies/editprofile.php';
+        $url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php';
         header('Location: ' . $url, true, 303);
 
         mysqli_close($dbc);

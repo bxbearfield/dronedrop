@@ -64,7 +64,7 @@
 		}
 	} else {
 		//Redirect for log in page if not logged in
-		$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/login.php';
+		$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';
 		header('Location: ' . $home_url);
 	}
 	//Show stock photo if no photo available

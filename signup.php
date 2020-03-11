@@ -92,7 +92,7 @@
           
           //Send sign-up validation email
           require_once('emailVal.php');
-          $url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/emailSent.php?email='.$email2.'&first='.$firstname.'&last='.$lastname;
+          $url = 'https://' . $_SERVER['HTTP_HOST'] . '/emailSent.php?email='.$email2.'&first='.$firstname.'&last='.$lastname;
           exit(header('Location: ' . $url, true, 303));
         } 
         else if ($fb == "true") {
@@ -118,7 +118,7 @@
               $lastname = $row['last_name'];
               require_once('passwordEmail.php');
 
-              $url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/editprofile.php?fblogin=1';
+              $url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php?fblogin=1';
               exit(header('Location: ' . $url, true, 303));
             }	
           }

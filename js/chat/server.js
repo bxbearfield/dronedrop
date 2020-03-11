@@ -1,22 +1,22 @@
- var express = require('express');
-//var fs = require('fs');
-var http = require('http');
+var express = require('express');
+var https = require('https');
+var fs = require('fs');
 var PORT = 8080;
-var mongo = require('mongodb').MongoClient
-	//ioClient = require('socket.io').listen(PORT)
-;
-// var options = {
-// 	key: fs.readFileSync('/server.key'),
-// 	cert: fs.readFileSync('/server.crt'),
-//     requestCert: false,
-//     rejectUnauthorized: false
-// };
- var app = express();
- var server = http.createServer(app).listen(PORT, () => console.log(`Listening on ${PORT}`));
+var mongo = require('mongodb').MongoClient,
+	options = {
+ 		key: fs.readFileSync('/etc/letsencrypt/live/bikinibottombuddies.site/privkey.pem'),
+ 		cert: fs.readFileSync('/etc/letsencrypt/live/bikinibottombuddies.site/fullchain.pem'),
+		ca: fs.readFileSync('/etc/letsencrypt/live/bikinibottombuddies.site/chain.pem'),
+        	requestCert: true,
+        	rejectUnauthorized: false
+ 	},
+	ioClient = require('socket.io')(https.createServer(options, express).listen(PORT));
+// var app = express();
+//var server = http.createServer(app).listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-var ioClient = require('socket.io')(server);
+//var ioClient = require('socket.io')(server);
 
-mongo.connect('mongodb://68.183.23.97:27017/chat',{ 
+mongo.connect('mongodb://64.227.16.238:27017/chat',{ 
 	//Connect to mongodb database 'chat '
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -44,7 +44,7 @@ mongo.connect('mongodb://68.183.23.97:27017/chat',{
 		getMsgs = function(a,b) {
 			//Set user chat db name to both names combined alphabetically
 			var collName = a < b ? a+b : b+a;
-			coll = mgClient.db('heroku_svwhrcmg').collection(collName); //Connect to database collection and return any saved msgs
+			coll = mgClient.db('chat').collection(collName); //Connect to database collection and return any saved msgs
 			
 			//Emit all msgs in database
 			coll.find().limit(1000).sort({_id: 1}).toArray(function(err, res) {

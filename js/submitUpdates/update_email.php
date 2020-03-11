@@ -55,7 +55,7 @@
         // An account already exists for this email, so display an error message
         $formErr5 = '*An account already exists for the e-mail address submitted. Please try again.';
 
-        $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/bikinibottombuddies/editprofile.php?err='.$formErr5;
+        $home_url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php?err='.$formErr5;
         header('Location: ' . $home_url, true, 303);
         $email2 = "";
       }

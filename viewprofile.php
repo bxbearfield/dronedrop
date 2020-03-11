@@ -5,13 +5,12 @@ $page_title = ' View Profile';
 require_once('head.php');
 
 require_once('./connectvars.php');
-$navClass = '';
+$navClass = 'myProfilePgNav';
 
 // This is necessary when index.php is not in the root folder, but in some subfolder...
 // Compare $requestURL and $scriptName to remove the repeat path values
 $requestURI = explode('/', $_SERVER['REQUEST_URI']);
 $scriptName = explode('/',$_SERVER['SCRIPT_NAME']);
-
 for ($i= 0; $i < sizeof($scriptName); $i++) {
     if ($requestURI[$i] == $scriptName[$i]) {
         unset($requestURI[$i]);
@@ -58,10 +57,10 @@ if ($first_name && $last_name && $user_id){
 ?>
 
 <body>
-    <div style="background-image: url('images/uploads/user_<?php isset($viewUser) ? $viewUser : '' ?>/<?php isset($viewPic) ? $viewPic :'' ?>');" class="content viewProfile">
+    <div style="background-image: url('images/uploads/user_<?php echo isset($viewUser) ? $viewUser : '' ?>/<?php echo isset($viewPic) ? $viewPic :'' ?>');" class="content viewProfile">
         <?php include_once('navigation.php'); ?>
         <div  id="localContent viewProfile">
-        <section class="instagram"><article id="viewIG"><p><?php isset($command[0]) ? $command[0].'\'s'  : '' ?> Instagram</p><?php isset($showIgFeed) ? $showIgFeed :''?></article></section>';
+        <section class="instagram"><article id="viewIG"><p><?php echo isset($command[0]) ? $command[0].'\'s'  : '' ?> Instagram</p><?php echo isset($showIgFeed) ? $showIgFeed :''?></article></section>';
     </div>
     <script src="js/nav.js"></script> 
 </body>

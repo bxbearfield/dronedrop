@@ -1,8 +1,7 @@
 <?php
   session_start();
 
-  require_once('connectvars.php');
-  
+  require_once('connectvars.php');  
 
   // If the user is logged in, delete the session vars to log them out
   if (isset($_SESSION['user_id'])) {
@@ -24,6 +23,7 @@
   setcookie('email', '', time() - 3600);
 
   // Redirect to the home page
-  $home_url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';
+  // $home_url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']).'/index.php';
+  $home_url = 'https://' . $_SERVER['HTTP_HOST'];
   header('Location: ' . $home_url);
 ?>

@@ -13,7 +13,7 @@
   $page_title= 'Home';
   require_once('head.php');
   
-  $navClass = 'loginNav';
+  $navClass = 'myProfilePgNav';
   
 
   function randomPassword() {
@@ -42,8 +42,8 @@
 	exit(header('Location: ' . $url));
 } 
 
-  echo '<script src="js/nav.js"></script>';
   require_once('login.html');
+  echo '<script src="js/nav.js"></script>';
   require_once('signup.html');
   echo '<script src="js/utils.js"></script>';
   require_once('js/signupFB.js.php');

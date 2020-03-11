@@ -33,7 +33,8 @@ if (!isset ($_COOKIE['user_id'])) {
 
 				//Redirect to editprofile
 				$verified = isset($_GET['verified']) ? '?verified=1':'';
-				$url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/editprofile.php' . $verified;
+				//$url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/editprofile.php' . $verified;
+				$url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php' . $verified;
 				exit(header('Location: ' . $url));
 			}	
 			else {

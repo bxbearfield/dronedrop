@@ -16,17 +16,15 @@
     $formErr4 = '';
     $formErr5 = '';
     if (empty($password1)) {
-        $formErr1 = '*Please enter current password';
-
+        $formErr1 = '*Please enter current password.\n';
+    }
     if (empty($password2) || empty($password3)) {
-        $formErr2 = '*Please enter and confirm password';
-    } else if ($password1 !== $password2) {
-        $formErr3 = '*Password fields must contain same value';
+        $formErr2 = '*Please enter and confirm password.\n';
+    } else if ($password2 !== $password3) {
+        $formErr3 = '*New password fields must contain same value.\n';
     } else if (strlen($password2) < 8 || preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_|\W])/', $password1) !== 1 ) {
-        $formErr4 = '*Passwords must be at least six characters long and 
-                  include at least one capital letter, one special character, and one number.';
-    } 
-  }
+        $formErr4 = '*Passwords must be at least six characters long and include at least one capital letter, one special character, and one number.\n';
+    }
 
     if (!$formErr1 && !$formErr2 && !$formErr3 && !$formErr4 && !$formErr5 &&
       !empty($password1) && !empty($password2) && !empty($password3) && ($password2 === $password3)) {
@@ -45,18 +43,23 @@
         or die("\nSQL_SELECT_ERR: " . mysqli_error($dbc) . "\nSQL_ERR_NO.: " . mysqli_errno($dbc) . "\nQUERY_USED: ". $query );
         mysqli_close($dbc);
 
-        $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/bikinibottombuddies/editprofile.php';
-        header('Location: ' . $home_url, true, 303);
+	require_once('../../logout.php');
+        //$home_url = 'https://' . $_SERVER['HTTP_HOST'];
+       	//header('Location: ' . $home_url, true, 303);
 
         exit();
       } else {
-        // An account already exists for this username, so display an error message
-        $formErr5 = 'No account found.';
-        echo $formErr5;
+        // Current password invalid. Show errors
+	mysqli_close($dbc);
+	$formErr5 = 'Password invalid.';
+	$home_url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php?err=' . $formErr1 . $formErr2 . $formErr3 . $formErr4 . $formErr5;
+        exit(header('Location: ' . $home_url, true, 303));
       }
     } else {
-      $formErr5 = '*Please enter all mandatory fields';
-      echo $formErr5;
+      mysqli_close($dbc);
+      $formErr5 = 'Please enter all mandatory fields';
+      $home_url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php?err=' . $formErr1 . $formErr2 . $formErr3 . $formErr4 . $formErr5;
+      exit(header('Location: ' . $home_url, true, 303));
     }
   }
   mysqli_close($dbc);

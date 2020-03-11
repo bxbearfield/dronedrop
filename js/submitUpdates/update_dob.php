@@ -33,7 +33,7 @@
             
             mysqli_close($dbc);
 
-            $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/bikinibottombuddies/editprofile.php';
+            $home_url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php';
             header('Location: ' . $home_url, true, 303);
             $formErr6 = '';
             

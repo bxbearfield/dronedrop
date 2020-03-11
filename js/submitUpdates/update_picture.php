@@ -21,7 +21,7 @@ $formErr5 = '';
     $target = '../../'.BBB_UPLOADPATH .'/user_'. $_SESSION['user_id'] .'/'. $picture_name;
 
     function send_headers(){
-        $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/bikinibottombuddies/editprofile.php?err='.$formErr5;
+        $home_url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php?err='.$formErr5;
         header('Location: ' . $home_url, true, 303);
     }
     

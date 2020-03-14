@@ -16,14 +16,14 @@
     $formErr4 = '';
     $formErr5 = '';
     if (empty($password1)) {
-        $formErr1 = '*Please enter current password.\n';
+        $formErr1 = '*Please enter current password. ';
     }
     if (empty($password2) || empty($password3)) {
-        $formErr2 = '*Please enter and confirm password.\n';
+        $formErr2 = '*Please enter and confirm password. ';
     } else if ($password2 !== $password3) {
-        $formErr3 = '*New password fields must contain same value.\n';
+        $formErr3 = '*New password fields must contain same value. ';
     } else if (strlen($password2) < 8 || preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_|\W])/', $password1) !== 1 ) {
-        $formErr4 = '*Passwords must be at least six characters long and include at least one capital letter, one special character, and one number.\n';
+        $formErr4 = '*Passwords must be at least six characters long and include at least one capital letter, one special character, and one number. ';
     }
 
     if (!$formErr1 && !$formErr2 && !$formErr3 && !$formErr4 && !$formErr5 &&
@@ -39,20 +39,19 @@
         $query = "UPDATE profile SET password = SHA('$password2') " .
         "  WHERE user_id = '" . $_SESSION['user_id'] . "'";
         
-        mysqli_query($dbc, $query)
-        or die("\nSQL_SELECT_ERR: " . mysqli_error($dbc) . "\nSQL_ERR_NO.: " . mysqli_errno($dbc) . "\nQUERY_USED: ". $query );
+        mysqli_query($dbc, $query) or die("\nSQL_SELECT_ERR: " . mysqli_error($dbc) . "\nSQL_ERR_NO.: " . mysqli_errno($dbc) . "\nQUERY_USED: ". $query );
         mysqli_close($dbc);
-
-	require_once('../../logout.php');
+        
+        require_once('../../logout.php');
         //$home_url = 'https://' . $_SERVER['HTTP_HOST'];
        	//header('Location: ' . $home_url, true, 303);
 
         exit();
       } else {
         // Current password invalid. Show errors
-	mysqli_close($dbc);
-	$formErr5 = 'Password invalid.';
-	$home_url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php?err=' . $formErr1 . $formErr2 . $formErr3 . $formErr4 . $formErr5;
+        mysqli_close($dbc);
+        $formErr5 = 'Password invalid.';
+        $home_url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php?err=' . $formErr1 . $formErr2 . $formErr3 . $formErr4 . $formErr5;
         exit(header('Location: ' . $home_url, true, 303));
       }
     } else {

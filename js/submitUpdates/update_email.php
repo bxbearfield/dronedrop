@@ -42,7 +42,7 @@
 
           mysqli_close($dbc);
 
-          $home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/bikinibottombuddies/login.php';
+          $home_url = 'https://' . $_SERVER['HTTP_HOST'];
           header('Location: ' . $home_url, true, 303);
           
           echo $formErr5;

@@ -13,7 +13,7 @@
   $page_title= 'Home';
   require_once('head.php');
   
-  $navClass = 'myProfilePgNav';
+  $navClass = 'indexPgNav';
   
 
   function randomPassword() {

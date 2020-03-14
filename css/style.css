@@ -19,6 +19,29 @@ body {
   line-height: 1.8em;
 }
 
+body.servicePage {
+  background-color: initial;
+}
+
+body.servicePage div.serviceMsg {
+  border: 4px solid #fff51c;
+  padding: 100px 140px 140px 140px;
+  font-size: 12px;
+  margin: 10rem auto 0 auto;
+  background-color: rgba(0, 255, 255, 0.5);
+  width: 700px;
+  text-align: center;
+  -webkit-box-shadow: 1px 1px 12px grey inset;
+          box-shadow: 1px 1px 12px grey inset;
+}
+
+body.servicePage div.serviceMsg img {
+  display: block;
+  height: 40px;
+  width: 40px;
+  margin: 2px auto;
+}
+
 div.content {
   background: aqua url(../images/highres.jpg) no-repeat 70% 0%;
   background-size: 100% 100%;
@@ -200,9 +223,7 @@ div#content {
   position: relative;
   z-index: 1;
 }
-div.nav_logged_out.myProfilePgNav{
-    background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.8) 0%, rgba(31, 199, 218, 0.8) 51%, rgba(44, 181, 232, 0.8) 75%);
-} 
+
 .nav_logged_out div.hamburger {
   padding: 20px;
   cursor: pointer;
@@ -212,6 +233,10 @@ div.nav_logged_out.myProfilePgNav{
 
 .nav_logged_out div.hamburger.hide {
   display: none;
+}
+
+.nav_logged_out.indexPgNav {
+  background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.7) 10%, rgba(94, 197, 169, 0.68) 53%);
 }
 
 .nav_logged_out div#showHamburger {

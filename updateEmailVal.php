@@ -2,7 +2,7 @@
 require_once ('PHPMailer/class.phpmailer.php');
 require_once ('PHPMailer/class.smtp.php');
 require_once ('PHPMailer/PHPMailerAutoload.php');
-$subject = "Sign Up | Verification - Bikini Bottom Buddies";
+$subject = "Account Update: E-mail Address | BBB";
 $message = "
 <html>
     <head>
@@ -15,19 +15,17 @@ $message = "
              to '$email2.' Click the link below to verify your e-mail.
             Otherwise, your e-mail will not be updated.
          </p>
+         <p>
+            <table>
+                <tr>
+                    <td>Firstname: $firstname</td>
+                </tr>
+                <tr>
+                    <td>Lastname: $lastname</td>
+                </tr> 
+            </table>
+        </p>
         <table>
-            <tr>
-                <td>Firstname</td>
-            </tr>
-            <tr>
-                <td>$firstname</td>
-            </tr>
-            <tr>
-                <td>Lastname</td>
-            </tr>
-            <tr>
-                <td>$lastname</td>
-            </tr>
             <tr>
                 <td>Please click the link below to verify your updated e-mail address:</td>
             </tr>
@@ -53,7 +51,7 @@ try {
     $mail->Port       = '465';                                    // TCP port to connect to (465 or 587)
 
     //Recipients
-    $mail->setFrom('no-reply@BikiniBottomBuddies.com', 'BBB');
+    $mail->setFrom('no-reply@BikiniBottomBuddies.com', 'Bikini Bottom Buddies');
     $mail->addAddress($email2, $firstname .' '. $lastname);     // Add a recipient
     // $mail->addAddress('ellen@example.com');               // Name is optional
     $mail->addReplyTo('no-reply@BikiniBottomBuddies.com', 'Information');

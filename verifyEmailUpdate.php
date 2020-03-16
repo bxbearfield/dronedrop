@@ -1,5 +1,5 @@
 <?php
-    $page_title = ' Service Message';
+    $page_title = ' Message';
     
     require_once('head.php');
     require_once('connectvars.php');

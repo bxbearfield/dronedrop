@@ -1,4 +1,5 @@
 (function() {	
+    var guest = getId('guest');
     var userMenus = document.querySelectorAll(".userBurger");
     var hambugerNav = getNode('div.hamburger');
     var showHamburger = getNode('div#showHamburger');
@@ -25,10 +26,14 @@
         var menu = userMenus[j];
         addShowUserMenu_Handler(menu,j);
     }
+
     //Click nav burger to display menu
     addEventHandler(hambugerNav, 'click', function(){
         showHamburger.classList.toggle('openHamburger');
     });
+
+    addEventHandler(guest, 'click', loginGuest);
+
     //Close menu on mouse leave
     // addEventHandler(showHamburger, 'mouseleave', function(){
     //     showHamburger.removeClass('openHamburger');
@@ -44,6 +49,7 @@ function mediaQuery(q, selector){
         }
     }
 }
+
 function mediaHandler(q, selector){
     mediaQuery(q,selector);
     addEventHandler(q, 'change', function() {
@@ -82,4 +88,9 @@ function showMenuDisplay(myIndex){
 function logout() {
 	var logoutConfirm = confirm('Are you sure you want to log out?');
 	return logoutConfirm ? true:false;
+}
+
+function loginGuest() {
+    getId('email').value = 'test@test.com';
+    getId('password').value = 'Test.1999';
 }

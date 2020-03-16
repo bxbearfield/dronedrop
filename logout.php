@@ -1,7 +1,9 @@
 <?php
   session_start();
 
-  require_once('connectvars.php');  
+  require_once('connectvars.php'); 
+  
+  $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
 
   // If the user is logged in, delete the session vars to log them out
   if (isset($_SESSION['user_id'])) {
@@ -13,7 +15,6 @@
     if (isset($_COOKIE[session_name()])) {
       setcookie(session_name(), '', time() - 3600);
     }
-
     // Destroy the session
     session_destroy();
   }
@@ -23,7 +24,6 @@
   setcookie('email', '', time() - 3600);
 
   // Redirect to the home page
-  // $home_url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']).'/index.php';
-  $home_url = 'https://' . $_SERVER['HTTP_HOST'];
+  $home_url = 'https://' . $_SERVER['HTTP_HOST'] . '?msg=' . $msg;
   header('Location: ' . $home_url);
 ?>

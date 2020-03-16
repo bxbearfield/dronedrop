@@ -387,20 +387,31 @@ function validate_gender(){
 }
 
 function validate_email(){
-	var email = getNode('input#email');
-	var email_Err = getNode('span#formErr_email');
+	var email1 = getNode('input#email1');
+	var email2 = getNode('input#email2');
+	var email_Err1 = getNode('span#formErr_email1');
+	var email_Err2 = getNode('span#formErr_email2');
 	var passwordEm = getNode('input#passwordEm');
 	var passwordEm_Err = getNode('span#formErr_passwordEm');
 	var err = false;
-
-	if (!RegExp(/\S{2,}@\S{2,}\.\S{2,}/).test(email.value)) {
+	
+	if (!RegExp(/\S{2,}@\S{2,}\.\S{2,}/).test(email1.value)) {
 		//2+ non spaces, '@',2+ non spaces, '.', 2+ non spaces
-		email_Err.removeClass('hide'); 
-		email.classList.add('red');
+		email_Err1.removeClass('hide'); 
+		email1.classList.add('red');
 		err = true;
 	} else {
-		email_Err.classList.add('hide'); 
-		email.removeClass('red');
+		email_Err1.classList.add('hide'); 
+		email1.removeClass('red');
+	}
+	if (!RegExp(/\S{2,}@\S{2,}\.\S{2,}/).test(email2.value) || email1.value == email2.value) {
+		//2+ non spaces, '@',2+ non spaces, '.', 2+ non spaces
+		email_Err2.removeClass('hide'); 
+		email2.classList.add('red');
+		err = true;
+	} else {
+		email_Err2.classList.add('hide'); 
+		email2.removeClass('red');
 	}
 
 	if (!RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_|\W])/).test(passwordEm.value)  ||
@@ -419,7 +430,7 @@ function validate_email(){
 		return false;
 	}else {
 		var confirmUpdate = confirm(
-			'Are you sure you want to update your email to \''+ email.value +'\'?\n\n'+
+			'Are you sure you want to update your email to \''+ email2.value +'\'?\n\n'+
 			'Press "Ok" to send verification and log out.\n'+
 			'Press "Cancel" to return to the current page.'); 
 		if (confirmUpdate) {

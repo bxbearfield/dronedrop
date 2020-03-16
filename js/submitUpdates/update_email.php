@@ -7,15 +7,21 @@
   $hash = md5( rand(0,1000) );
   $formErr = '';
 
+  function returnErr($err){
+    $return_url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php?err='.$err;
+    exit(header('Location: ' . $return_url, true, 303));
+  }
+
   if (isset($_POST['update_email'])) {
-    $email2 = mysqli_real_escape_string($dbc, trim($_POST['email']));
+    $email1 = mysqli_real_escape_string($dbc, trim($_POST['email1']));
+    $email2 = mysqli_real_escape_string($dbc, trim($_POST['email2']));
     $password = mysqli_real_escape_string($dbc, trim($_POST['passwordEm']));
 
     if (preg_match('/\S{2,}@\S{2,}\.\S{2,}/', $email2) !== 1 ) {
         $formErr = '*Invalid e-mail address';
     }
 
-    if (!$formErr && !empty($email2) && !empty($password)) {
+    if (!$formErr && !empty($email1) && !empty($email2) && !empty($password)) {
     	
       // Make sure someone isn't already registered using this email
       $query2 = "SELECT * FROM profile WHERE email = '$email2'";
@@ -23,7 +29,9 @@
       
       if (mysqli_num_rows($data) == 0) {
         $query3 = "SELECT * FROM profile " .
-        "  WHERE user_id = '" . $_SESSION['user_id'] . "' AND password = SHA('$password') ";
+        " WHERE user_id = '" . $_SESSION['user_id'] . "' " . 
+        " AND password = SHA1('$password') ".
+        " AND email = '$email1'";
         $results = mysqli_query($dbc, $query3);
 
         if(mysqli_num_rows($results) == 1){
@@ -38,29 +46,21 @@
           mysqli_query($dbc, $query4);
 
           require_once('../../updateEmailVal.php');
-          require_once('../../logout.php');
 
-          mysqli_close($dbc);
-
-          $home_url = 'https://' . $_SERVER['HTTP_HOST'];
-          header('Location: ' . $home_url, true, 303);
-          
-          echo $formErr5;
-          exit();
-        }else {
-          $formErr5 = 'PASSWORD INVALID.';
-          echo $formErr5;
+          $url = 'https://' . $_SERVER['HTTP_HOST'] . '/logout.php?msg=Activate new e-mail or log in';
+          exit(header('Location: ' . $url, true, 303));
+        } else {
+          $formErr = 'Password invalid.';
+          returnErr($formErr);
         }
       } else {
         // An account already exists for this email, so display an error message
-        $formErr5 = '*An account already exists for the e-mail address submitted. Please try again.';
-
-        $home_url = 'https://' . $_SERVER['HTTP_HOST'] . '/editprofile.php?err='.$formErr5;
-        header('Location: ' . $home_url, true, 303);
-        $email2 = "";
+        $formErr = '*An account already exists for the e-mail address submitted. Please try again.';
+        returnErr($formErr);
       }
     } else {
-      $formErr5 = '*Please enter all mandatory fields';
-      echo $formErr5;
+      $formErr = '*Please enter all mandatory fields';
+      returnErr($formErr);
     }
   }else{mysqli_close($dbc);}
+?>

@@ -58,7 +58,8 @@
           "disclaimer" : "To update your e-mail requires reverification and signing back in. E-mail will not be changed until verified",
           "file" : "email",
           "inputs" : [
-            {"name": "Email", "db" : "email", "type":"text", "selected":"false", "value":"'.$row['email'].'", "errMsg":"Please enter a valid e-mail address", "enctype":"", "onchange":""},
+            {"name": "Current E-mail", "db" : "email1", "type":"text", "selected":"false", "value":"'.$row['email'].'", "errMsg":"Please enter a valid e-mail address", "enctype":"", "onchange":""},
+            {"name": "New E-mail", "db" : "email2", "type":"text", "selected":"false", "value":"", "errMsg":"Please enter a valid e-mail address", "enctype":"", "onchange":""},
             {"name": "Enter Password", "db" : "passwordEm", "type":"password", "selected":"false", "value":"", "errMsg":"Invalid entry", "enctype":"", "onchange":""}
           ]
         }

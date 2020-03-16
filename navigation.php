@@ -55,7 +55,7 @@
 	<div class="nav_logged_out clearfix <?php echo $navClass ?>">
 	    <div id="navbuttons"> 
 			<!-- this div is positioned at the top to float right of the preceding elements -->
-			<a href="#signUpPane"><input type="button" class="topbutton" id="button1" value="Sign Up"/>
+			<a href="#signUpPane"><input type="button" class="topbutton" id="button1" value="Sign Up"/></a>
 			<input type="button" id="guest" class="topbutton button2" value="Enter as Guest"/>
 	</div>
 	

@@ -42,8 +42,16 @@
 						<div class="fieldContainer">
 							<!-- Login username input and label -->
 							<label for="username">Username:</label>
-							<input type="email" class="loginfield" id="email" name="email"
-							value= "<?php if(!empty($email1)) echo $email1; ?>" /> 
+							<input 
+								type="email" class="loginfield" id="email" name="email"
+								value= "<?php 
+									if (!empty($email1)) { 
+										echo $email1;
+									} else if (isset($test)) {
+										echo $test == 1 ? $testEmail : '';
+									} 
+								?>" 
+							/> 
 						</div>	
 
 						<div class="fieldContainer">
@@ -51,7 +59,13 @@
 							<label for="password">Password:</label>
 							<input 
 								type="password" class="loginfield" id="password" name="password"
-								value="<?php if(!empty($password1)) echo $password1; ?>" 
+								value="<?php 
+									if (!empty($password1)) {
+										echo $password1;
+									} else if (isset($test)) {
+										echo $test == 1 ? $testPwd : '';
+									} 
+								?>" 
 							/> 
 						</div>
 

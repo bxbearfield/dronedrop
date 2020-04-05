@@ -12,10 +12,10 @@ function initPage() {
 	}
 
 	//Display editprofile tabs
-	if(igCode || igAdd){sideTabs[2].click()}
-	else{sideTabs[0].click();}
+	if (igCode || igAdd) {sideTabs[2].click();}
+	else {sideTabs[0].click();}
 
-	//Navigate editprofile tab panes for different urls
+	//Navigate editprofile tab panes for different redirects
 	setTimeout(function(){
 		picAdd ? getId('settingsAnchor_picture').click() : '';
 		igAdd ? getId('settingsAnchor_igDisplay').click() : '';

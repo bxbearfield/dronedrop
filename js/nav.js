@@ -1,5 +1,4 @@
 (function() {	
-    var guest = getId('guest');
     var userMenus = document.querySelectorAll(".userBurger");
     var hambugerNav = getNode('div.hamburger');
     var showHamburger = getNode('div#showHamburger');
@@ -31,8 +30,6 @@
     addEventHandler(hambugerNav, 'click', function(){
         showHamburger.classList.toggle('openHamburger');
     });
-
-    addEventHandler(guest, 'click', loginGuest);
 
     //Close menu on mouse leave
     // addEventHandler(showHamburger, 'mouseleave', function(){
@@ -88,9 +85,4 @@ function showMenuDisplay(myIndex){
 function logout() {
 	var logoutConfirm = confirm('Are you sure you want to log out?');
 	return logoutConfirm ? true:false;
-}
-
-function loginGuest() {
-    getId('email').value = 'test@test.com';
-    getId('password').value = 'Test.1999';
 }

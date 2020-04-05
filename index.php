@@ -26,6 +26,9 @@
     return implode($pass); //turn the array into a string
   }
   $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
+  $testEmail = isset($_GET['test']) ? 'test@test.com' : '';
+  $testPwd = isset($_GET['test']) ? 'Test.1999' : '';
+
   //Fb sign up temp pwd
   $temp_password = randomPassword();
   

@@ -1,5 +1,5 @@
 #<IfModule mod_rewrite.so>
-    Options +FollowSymLinks
+    Options +FollowSymLinks -Indexes
     # Turn on the RewriteEngine
     RewriteEngine On
     #  Rules

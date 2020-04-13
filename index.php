@@ -7,14 +7,20 @@
   // print_r($GLOBALS);
   // echo "</pre>";
   
-  //start session
+  //Redirect from login page to edit profile if logged in
+  if (isset($_COOKIE['user_id']))  {
+    $url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/editprofile.php';
+    exit(header('Location: ' . $url));
+  } 
+
+  //Start session
   session_start();
   
+  //Import html head 
   $page_title= 'Home';
   require_once('head.php');
   
-  $navClass = 'indexPgNav';
-  
+  //Generate random temp password
   function randomPassword() {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.%*&@#';
     $pass = array(); //remember to declare $pass as an array
@@ -25,6 +31,8 @@
     }
     return implode($pass); //turn the array into a string
   }
+
+  $navClass = 'indexPgNav';
   $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
   $testEmail = isset($_GET['test']) ? 'test@test.com' : '';
   $testPwd = isset($_GET['test']) ? 'Test.1999' : '';
@@ -32,19 +40,8 @@
   //Fb sign up temp pwd
   $temp_password = randomPassword();
   
-  //If cookie id is not set, log-in  
-  if (!isset($_COOKIE['user_id'])) {
-    if (isset($_POST['login'])) {
-      require_once('login.php');
-    } 
-    else if (isset($_POST['signup'])) {
-      require_once('signup.php');
-    }
-  } else {
-    //Redirect from log in page to edit profile if logged in
-    $url = 'https://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/editprofile.php';
-    exit(header('Location: ' . $url));
-  } 
+  require_once('login.php');
+  require_once('signup.php'); 
 
   require_once('login.html');
   echo '<script src="js/nav.js"></script>';

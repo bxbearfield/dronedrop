@@ -4,7 +4,7 @@
 $error_msg= "";
 
 //If the user isn't logged in, try to log them in
-if (!isset ($_COOKIE['user_id'])) {
+if (!isset($_COOKIE['user_id'])) {
 	if (isset($_POST['login'])) {
 		//Connect to the database
 		$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('Error connecting to MYSQL Server');
@@ -29,7 +29,6 @@ if (!isset ($_COOKIE['user_id'])) {
 				
 				setcookie('user_id', $row['user_id'], time() + (60*60*24*60)); //expires in 60 days
 				setcookie('email', $row['email'], time() + (60*60*24*60)); //expires in 60 days
-				mysqli_close($dbc);
 
 				//Redirect to editprofile
 				$verified = isset($_GET['verified']) ? '?verified=1':'';
@@ -46,6 +45,7 @@ if (!isset ($_COOKIE['user_id'])) {
 			//The email/password are incorrect so set an error message
 			$error_msg = '*You must enter your e-mail and password to log in';
 		}
+		mysqli_close($dbc);
 	}
 } 
 ?>

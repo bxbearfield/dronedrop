@@ -1,8 +1,9 @@
 <?php
-  // Connect to the database
-  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
+if (!isset($_COOKIE['user_id'])) {
   if (isset($_POST['signup'])) {
+    // Connect to the database
+    $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
     // Grab the profile data from the POST or Facebook API
     $fb = mysqli_real_escape_string($dbc, trim($_POST['fbAuth']));
     $email2 = mysqli_real_escape_string($dbc, trim($_POST['email2']));
@@ -123,7 +124,6 @@
             }	
           }
         }
-        mysqli_close($dbc);
         $_POST = array();
         exit();
       } else {
@@ -136,6 +136,7 @@
     } else {
       $formErr5 = '*Please enter all mandatory fields';
     }
+    mysqli_close($dbc);
   }
-  mysqli_close($dbc);
+}  
 ?>

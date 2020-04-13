@@ -3,7 +3,7 @@
 
   require_once('connectvars.php'); 
   
-  $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
+  $msg = isset($_GET['msg']) ? '?msg=' . $_GET['msg'] : '';
 
   // If the user is logged in, delete the session vars to log them out
   if (isset($_SESSION['user_id'])) {
@@ -24,6 +24,6 @@
   setcookie('email', '', time() - 3600);
 
   // Redirect to the home page
-  $home_url = 'https://' . $_SERVER['HTTP_HOST'] . '?msg=' . $msg;
+  $home_url = 'https://' . $_SERVER['HTTP_HOST'] . $msg;
   header('Location: ' . $home_url);
 ?>

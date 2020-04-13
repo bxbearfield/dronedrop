@@ -47,7 +47,7 @@
 								value= "<?php 
 									if (!empty($email1)) { 
 										echo $email1;
-									} else if(isset($test)) {
+									} else if(!empty($test)) {
 										echo $testEmail;
 									} 
 								?>" 
@@ -62,7 +62,7 @@
 								value="<?php 
 									if (!empty($password1)) {
 										echo $password1;
-									} else if (isset($test)) {
+									} else if (!empty($test)) {
 										echo $testPwd;
 									} 
 								?>" 

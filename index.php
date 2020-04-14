@@ -4,7 +4,7 @@
   //set_error_handler("var_dump");
   require_once('connectvars.php');
   echo "<pre>";
-  print_r($_GET);
+  print_r($GLOBALS);
   echo "</pre>";
   
   //Redirect from login page to edit profile if logged in

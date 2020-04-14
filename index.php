@@ -3,9 +3,9 @@
   ini_set('display_errors', 'On');
   //set_error_handler("var_dump");
   require_once('connectvars.php');
-  echo "<pre>";
-  print_r($GLOBALS);
-  echo "</pre>";
+  // echo "<pre>";
+  // print_r($GLOBALS);
+  // echo "</pre>";
   
   //Redirect from login page to edit profile if logged in
   if (isset($_COOKIE['user_id']))  {
@@ -19,7 +19,7 @@
   //Import html head 
   $page_title= 'Home';
   require_once('head.php');
-
+  
   //Generate random temp password
   function randomPassword() {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.%*&@#';

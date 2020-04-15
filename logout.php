@@ -3,7 +3,7 @@
 
   require_once('connectvars.php'); 
   
-  $msg = isset($_GET['msg']) ? '?msg=' . $_GET['msg'] : '';
+  $msg = isset($_GET['msg']) && !empty($_GET['msg']) ? $_GET['msg'] : '';
 
   // If the user is logged in, delete the session vars to log them out
   if (isset($_SESSION['user_id'])) {

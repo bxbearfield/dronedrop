@@ -5,7 +5,7 @@
     var media = [
         '(max-width: 1060px)',
         '(max-width: 963px)',
-        '(max-width: 814px)',
+        '(max-width: 935px)',
         '(max-width: 596px)'
     ]
     var s;
@@ -14,7 +14,7 @@
     //Display different elements at alternating media queries
     for (var i=0; i<media.length; i++) {
         q = window.matchMedia("only screen and " + media[i]);
-        if (media[i] == '(max-width: 814px)') {
+        if (media[i] == '(max-width: 935px)') {
             s = ['div.hamburger'];
         } else {s = ['i.burgerDots', 'td.scrollIcons']; }
         for (var j=0; j<s.length; j++){mediaHandler(q, s[j]);}

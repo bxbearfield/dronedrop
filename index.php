@@ -45,7 +45,7 @@
 
   require_once('login.html');
   echo '<script src="js/nav.js"></script>';
-  require_once('signup.html');
+  // require_once('signup.html');
   echo '<script src="js/utils.js"></script>';
   require_once('js/signupFB.js.php');
 ?>

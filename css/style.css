@@ -43,13 +43,16 @@ body.servicePage div.serviceMsg img {
 }
 
 div.content {
-  background: aqua url(../images/highres.jpg) no-repeat 70% 0%;
-  background-size: 100% 100%;
-  color: white;
+  background-color: teal;
   width: 100%;
   text-align: center;
   height: 100vh;
   overflow-x: hidden;
+}
+
+div#loginContent.content div.nav_logged_out div#showHamburger.openHamburger {
+  background-color: #4fac9c;
+  border-top: 2px solid #36aa95;
 }
 
 div.content.signup {
@@ -144,6 +147,54 @@ i.fas.close, i.far.close {
   font-size: 15px !important;
 }
 
+input.loginfield, input.signup, .viewme {
+  padding: 2px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+button,
+.button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  background-color: #199cd8;
+  background-clip: border-box;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  outline: none;
+  font-size: 12px;
+  font-weight: 400px;
+  letter-spacing: 1px;
+  padding: 0 17px;
+  text-transform: uppercase;
+  line-height: 40px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  cursor: pointer;
+}
+
+button:hover,
+.button:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #1581b2;
+  color: #fff;
+}
+
+/* Active */
+button:active,
+.button:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+  background-color: #199cd8;
+}
+
+/* ---------------RADIO LABELS ---------*/
 span.radioLabel {
   margin-left: 5px;
   margin-right: 13px;
@@ -166,12 +217,12 @@ div.login {
 }
 
 div.login div.loginErrMsg {
-  margin-top: -20px;
-  margin-left: 15px;
+  padding: 5px 0px 0px 5px;
+  margin-top: -27px;
   position: absolute;
   color: yellow;
-  line-height: 1;
   font-size: 10px;
+  font-weight: 600;
 }
 
 .clearfix:after {
@@ -219,27 +270,49 @@ div#content {
   clear: both;
 }
 
-.nav_logged_out {
-  position: relative;
-  z-index: 1;
+div#loginContent.content div.nav_logged_out div#showHamburger.openHamburger {
+  background-color: #4fac9c;
+  border-top: 2px solid #36aa95;
 }
 
-.nav_logged_out div.hamburger {
+div#loginContent.content div.nav_logged_out div#showHamburger.openHamburger input[type="submit"] {
+  margin-top: 5px;
+  width: 170px;
+}
+
+div#topNavContainer.indexPgNav {
+  background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.7) 10%, rgba(94, 197, 169, 0.68) 53%);
+}
+
+div#topNavContainer div.nav_logged_out {
+  position: relative;
+  z-index: 1;
+  max-width: 1350px;
+  margin: auto;
+}
+
+div#topNavContainer div.nav_logged_out input[type="email"], div#topNavContainer div.nav_logged_out input[type="password"] {
+  padding: 5px;
+  width: 170px;
+}
+
+div#topNavContainer div.nav_logged_out input[type="submit"] {
+  padding: 6px 8px;
+  line-height: initial;
+}
+
+div#topNavContainer div.nav_logged_out div.hamburger {
   padding: 20px;
   cursor: pointer;
   float: right;
   font-size: 35px;
 }
 
-.nav_logged_out div.hamburger.hide {
+div#topNavContainer div.nav_logged_out div.hamburger.hide {
   display: none;
 }
 
-.nav_logged_out.indexPgNav {
-  background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.7) 10%, rgba(94, 197, 169, 0.68) 53%);
-}
-
-.nav_logged_out div#showHamburger {
+div#topNavContainer div.nav_logged_out div#showHamburger {
   visibility: hidden;
   position: absolute;
   top: 70px;
@@ -249,23 +322,23 @@ div#content {
   font-size: 35px;
   padding: 10px;
   overflow: hidden;
-  height: 143px;
+  height: 195px;
 }
 
-.nav_logged_out div#showHamburger div#hamburgerContent {
+div#topNavContainer div.nav_logged_out div#showHamburger div#hamburgerContent {
   position: relative;
 }
 
-.nav_logged_out div#showHamburger ul {
+div#topNavContainer div.nav_logged_out div#showHamburger ul {
   display: inline-block;
 }
 
-.nav_logged_out div#showHamburger ul li {
+div#topNavContainer div.nav_logged_out div#showHamburger ul li {
   margin-bottom: 6px;
   padding: 2px 45px;
 }
 
-.nav_logged_out div#showHamburger ul li:hover {
+div#topNavContainer div.nav_logged_out div#showHamburger ul li:hover {
   background-color: #3fadc0;
 }
 
@@ -289,25 +362,68 @@ div#settingsPane {
   background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.5) 0%, rgba(31, 199, 218, 0.5) 51%, rgba(44, 181, 232, 0.5) 75%);
 }
 
-section#signupdiv {
-  position: absolute;
-  margin: 5% 0 0 7.5%;
-  -webkit-box-shadow: 0 0 15px 1px gray;
-          box-shadow: 0 0 15px 1px gray;
+/*----------------------------------------- SIGNUP FORM ---------------------------------------------*/
+div.localContent.loginPage {
+  max-width: 1350px;
+  min-width: 730px;
+  margin: auto;
+}
+
+div.localContent.loginPage img.spongebobTitle {
+  width: 100%;
+}
+
+div.localContent.loginPage img.spongebobSubtitle {
+  width: 87.1%;
+}
+
+section#welcome {
+  /* fff51c yellow*/
+  background: radial-gradient(#00808052 57%, teal 65%) no-repeat, url(../images/highres.jpg) no-repeat 63% 122%;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  padding-top: 2em;
+  padding-bottom: 9em;
+  display: inline-block;
+  margin: 3% 2% 0 1%;
+  width: 56%;
   color: white;
-  padding: 70px;
-  min-width: 900px;
-  width: 85%;
-  border-radius: 8px;
-  background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.5) 0%, rgba(31, 199, 218, 0.5) 51%, rgba(44, 181, 232, 0.5) 75%);
+}
+
+section#welcome #welcomemsg {
+  margin-top: 28px;
+}
+
+section#welcome h2#maintitle > img {
+  margin-bottom: 6%;
+}
+
+section#welcome h3 {
+  margin-top: 60px;
+  color: white;
+  letter-spacing: normal;
+}
+
+section#signupdiv {
+  color: white;
+  padding: 20px 0px;
+  vertical-align: top;
+  display: inline-block;
+  width: 40%;
+}
+
+section#signupdiv h2 {
+  margin-bottom: 0px;
+  color: white;
+  letter-spacing: normal;
+  margin-top: 15px;
 }
 
 section#signupdiv div#signupform {
   position: relative;
-  width: 50%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-right: 3px solid #1fc7da;
 }
 
 section#signupdiv div#signupform div.formMsg {
@@ -325,6 +441,7 @@ section#signupdiv table#signuptable {
   margin: 0px auto;
   font-size: 18px;
   text-align: initial;
+  width: 90%;
 }
 
 section#signupdiv table#signuptable td#asterisk {
@@ -332,15 +449,23 @@ section#signupdiv table#signuptable td#asterisk {
   padding-left: 14px;
 }
 
+section#signupdiv table#signuptable td {
+  padding: 5px 0;
+}
+
+section#signupdiv table#signuptable td input[type="text"], section#signupdiv table#signuptable td input[type="password"] {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 10px;
+}
+
 section#signupdiv div#signupfb {
-  float: right;
-  width: 50%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
 section#signupdiv div#signupfb p {
-  margin-bottom: 35px;
+  margin-bottom: 5px;
 }
 
 section#signupdiv div#signupfb div.verticalLine {
@@ -384,6 +509,13 @@ footer {
   float: left;
 }
 
+#toplogo img#navLogo {
+  width: 81px;
+  position: absolute;
+  display: block;
+  margin-left: 70px;
+}
+
 /*------------------- TOP NAVIGATION-----------------*/
 #navbar {
   top: 0;
@@ -402,7 +534,7 @@ ul.menu_standard li {
 /*------------------------------------- BUTTONS AND INPUT FIELDS -------------------------------------------*/
 #navbuttons {
   position: relative;
-  margin-top: 10px;
+  margin-top: 18px;
   margin-right: 5px;
   float: right;
 }
@@ -435,12 +567,6 @@ div.fieldContainer label {
           flex: 1;
 }
 
-input.loginfield, input.signup, .viewme {
-  padding: 2px;
-  border-radius: 4px;
-  font-size: 12px;
-}
-
 #terms {
   text-decoration: none;
   color: #ffd600;
@@ -448,60 +574,6 @@ input.loginfield, input.signup, .viewme {
 
 a#terms:hover {
   color: yellow;
-}
-
-#welcome {
-  /* fff51c yellow*/
-  text-align: center;
-  position: relative;
-  margin: 5em auto 2em 12%;
-  width: 75%;
-  color: white;
-}
-
-#welcomemsg {
-  margin-top: 28px;
-}
-
-button,
-.button,
-input[type="reset"],
-input[type="button"],
-input[type="submit"] {
-  background-color: #199cd8;
-  background-clip: border-box;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #fff;
-  outline: none;
-  font-size: 12px;
-  font-weight: 400px;
-  letter-spacing: 1px;
-  padding: 0 17px;
-  text-transform: uppercase;
-  line-height: 40px;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  cursor: pointer;
-}
-
-button:hover,
-.button:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  background-color: #1581b2;
-  color: #fff;
-}
-
-/* Active */
-button:active,
-.button:active,
-input[type="reset"]:active,
-input[type="submit"]:active,
-input[type="button"]:active {
-  background-color: #199cd8;
 }
 
 form.topbutton {
@@ -1153,7 +1225,7 @@ div.content.viewProfile article#viewIG img.igImage:nth-child(odd) {
 /*------------------------------------------- RESPONSIVE --------------------------------------------- */
 @media only screen and (min-width: 50px) and (max-width: 1060px) {
   ul.menu_standard li {
-    margin-right: 10%;
+    margin-right: 9%;
   }
   section.instagram {
     width: 888px;
@@ -1180,8 +1252,8 @@ div.content.viewProfile article#viewIG img.igImage:nth-child(odd) {
   }
 }
 
-@media only screen and (min-width: 50px) and (max-width: 918px) {
-  div#showHamburger.openHamburger {
+@media only screen and (min-width: 50px) and (max-width: 950px) {
+  #topNavContainer div.nav_logged_out div#showHamburger.openHamburger {
     visibility: visible;
     -webkit-animation: openHamburger .7s;
             animation: openHamburger .7s;
@@ -1191,7 +1263,7 @@ div.content.viewProfile article#viewIG img.igImage:nth-child(odd) {
       height: 0px;
     }
     to {
-      height: 143px;
+      height: 195px;
     }
   }
   @keyframes openHamburger {
@@ -1199,16 +1271,16 @@ div.content.viewProfile article#viewIG img.igImage:nth-child(odd) {
       height: 0px;
     }
     to {
-      height: 143px;
+      height: 195px;
     }
   }
-  div#showHamburger.openHamburger div#hamburgerContent {
+  #topNavContainer div.nav_logged_out div#showHamburger.openHamburger div#hamburgerContent {
     -webkit-animation: ul .7s;
             animation: ul .7s;
   }
   @-webkit-keyframes ul {
     from {
-      margin-top: -140px;
+      margin-top: -192px;
     }
     to {
       margin-top: 0px;
@@ -1216,7 +1288,7 @@ div.content.viewProfile article#viewIG img.igImage:nth-child(odd) {
   }
   @keyframes ul {
     from {
-      margin-top: -140px;
+      margin-top: -192px;
     }
     to {
       margin-top: 0px;
@@ -1245,7 +1317,7 @@ div.content.viewProfile article#viewIG img.igImage:nth-child(odd) {
   }
 }
 
-@media only screen and (min-width: 50px) and (max-width: 814px) {
+@media only screen and (min-width: 50px) and (max-width: 935px) {
   #navbuttons {
     display: none;
   }

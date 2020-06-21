@@ -43,14 +43,22 @@ body.servicePage{
 
 div.content {
 	//font-family: 'Roboto', sans-serif;
-	background: aqua url(../images/highres.jpg) no-repeat  70% 0%;
-	background-size: 100% 100%;
-	color: white;
-	width: 100%;
-	text-align: center;
-	height: 100vh;
+	// background: radial-gradient(#00808052 57%,teal 65%) no-repeat, teal url(../images/highres.jpg) no-repeat 70% 0%;
+	
+    background-color: teal;
+	// background-size: 60% 85%;
+    // background-position: bottom left;
+    width: 100%;
+    text-align: center;
+    height: 100vh;
 	overflow-x: hidden;
-
+	
+}
+div#loginContent.content {
+	div.nav_logged_out div#showHamburger.openHamburger {
+		background-color: #4fac9c;
+		border-top: 2px solid #36aa95;
+	}
 }
 div.content.signup {
 	font-size: 20px;
@@ -97,7 +105,53 @@ i.fas, i.far{
 		font-size: 15px !important; 
 	}
 }
-//Radio names 
+input.loginfield, input.signup, .viewme {
+	padding: 2px;
+	border-radius: 4px;
+	font-size: 12px;
+}
+
+button,
+.button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+    background-color: #199cd8;
+    background-clip: border-box;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    outline: none;
+    font-size: 12px;
+    font-weight: 400px;
+    letter-spacing: 1px;
+    padding: 0 17px;
+    text-transform: uppercase;
+	line-height: 40px;
+	display: inline-block;
+	zoom: 1; *display: inline;
+	cursor: pointer;
+}
+
+button:hover,
+.button:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #1581b2;
+    color: #fff;
+}
+
+/* Active */
+
+button:active,
+.button:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+    background-color: #199cd8;
+}
+/* ---------------RADIO LABELS ---------*/
 span.radioLabel {
 	margin-left: 5px;
 	margin-right: 13px;
@@ -109,12 +163,12 @@ p.subtext {margin: 5px 0 10px 10px; font-size: 16px; font-weight: 400;}
 div.login{
 	position: relative;
 	div.loginErrMsg{
-	margin-top: -20px;
-	margin-left: 15px;
-	position: absolute;
-	color: yellow;
-	line-height: 1;
-	font-size: 10px;
+		padding: 5px 0px 0px 5px;
+		margin-top: -27px;
+		position: absolute;
+		color: yellow;
+		font-size: 10px;
+		font-weight: 600;
 	}
 }
 .clearfix:after {
@@ -148,20 +202,16 @@ div#content {
 	position: relative;
 	clear: both;
 }
+div#loginContent.content div.nav_logged_out div#showHamburger.openHamburger {
+	background-color: #4fac9c;
+	border-top: 2px solid #36aa95;
 
-.nav_logged_out {
-	position: relative;
-	z-index: 1;
-
-	div.hamburger {
-		padding: 20px;
-		cursor: pointer;
-		float: right;
-		font-size: 35px;
-		&.hide{
-			display: none;
-		}
+	input[type="submit"]{
+		margin-top: 5px;
+		width: 170px;;
 	}
+}
+div#topNavContainer{
 	&.indexPgNav{
 		background-image: linear-gradient(
 			141deg, 
@@ -169,26 +219,52 @@ div#content {
 			rgba(94, 197, 169, 0.68) 53%)
 		;
 	}
-	div#showHamburger {
-		visibility: hidden;
-		position: absolute;
-		top: 70px;
-		right:0;
-		width: 215px;
-		background-color: rgba(50, 192, 218, 0.8);
-		font-size: 35px;
-		padding: 10px;
-		overflow: hidden;
-		height: 143px;
-		div#hamburgerContent{position: relative;}
-		ul {
-			display: inline-block;
-			li{
-				margin-bottom: 6px;
-    			padding: 2px 45px;
-				&:hover{background-color: rgb(63, 173, 192)}
+	div.nav_logged_out {
+		position: relative;
+		z-index: 1;
+		max-width: 1350px;
+		margin: auto;
+
+		input[type="email"], input[type="password"]  {
+			padding: 5px;
+			width: 170px;
+		}
+		input[type="submit"] {
+			padding: 6px 8px;
+			line-height: initial
+		}
+		div.hamburger {
+			padding: 20px;
+			cursor: pointer;
+			float: right;
+			font-size: 35px;
+			&.hide{
+				display: none;
 			}
 		}
+		
+		div#showHamburger {
+			visibility: hidden;
+			position: absolute;
+			top: 70px;
+			right:0;
+			width: 215px;
+			background-color: rgba(50, 192, 218, 0.8);
+			font-size: 35px;
+			padding: 10px;
+			overflow: hidden;
+			height: 195px;
+			div#hamburgerContent{position: relative;}
+			ul {
+				display: inline-block;
+				li{
+					margin-bottom: 6px;
+					padding: 2px 45px;
+					&:hover{background-color: rgb(63, 173, 192)}
+				}
+			}
+		}
+		
 	}
 }
 div#localContent {
@@ -212,26 +288,80 @@ div#settingsPane {
 		rgba(31, 199, 218, 0.5) 51%, 
 		hsla(196, 80%, 54%, .5) 75%);
 }
+/*----------------------------------------- SIGNUP FORM ---------------------------------------------*/
+div.localContent.loginPage{
+	// min-width: 1350px;
+	max-width: 1350px;
+	min-width: 730px;
+	margin: auto;
+
+	img.spongebobTitle{
+		width: 100%;
+	}
+
+	img.spongebobSubtitle{
+		width: 87.1%;
+	}
+}
+section#welcome {
+		/* fff51c yellow*/
+		background: radial-gradient(#00808052 57%, teal 65%) no-repeat, url(../images/highres.jpg) no-repeat 63% 122%;
+		background-size: cover;
+		text-align: center;
+		 position: relative;
+		 padding-top: 2em;
+		 padding-bottom: 9em;
+		 display: inline-block;
+		 // margin: 5em auto 2em 12%; 
+		 margin: 3% 2% 0 1%; 
+		 width: 56%;
+		 color: white;
+		//  width: 830px;
+	
+	#welcomemsg {
+		margin-top: 28px;
+	}
+	h2#maintitle > img {
+		margin-bottom: 6%;
+	}
+
+	h3 {
+		margin-top: 60px;
+		color: white;
+		letter-spacing: normal;
+	}
+}
+
 section#signupdiv {
-	position: absolute;
-	margin: 5% 0 0 7.5%;
-	box-shadow: 0 0 15px 1px gray;
+	// float: right;
+	// position: absolute;
+	// margin: 5% 0 0 7.5%;
+	// box-shadow: 0 0 15px 1px gray;
 	color: white;
-	padding: 70px;
-	min-width: 900px;
-	width: 85%;
-	border-radius: 8px;
-	background-image: linear-gradient(
-		141deg, 
-		hsla(154, 15%, 67%, 0.5) 0%,
-		rgba(31, 199, 218, 0.5) 51%, 
-		hsla(196, 80%, 54%, .5) 75%
-	);
+	padding: 20px 0px;
+	vertical-align: top;
+    display: inline-block;
+	// // min-width: 900px;
+	width: 40%;
+	// border-radius: 8px;
+	// background-image: linear-gradient(
+	// 	141deg, 
+	// 	hsla(154, 15%, 67%, 0.5) 0%,
+	// 	rgba(31, 199, 218, 0.5) 51%, 
+	// 	hsla(196, 80%, 54%, .5) 75%
+	// );
+
+	h2 {
+		margin-bottom: 0px;
+		color: white;
+		letter-spacing: normal;
+		margin-top: 15px;
+	} 
 	div#signupform {
 		position: relative;
-		width: 50%;
+		// width: 50%;
 		box-sizing: border-box;
-		border-right: 3px solid rgb(31, 199, 218);
+		// border-right: 3px solid rgb(31, 199, 218);
 
 		div.formMsg{
 			font-size: 12px;
@@ -249,19 +379,30 @@ section#signupdiv {
 		margin: 0px auto;
 		font-size: 18px;
 		text-align: initial;
+		width: 90%;
 
 		td#asterisk{
 			font-size: 12px;
 			padding-left: 14px;
 		}
+
+		td {
+			padding: 5px 0;
+		}
+
+		td input[type="text"], td input[type="password"]  {
+			width: 100%;
+			font-size: 16px;
+			padding: 10px 10px;
+		}
 	}
 	
 	div#signupfb {
-		float: right;
-		width: 50%;
+		// float: right;
+		// width: 50%;
 		box-sizing: border-box;
 	
-		p {margin-bottom: 35px;}
+		p {margin-bottom: 5px;}
 	
 		div.verticalLine {
 			border-left: 1px solid white;
@@ -304,6 +445,13 @@ footer {
 	margin-top: 6px;
 	width: auto;
 	float: left;
+
+	img#navLogo{
+		width: 81px;
+		position: absolute;
+		display: block;
+		margin-left: 70px;
+	}
 }
 
 /*------------------- TOP NAVIGATION-----------------*/
@@ -326,7 +474,7 @@ ul.menu_standard li{
 
 #navbuttons {
 	position: relative;
-	margin-top: 10px;
+	margin-top: 18px;
 	margin-right: 5px;
 	float: right;
 }
@@ -356,11 +504,7 @@ div.fieldContainer {
 	}
 }
 
-input.loginfield, input.signup, .viewme {
-	padding: 2px;
-	border-radius: 4px;
-	font-size: 12px;
-}
+
 #terms {
 	text-decoration: none; 
  	color:#ffd600; 
@@ -369,59 +513,8 @@ input.loginfield, input.signup, .viewme {
  	color: yellow;
  }
 
- #welcome { /* fff51c yellow*/
-	text-align: center;
- 	position: relative;
- 	margin: 5em auto 2em 12%; 
- 	width: 75%;
- 	color: white;
- }
 
-#welcomemsg {
-	margin-top: 28px;
-}
-
-
-button,
-.button,
-input[type="reset"],
-input[type="button"],
-input[type="submit"] {
-    background-color: #199cd8;
-    background-clip: border-box;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    color: #fff;
-    outline: none;
-    font-size: 12px;
-    font-weight: 400px;
-    letter-spacing: 1px;
-    padding: 0 17px;
-    text-transform: uppercase;
-	line-height: 40px;
-	display: inline-block;
-	zoom: 1; *display: inline;
-	cursor: pointer;
-}
-
-button:hover,
-.button:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-    background-color: #1581b2;
-    color: #fff;
-}
-
-/* Active */
-
-button:active,
-.button:active,
-input[type="reset"]:active,
-input[type="submit"]:active,
-input[type="button"]:active {
-    background-color: #199cd8;
-}
+ 
 form.topbutton{
 	display: inline;
 	margin-left: 4px;
@@ -1002,7 +1095,7 @@ div.content.viewProfile{
 /*------------------------------------------- RESPONSIVE --------------------------------------------- */
 // To display none then re-display, use js media queries with classes not css
 @media only screen and (min-width:50px) and (max-width:1060px) {
-	ul.menu_standard li { margin-right: 10%;}
+	ul.menu_standard li { margin-right: 9%;}
 	section.instagram{
 		width: 888px;
 		display: inline-block;
@@ -1020,18 +1113,18 @@ div.content.viewProfile{
 	}
 }
 
-@media only screen and (min-width:50px) and (max-width:918px) {
-	div#showHamburger.openHamburger {
+@media only screen and (min-width:50px) and (max-width:950px) {
+	#topNavContainer div.nav_logged_out div#showHamburger.openHamburger {
 		visibility: visible;
 		animation: openHamburger .7s;
 		@keyframes openHamburger {
 		from {height: 0px;}
-		to {height: 143px;}
+		to {height: 195px;}
 		}
 		div#hamburgerContent {
 			animation: ul .7s;
 			@keyframes ul {
-			from {margin-top: -140px;}
+			from {margin-top: -192px;}
 			to {margin-top: 0px;}
 			}
 		}
@@ -1044,7 +1137,7 @@ div.content.viewProfile{
 	.open {height: 300px;}
 }
 
-@media only screen and (min-width:50px) and (max-width:814px){
+@media only screen and (min-width:50px) and (max-width:935px){
 	#navbuttons {display: none;}
 	ul.menu_standard li { display: none;}
 	div.editProfileNav, div.loginNav {

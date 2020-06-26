@@ -137,47 +137,47 @@
 					<li><a href="#signUpPane">Get Started</a></li>
 				</ul>
 				<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="realform">
-				<div class="login">
-					<div class="loginErrMsg">
-						<p> 
-							<?php 
-								if (!empty($error_msg)) {
-									echo $error_msg;
-								} else if (!empty($msg)) {
-									echo $msg;
-								}
-							?> 
-						</p>
-					</div>	
+					<div class="login">
+						<div class="loginErrMsg">
+							<p> 
+								<?php 
+									if (!empty($error_msg)) {
+										echo $error_msg;
+									} else if (!empty($msg)) {
+										echo $msg;
+									}
+								?> 
+							</p>
+						</div>	
 
-					<!-- Login username input -->
-					<input 
-						placeholder="Email" type="email" class="loginfield" id="email" name="email"
-						value= "<?php 
-							if (!empty($email1)) { 
-								echo $email1;
-							} else if(!empty($testEmail)) {
-								echo $testEmail;
-							} 
-						?>" 
-					/> 
+						<!-- Login username input -->
+						<input 
+							placeholder="Email" type="email" class="loginfield" id="email" name="email"
+							value= "<?php 
+								if (!empty($email1)) { 
+									echo $email1;
+								} else if(!empty($testEmail)) {
+									echo $testEmail;
+								} 
+							?>" 
+						/> 
 
-					<!-- Login password input -->
-					<input 
-						placeholder="Password" type="password" class="loginfield" id="password" name="password"
-						value="<?php 
-							if (!empty($password1)) {
-								echo $password1;
-							} else if (!empty($testPwd)) {
-								echo $testPwd;
-							} 
-						?>" 
-					/> 
-					
-						<input type="submit" id="submit" value="Log In" name="login"/>
-					
-				</div>
-			</form>	
+						<!-- Login password input -->
+						<input 
+							placeholder="Password" type="password" class="loginfield" id="password" name="password"
+							value="<?php 
+								if (!empty($password1)) {
+									echo $password1;
+								} else if (!empty($testPwd)) {
+									echo $testPwd;
+								} 
+							?>" 
+						/> 
+						
+						<input type="submit" id="submit" value="Log In" class="loginBtn"/>
+						
+					</div>
+				</form>	
 			</div>
 		</div>
 	</div>

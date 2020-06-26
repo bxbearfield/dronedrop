@@ -292,6 +292,7 @@ div#topNavContainer.indexPgNav {
 
 div#topNavContainer div.nav_logged_out {
   position: relative;
+  z-index: 1;
   max-width: 1350px;
   margin: auto;
 }

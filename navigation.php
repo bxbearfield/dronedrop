@@ -98,7 +98,7 @@
 					/> 
 					
 					<span>
-						<input type="submit" id="submit" value="Log In" name="login"/>
+						<input class="loginBtn" type="submit" id="submit" value="Log In" name="login"/>
 					</span>
 				</div>
 			</form>

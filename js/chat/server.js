@@ -16,7 +16,7 @@ var mongo = require('mongodb').MongoClient,
 
 //var ioClient = require('socket.io')(server);
 
-mongo.connect('mongodb://64.227.16.238:27017/chat',{ 
+mongo.connect('mongodb://www.bikinibottombuddies.site:27017/chat',{ 
 	//Connect to mongodb database 'chat '
     useNewUrlParser: true,
     useUnifiedTopology: true

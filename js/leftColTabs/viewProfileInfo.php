@@ -13,11 +13,11 @@
 
   // Grab the profile data from the database
   if (!isset($_GET['id'])) {
-    $query = "SELECT first_name, last_name, email, month, day, year, gender, picture" . 
+    $query = "SELECT first_name, last_name, email, picture, address, city, state, zip_code, country, lat, lon" . 
         " FROM profile WHERE user_id = '" . $_SESSION['user_id'] . "'";
   }
   else {
-    $query = "SELECT first_name, last_name, month, day, year, gender, picture" . 
+    $query = "SELECT first_name, last_name, picture, address, city, state, zip_code, country, lat, lon" . 
         " FROM profile WHERE user_id = '" . $_GET['id'] . "'";
   }
   $data = mysqli_query($dbc, $query)				
@@ -65,24 +65,16 @@
         }
       },
       {
-        "title" : "Birthdate",
-        "value" : "'.$row['month'].'/'.$row['day'].'/'.$row['year'].'",
+        "title" : "Address",
+        "value" : "'.$row['address'].'",
         "form" : {
-          "disclaimer" : "Please use forward slashes only to format date",
-          "file" : "dob",
+          "disclaimer" : "Please use standard date format for each entry.",
+          "file" : "address",
           "inputs" : [
-            {"name": "Date of Birth", "db" : "dob", "type":"text", "selected":"false", "value":"'.$row['month'].'/'.$row['day'].'/'.$row['year'].'", "errMsg":"Invalid date received", "enctype":"", "onchange":""}
-          ]
-          }
-      },
-      {
-        "title" : "Gender",
-        "value" : "'.($row['gender']==1?'Male':'Female').'",
-        "form" : {
-          "disclaimer" : "Please enter \"M\" or \"F\"",
-          "file" : "gender",
-          "inputs" : [
-            {"name": "Gender", "db" : "gender", "type":"text", "selected":"false", "value":"'.($row['gender']==1?'M':'F').'", "errMsg":"A value of \"M\" or \"F\" expected", "enctype":"", "onchange":""}
+            {"name": "Street", "db" : "email1", "type":"text", "selected":"false", "value":"'.$row['address'].'", "errMsg":"Please enter a valid  address", "enctype":"", "onchange":""},
+            {"name": "City", "db" : "email2", "type":"text", "selected":"false", "value":"'.$row['city'].'", "errMsg":"Please enter a valid city", "enctype":"", "onchange":""},
+            {"name": "State", "db" : "passwordEm", "type":"text", "selected":"false", "value":"'.$row['state'].'", "errMsg":"Invalid entry", "enctype":"", "onchange":""},
+            {"name": "Zip Code", "db" : "email2", "type":"text", "selected":"false", "value":"'.$row['zip_code'].'", "errMsg":"Please enter a valid zip code", "enctype":"", "onchange":""}
           ]
         }
       }

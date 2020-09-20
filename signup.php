@@ -1,22 +1,23 @@
 <?php
 if (!isset($_COOKIE['user_id'])) {
-  if (isset($_POST['signup'])) {
+  if (isset($_POST['signupSubmit'])) {
     // Connect to the database
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
     // Grab the profile data from the POST or Facebook API
-    $fb = mysqli_real_escape_string($dbc, trim($_POST['fbAuth']));
-    $email2 = mysqli_real_escape_string($dbc, trim($_POST['email2']));
-    $email3 = mysqli_real_escape_string($dbc, trim($_POST['email3']));
-    $firstname = mysqli_real_escape_string($dbc, trim($_POST['firstname']));
-    $lastname = mysqli_real_escape_string($dbc, trim($_POST['lastname']));
-    $dob = explode('/',mysqli_real_escape_string($dbc, trim($_POST['dob'])));
-    $month = isset($dob[0]) ? $dob[0] : '';
-    $day = isset($dob[1]) ? $dob[1] : '';
-    $year = isset($dob[2]) ? $dob[2] : '';
-    $gender = mysqli_real_escape_string($dbc, trim(isset($_POST['gender'])));
-    $password2 = $fb == 'true' ? $temp_password : mysqli_real_escape_string($dbc, trim($_POST['password2']));
-    $password3 = $fb == 'true' ? $temp_password : mysqli_real_escape_string($dbc, trim($_POST['password3']));
+    $fb = isset($_POST['fbAuth']) ? mysqli_real_escape_string($dbc, trim($_POST['fbAuth'])) : '';
+    $lng = isset($_POST['lon']) ? mysqli_real_escape_string($dbc, trim($_POST['lon'])) : '';
+    $lat = isset($_POST['lat']) ? mysqli_real_escape_string($dbc, trim($_POST['lat'])) : '';
+    $email2 = isset($_POST['email2']) ? mysqli_real_escape_string($dbc, trim($_POST['email2'])) : '';
+    $firstname = isset($_POST['firstname']) ? mysqli_real_escape_string($dbc, trim($_POST['firstname'])) : '';
+    $lastname = isset($_POST['lastname']) ? mysqli_real_escape_string($dbc, trim($_POST['lastname'])) : '';
+    $address = isset($_POST['address']) ? mysqli_real_escape_string($dbc, trim($_POST['address'])) : '';
+    $city = isset($_POST['locality']) ? mysqli_real_escape_string($dbc, trim($_POST['locality'])) : '';
+    $state = isset($_POST['administrative_area_level_1']) ? mysqli_real_escape_string($dbc, trim($_POST['administrative_area_level_1'])) : '';
+    $zip_code = isset($_POST['postal_code']) ? mysqli_real_escape_string($dbc, trim($_POST['postal_code'])) : '';
+    $country = isset($_POST['country']) ? mysqli_real_escape_string($dbc, trim($_POST['country'])) : '';
+    $password2 = $fb == 'true' ? $temp_password : isset($_POST['password2']) ? mysqli_real_escape_string($dbc, trim($_POST['password2'])) : '';
+    $password3 = $fb == 'true' ? $temp_password : isset($_POST['password3']) ? mysqli_real_escape_string($dbc, trim($_POST['password3'])) : '';
     $formErr = '';
     $formErr1 = '';
     $formErr2 = '';
@@ -24,6 +25,9 @@ if (!isset($_COOKIE['user_id'])) {
     $formErr4 = '';
     $formErr5 = '';
     $formErr6 = '';
+    $formErr7 = '';
+    $formErr8 = '';
+    $formErr9 = '';
     $hash = md5(rand(0,1000));
 
     if ($fb == "false") {
@@ -32,9 +36,6 @@ if (!isset($_COOKIE['user_id'])) {
         $formErr = '*Invalid e-mail address';
       }
       
-      if ($email2 !== $email3) {
-        $formErr1 = '*Email fields must contain same value';
-      }
 
       if (preg_match('/[^-\'a-zA-Z]+/',  trim($_POST['firstname'])) === 1 || strlen($firstname) < 2) {
         //If name contains anyting other than -, ', or letters
@@ -44,10 +45,24 @@ if (!isset($_COOKIE['user_id'])) {
       if (preg_match('/[^-\'a-zA-Z]+/',  trim($_POST['lastname'])) === 1 || strlen($lastname) < 2) {
         $formErr3 = '*Invalid last name';
       }
+      if (strlen($address) < 2 ) {
+        $formErr1 += '*Please enter valid address';
+      }
 
-      if (preg_match('/^\d{2}\/\d{2}\/\d{4}$/',  trim($_POST['dob'])) !== 1) {
-        //Regex: 2 digits, fwd slash, 2 digits, fwd slash, 4 digits
-        $formErr6 = '*Date must be in MM/DD/YYY format';
+      if (strlen($city) < 2 ) {
+        $formErr9 += '*Please enter valid city';
+      }
+      
+      if (strlen($state) !== 2) {
+        $formErr6 += '*Please enter valid state abbreviation';
+      }
+
+      if (strlen($country) < 2 ) {
+        $formErr7 += '*Please enter valid country';
+      }
+
+      if (strlen($zip_code) < 5 ) {
+        $formErr8 += '*Please enter a valid zip code';
       }
 
       if (empty($password2) || empty($password3)) {
@@ -63,12 +78,16 @@ if (!isset($_COOKIE['user_id'])) {
                   include one capital letter, one special character, and one number.';
       } 
     }
-    if (!$formErr && !$formErr1 && !$formErr2 && !$formErr3 && !$formErr4 && !$formErr5 && !$formErr6 &&
-      !empty($email2) && !empty($email3) && !empty($firstname) && 
-      !empty($lastname) && (is_numeric($month) && !empty($month)) && 
-      (empty($gender) || $gender == 1 || $gender == 2) &&
-      (is_numeric($day) && !empty($day)) && (is_numeric($year)&& !empty($year)) && 
-      !empty($password2) && !empty($password3) && ($password2 === $password3)) {
+    if (
+      !$formErr && !$formErr1 && !$formErr2 && !$formErr3 && !$formErr4 && !$formErr5 && 
+      !$formErr6 && !$formErr7 && !$formErr8 && !$formErr9 &&
+      !empty($email2) && 
+      !empty($firstname) && !empty($lastname) && 
+      !empty($address) && !empty($city) && 
+      !empty($state) && !empty($zip_code) && 
+      !empty($lng) && !empty($lat) && 
+      !empty($password2) && !empty($password3) && 
+      ($password2 === $password3)) {
     	
       // Make sure someone isn't already registered using this username
       $query = "SELECT * FROM profile WHERE email = '$email2'";
@@ -76,13 +95,13 @@ if (!isset($_COOKIE['user_id'])) {
       
       if (mysqli_num_rows($data) == 0) {
         if ($fb == 'true') {
-          $query = "INSERT INTO profile (email, first_name, last_name, month, day, year, gender," . 
-          " password, hash, temp_pwd, active) VALUES ('$email2', '$firstname', '$lastname', '$month', ". 
-          " '$day', '$year', '$gender', SHA('$password2'), '$hash','$password2', 1)";
+          $query = "INSERT INTO profile (email, first_name, last_name, address, city, state, country, zip_code, lon, lat," . 
+          " password, hash, temp_pwd, active) VALUES ('$email2', '$firstname', '$lastname', '$address', '$city', '$state', '$country', '$zip_code', '$lng', '$lat', ". 
+          " SHA('$password2'), '$hash','$password2', 1)";
         } else {
-          $query = "INSERT INTO profile (email, first_name, last_name, month, day, year, gender," . 
-          " password, hash) VALUES ('$email2', '$firstname', '$lastname', '$month', ". 
-          " '$day', '$year', '$gender', SHA('$password2'), '$hash')";
+          $query = "INSERT INTO profile (email, first_name, last_name, address, city, state, country, zip_code, lon, lat," . 
+          " password, hash) VALUES ('$email2', '$firstname', '$lastname', '$address', '$city', '$state', '$country', '$zip_code', '$lng', '$lat', ". 
+          " SHA('$password2'), '$hash')";
         }
         mysqli_query($dbc, $query);
         

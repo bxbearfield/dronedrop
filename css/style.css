@@ -20,15 +20,17 @@ body {
 }
 
 body.servicePage {
-  background-color: initial;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(57%, rgba(12, 12, 12, 0.67)), color-stop(65%, rgba(12, 12, 12, 0.67))) no-repeat, #c57600 url(../images/drone3.png) fixed 0% 50%;
+  background: linear-gradient(rgba(12, 12, 12, 0.67) 57%, rgba(12, 12, 12, 0.67) 65%) no-repeat, #c57600 url(../images/drone3.png) fixed 0% 50%;
+  padding-top: 10rem;
 }
 
 body.servicePage div.serviceMsg {
   border: 4px solid #fff51c;
   padding: 100px 140px 140px 140px;
   font-size: 12px;
-  margin: 10rem auto 0 auto;
-  background-color: rgba(0, 255, 255, 0.5);
+  margin: 0 auto;
+  background-color: #c57600;
   width: 700px;
   text-align: center;
   -webkit-box-shadow: 1px 1px 12px grey inset;
@@ -43,7 +45,8 @@ body.servicePage div.serviceMsg img {
 }
 
 div.content {
-  background-color: teal;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(57%, rgba(197, 118, 0, 0.37)), color-stop(65%, rgba(197, 118, 0, 0.37))) no-repeat, url(../images/suburbs.jpg) no-repeat fixed 0% 50%;
+  background: linear-gradient(rgba(197, 118, 0, 0.37) 57%, rgba(197, 118, 0, 0.37) 65%) no-repeat, url(../images/suburbs.jpg) no-repeat fixed 0% 50%;
   width: 100%;
   text-align: center;
   height: 100vh;
@@ -53,6 +56,14 @@ div.content {
 div#loginContent.content div.nav_logged_out div#showHamburger.openHamburger {
   background-color: #4fac9c;
   border-top: 2px solid #36aa95;
+}
+
+div#loginContent.content div#localContent {
+  overflow: visible;
+}
+
+div#loginContent.content div.indexPgNav {
+  visibility: hidden;
 }
 
 div.content.signup {
@@ -67,7 +78,8 @@ div.content.signup div#localContent {
 }
 
 div.content.editprofile {
-  background: aqua url(../images/spongebobblank.jpg) no-repeat 70% 0%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(57%, rgba(12, 12, 12, 0.47)), color-stop(65%, rgba(12, 12, 12, 0.47))) no-repeat, #c57600 url(../images/drone3.png) fixed 0% 50%;
+  background: linear-gradient(rgba(12, 12, 12, 0.47) 57%, rgba(12, 12, 12, 0.47) 65%) no-repeat, #c57600 url(../images/drone3.png) fixed 0% 50%;
   background-size: 100% 100%;
   position: relative;
 }
@@ -182,7 +194,7 @@ input[type="reset"]:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover {
   background-color: #1581b2;
-  color: #fff;
+  color: yellow;
 }
 
 /* Active */
@@ -262,6 +274,106 @@ label {
   margin: 20px;
 }
 
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  padding-top: 150px;
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.82);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border-radius: 7px;
+  max-width: 450px;
+  width: 50%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+          animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+}
+
+/* Modal Header */
+.modal-header {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  padding: 2px 16px;
+  background-color: #c57600;
+  color: white;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: 10px 16px;
+  background-color: #c57600;
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 div#content {
   border: 2px solid yellow;
   min-height: 728px;
@@ -281,8 +393,6 @@ div#loginContent.content div.nav_logged_out div#showHamburger.openHamburger inpu
 }
 
 div#topNavContainer {
-  -webkit-box-shadow: 0px 0px 13px 1px #3b3a3a;
-          box-shadow: 0px 0px 13px 1px #3b3a3a;
   z-index: 1;
 }
 
@@ -318,13 +428,17 @@ div#topNavContainer div.nav_logged_out div.hamburger.hide {
   display: none;
 }
 
+div#topNavContainer div.nav_logged_out input[type="button"] {
+  background-color: #ce7e1b;
+}
+
 div#topNavContainer div.nav_logged_out div#showHamburger {
   visibility: hidden;
   position: absolute;
   top: 70px;
   right: 0;
   width: 215px;
-  background-color: rgba(50, 192, 218, 0.8);
+  background-color: rgba(218, 131, 50, 0.8);
   font-size: 35px;
   padding: 10px;
   overflow: hidden;
@@ -365,7 +479,7 @@ div#settingsPane {
   padding: 40px;
   min-height: 500px;
   border-radius: 8px;
-  background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.5) 0%, rgba(31, 199, 218, 0.5) 51%, rgba(44, 181, 232, 0.5) 75%);
+  background-image: linear-gradient(141deg, rgba(158, 183, 173, 0.705) 0%, rgba(218, 159, 31, 0.878) 51%, rgba(232, 144, 44, 0.823) 75%);
 }
 
 /*----------------------------------------- SIGNUP FORM ---------------------------------------------*/
@@ -413,23 +527,46 @@ section#welcome h3 {
 
 section#signupdiv {
   color: white;
-  padding: 20px 0px;
+  padding-bottom: 20px;
   vertical-align: top;
   display: inline-block;
-  width: 40%;
+  position: relative;
+  width: 47%;
+  -webkit-box-shadow: 0 0 29px 6px black;
+          box-shadow: 0 0 29px 6px black;
+}
+
+section#signupdiv div#header {
+  background-color: #c57600;
+  padding: 20px 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 section#signupdiv h2 {
-  margin-bottom: 0px;
-  color: white;
+  margin-bottom: -59px;
+  color: #4a4a4a;
   letter-spacing: normal;
-  margin-top: 15px;
+  margin-top: 11px;
+}
+
+section#signupdiv img.droneImg {
+  position: absolute;
+  top: -52px;
+  left: -153px;
+  width: 350px;
+  -webkit-transform: rotate(-46deg);
+          transform: rotate(-46deg);
 }
 
 section#signupdiv div#signupform {
   position: relative;
+  padding: 20px 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background-color: #ffffffd5;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 section#signupdiv div#signupform div.formMsg {
@@ -443,11 +580,33 @@ section#signupdiv div#signupform input.yellow {
   background-color: #fff51c;
 }
 
+section#signupdiv div#signupform input#signupbtn {
+  width: 100%;
+  background-color: #c57600;
+  color: black;
+  font-weight: 800;
+}
+
+section#signupdiv div#signupform input#signupbtn:hover {
+  color: #ffd600;
+}
+
+section#signupdiv div#signupform input#submit {
+  width: 100%;
+  background-color: #c57600;
+  color: black;
+  font-weight: 800;
+}
+
+section#signupdiv div#signupform input#submit:hover {
+  color: #ffd600;
+}
+
 section#signupdiv table#signuptable {
   margin: 0px auto;
   font-size: 18px;
   text-align: initial;
-  width: 90%;
+  width: 70%;
 }
 
 section#signupdiv table#signuptable td#asterisk {
@@ -456,7 +615,7 @@ section#signupdiv table#signuptable td#asterisk {
 }
 
 section#signupdiv table#signuptable td {
-  padding: 5px 0;
+  padding: 3px 0;
 }
 
 section#signupdiv table#signuptable td input[type="text"], section#signupdiv table#signuptable td input[type="password"] {
@@ -592,8 +751,7 @@ form.topbutton {
 }
 
 .button2, #signup {
-  background-color: #fff51c !important;
-  border: 1px solid #e7e6e6 !important;
+  background-color: #ce7e1b !important;
 }
 
 #button1 {
@@ -602,10 +760,6 @@ form.topbutton {
 
 .button2 {
   width: 14.5em;
-}
-
-.button2:hover, #signup:hover {
-  background-color: #ffd600 !important;
 }
 
 /*----------------------------------------- EDIT PROFILE ----------------------------------------------*/
@@ -634,7 +788,7 @@ div#settingsPane #rightCol {
   padding-top: 15px;
   position: relative;
   text-align: left;
-  border-left: 1px solid aqua;
+  border-left: 1px solid white;
   margin-left: 179px;
   min-height: 450px;
   /*   border: 1px solid yellow; */
@@ -663,7 +817,7 @@ div#settingsPane h4, div#settingsPane div.openPane {
 }
 
 div#settingsPane li a.selected {
-  background-color: rgba(0, 255, 255, 0.5);
+  background-color: rgba(255, 153, 0, 0.5);
 }
 
 div#settingsPane li a.selected:hover {
@@ -689,7 +843,7 @@ div#settingsPane .settingsDisplay {
 
 div#settingsPane form.settingsForm {
   border-top: 1px solid white;
-  background-color: #5db6cc !important;
+  background-color: #cca44b !important;
   padding-right: 155px;
   font-size: 14px;
 }
@@ -729,9 +883,10 @@ div#settingsPane input.updatebtn:hover {
 div#settingsPane .settings.disclaimer {
   font-size: 14px;
   line-height: 1.4em !important;
-  background-color: #199cd862;
+  background-color: #199cd8;
   margin-bottom: 3px;
   margin-top: 5px;
+  color: yellow;
   padding: 3px;
   border-radius: 4px;
 }
@@ -778,11 +933,11 @@ div#settingsPane div.settingsEditorLabel {
 
 /*----------------------------------------- MY PROFILE ----------------------------------------------*/
 div.sunsetFilter {
-  background-image: linear-gradient(141deg, rgba(31, 218, 177, 0.6) 70%, rgba(50, 192, 218, 0.8) 50%, rgba(236, 222, 29, 0.8) 91%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(57%, rgba(197, 118, 0, 0.37)), color-stop(65%, rgba(197, 118, 0, 0.37))) no-repeat, url(../images/suburbs.jpg) no-repeat fixed 0% 50%;
+  background: linear-gradient(rgba(197, 118, 0, 0.37) 57%, rgba(197, 118, 0, 0.37) 65%) no-repeat, url(../images/suburbs.jpg) no-repeat fixed 0% 50%;
 }
 
 div.sunsetFilter div.myProfilePgNav {
-  background-color: rgba(50, 192, 218, 0.8);
   position: relative;
 }
 
@@ -812,7 +967,8 @@ section.myprofile section#myProfile #demographics {
   -webkit-box-shadow: -3px 0px 15px 2px #3b3a3a;
           box-shadow: -3px 0px 15px 2px #3b3a3a;
   border-radius: 6px;
-  background-image: linear-gradient(141deg, rgba(50, 192, 218, 0.8) 50%, rgba(236, 222, 29, 0.8) 91%);
+  min-width: 350px;
+  background-image: linear-gradient(-2000deg, rgba(218, 151, 50, 0.8) 60%, rgba(3, 3, 2, 0.782) 90%);
   font-size: 16px;
   text-align: center;
   padding: 10px 22px;
@@ -839,8 +995,7 @@ section.myprofile section#myProfile #demographics i#profilePic {
   display: inline-block;
   font-size: 145px;
   color: #ffffff8c;
-  margin-top: 60px;
-  margin-bottom: 55px;
+  margin-top: 75px;
 }
 
 section.myprofile section#myProfile #demographics img#profilePic {
@@ -1016,11 +1171,13 @@ section.myprofile section#myProfile article#chatMembers {
   height: 450px;
   padding: 10px 12px;
   overflow: scroll;
+  min-width: 350px;
   margin-top: 3px;
   -webkit-box-shadow: 2px 0px 15px 1px #3b3a3a;
           box-shadow: 2px 0px 15px 1px #3b3a3a;
   border-radius: 6px;
-  background-image: linear-gradient(-141deg, rgba(50, 192, 218, 0.8) 40%, rgba(236, 222, 29, 0.8) 80%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(218, 151, 50, 0.8)), color-stop(80%, rgba(3, 3, 2, 0.582)));
+  background-image: linear-gradient(-180deg, rgba(218, 151, 50, 0.8) 40%, rgba(3, 3, 2, 0.582) 80%);
 }
 
 section.myprofile section#myProfile article#chatMembers div.usersOnline {

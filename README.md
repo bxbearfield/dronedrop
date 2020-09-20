@@ -1,2 +1,2 @@
-#Bikini Bottom Buddies Portfolio Project
-This is a small social media app that exhibits front-end and back-end form validation, SQL and no-SQL databases, sockets, design, and partial responsive design using Php and Javascript.
+#Drone Drop Delivery Portfolio Project
+This is app t exhibits front-end and back-end form validation, SQL databases, UX/UI, and partial responsive design using PHP and Javascript.

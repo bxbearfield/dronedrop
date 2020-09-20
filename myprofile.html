@@ -10,24 +10,17 @@
                             <div>
                                 <?php echo $imgDisplay ?>
                                 <p><?php echo $first_name . ' '. $last_name?></p>
-                                <p>Birthdate: <?php echo $dob?></p>
-                                <p>Gender: <?php echo $gender ?></p>
+                                <p>Address: <?php echo $address?></p>
+                                <p>Lat: <?php echo $lat ?></p>
+                                <p>Lng: <?php echo $lng ?></p>
                             </div>
                         </article>
-
-                        <div class="chat">
-                            <div id="disconnect"><input type="text" class="chatname" value="<?php echo $first_name; ?>"></div>
-                            <div class="chatmsgs">
-                                <div id="chatBoxText">Click on a message icon in the 'Chat Members' directory to chat now!</div>
-                            </div>
-                            <textarea placeholder="Type your message"></textarea>
-                            <div class="chatstatus">Status: <span>Idle</span></div>
-                        </div>
                     
                         <article id="chatMembers">
-                            <p>Chat Members</p>
+                            <p>Members</p>
                             <div class="usersOnline"><?php echo $showUsersHTML ?></div>
-                        </article><section class="instagram"><article id="instagram"><p>INSTAGRAM</p><?php echo $showIgFeed ?></article></section>
+                        </article>
+                        <!-- <section class="instagram"><article id="instagram"><p>INSTAGRAM</p><?php echo $showIgFeed ?></article></section> -->
                 </section>
             </div>
         </div>

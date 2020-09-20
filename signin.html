@@ -1,0 +1,72 @@
+<body>
+	<div id="loginContent" class="content">
+		<?php include_once('navigation.php'); ?>
+
+		<div id="localContent" class="localContent loginPage">
+			
+			<section id="signupdiv" style="padding-bottom:0;">
+				<img class="droneImg"
+					src="images/drone1.png"  
+					alt="spongebob-squarepants-font" border="0"
+				>
+				<div id="header">
+					<p id="welcomemsg">
+						<img class="spongebobSubtitle"
+							src="https://fontmeme.com/permalink/200916/b016f29d30a4f58bc38a96b631150ca2.png" 
+							alt="spongebob-squarepants-font" border="0"
+						>	
+					</p>
+					<p><h3>DELIVERY SERVICE</h3></p>
+					
+					<div>Don't have an account? <a href="index.php">Sign Up</a></div>
+				</div>
+				
+				
+				<div id="signupform" class="clearfix">	
+                <h2 style="margin-bottom: 20px;">Sign In</h2>
+				  <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="realform">
+					  <table id="signuptable">
+                          
+                        <tr>
+                            <td>
+                                <div class="formMsg" style="margin-top: -12px;">
+                                    <div>
+                                        <?php if (!empty($error_msg))echo $error_msg.'<br>'; ?>
+                                        <?php if (!empty($msg))echo $msg.'<br>'; ?>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr> 
+						  <tr>
+                            <td><input 
+                                placeholder="Enter Your Email"
+								type="text" class="signup" id="email1" name="email1"
+								value= "<?php 
+									if (!empty($email1)) { 
+										echo $email1;
+									} else if(!empty($testEmail)) {
+										echo $testEmail;
+									} 
+								?>"/></td>
+						  </tr>
+							<tr>
+                              <td><input 
+                                placeholder="Password"
+								type="password" class="signup" id="password1" name="password1"
+								value="<?php 
+									if (!empty($password1)) {
+										echo $password1;
+									} else if (!empty($testPwd)) {
+										echo $testPwd;
+									} 
+								?>"/></td>
+							</tr>	
+							<tr>
+							  <td colspan="2">
+								  <input type="submit" id="submit" value="Log In" name="login"/>
+							  </td>
+                            </tr> 
+						</table>
+					  </form>
+				</div>
+			</section>

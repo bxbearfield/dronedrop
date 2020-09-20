@@ -3,33 +3,22 @@
 		<?php include_once('navigation.php'); ?>
 
 		<div id="localContent" class="localContent loginPage">
-			<section id="welcome">
-				<h2 id="maintitle">
-					<img 
-						src="https://fontmeme.com/permalink/191102/ee08a900acd579362ed17d6ba53149bf.png" 
-						alt="spongebob-squarepants-font" border="0"
-					>
-				</h2>
-
-				<img class="spongebobTitle"
-					src="https://fontmeme.com/permalink/191101/ade794f02b21086a96e383a7b3c6efd8.png" 
-					alt="spongebob-squarepants-font" border="0"
-				>
-					
-				<p id="welcomemsg">
-					<img class="spongebobSubtitle"
-						src="https://fontmeme.com/permalink/191102/6b3bce8b51c385f2392568b8980c4704.png" 
-						alt="spongebob-squarepants-font" border="0"
-					>	
-				</p>
-
-				<h3>Sign up and connect with thousands of users worldwide!</h3>
-			</section>
+			
 			
 			<section id="signupdiv">
-				<p><h2>Sign Up</h2></p>
-				<div id="signupfb">
-					<p>Skip sign-up and log in with Facebook&#8482;</p>
+				<img class="droneImg"
+					src="images/drone1.png"  
+					alt="spongebob-squarepants-font" border="0"
+				>
+				<div id="header">
+					<p id="welcomemsg">
+						<img class="spongebobSubtitle"
+							src="https://fontmeme.com/permalink/200916/b016f29d30a4f58bc38a96b631150ca2.png" 
+							alt="spongebob-squarepants-font" border="0"
+						>	
+					</p>
+					<p><h3>DELIVERY SERVICE</h3></p>
+					<div id="signupfb">
 					<!-- <fb:login-button 
 						scope="public_profile,email"
 						onlogin="checkLoginState();">
@@ -47,74 +36,71 @@
 					>
 						Sign Up With Facebook 
 					</div>
-					<!-- <div class="verticalLine"></div> -->
+					<div>Already have an account? <a href="signin.php">Sign In</a></div>
+				</div>
 				</div>
 				
+				
 				<div id="signupform" class="clearfix">	
-				  <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return validate_signup()">
-					  <!-- <legend class="signupinfo">
-							  Sign up and connect now!<br>
-							Validate your e-mail and password to <br>
-							connect with thousands of users <br>
-							worldwide!  
-					  </legend>  -->
-					<!-- <legend class="signupinfo">
-						<h3>Connect now!</h3> 
-					</legend>  -->
+
+					<h2>Sign Up</h2>
+				  <form method="post" id="signupForm" name="signupForm" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 					  <table id="signuptable">
-						  <tr>
-							<td><input type="hidden" class="signup>" id="fbAuth" name="fbAuth" value="false" /></td>
+						  <tr id="hiddenFields">
+							<td><input type="hidden" class="signup" id="fbAuth" name="fbAuth" value="false" /></td>
+							<td><input type="hidden" class="signup" id="lon" name="lon" value="false" /></td>
+							<td><input type="hidden" class="signup" id="lat" name="lat" value="false" /></td>
 						  </tr>
 						  <tr>
 							<td><input placeholder="First Name" type="text" class="signup <?php if (isset($firstname) && empty($firstname) || $formErr2) echo 'yellow'; ?>" id="firstname" name="firstname" size="15" value="<?php if (!empty($firstname)) echo $firstname; ?>" /></td><br />
 							<td><input placeholder="Last Name" type="text" class="signup <?php if (isset($lastname) && empty($lastname) || $formErr3) echo 'yellow'; ?>" id="lastname" name="lastname" size="15" value="<?php if (!empty($lastname)) echo $lastname; ?>" /></td>
 						  </tr>
 						  <tr>
-							<td colspan="2"><input placeholder="Type Your Email" type="text" class="signup <?php if (isset($email2) && empty($email2) || $formErr || $formErr1) echo 'yellow'; ?>" id="email2" name="email2" size="20" value="<?php if (!empty($email2)) echo $email2; ?>" /></td>
+							<td colspan="2"><input placeholder="Type Your Address" type="text" class="signup <?php if (isset($address) && empty($address) || $formErr || $formErr1) echo 'yellow'; ?>" id="address" name="address" size="20" value="<?php if (!empty($address)) echo $address; ?>" /></td>
 						  </tr>
 						  <tr>
-							<td colspan="2"><input placeholder="Re-enter Email" type="text" class="signup <?php if (isset($email3) && empty($email3) || $formErr || $formErr1) echo 'yellow'; ?>" id="email3" name="email3" size="20" value="<?php if (!empty($email3)) echo $email3; ?>" /></td>
+							<td><input placeholder="City" type="text" class="signup <?php if (isset($city) && empty($city) || $formErr9) echo 'yellow'; ?>" id="locality" name="locality" size="15" value="<?php if (!empty($city)) echo $city; ?>" /></td><br />
+							<td><input placeholder="State" type="text" class="signup <?php if (isset($state) && empty($state) || $formErr6) echo 'yellow'; ?>" id="administrative_area_level_1" name="administrative_area_level_1" size="15" value="<?php if (!empty($state)) echo $state; ?>" /> </td>
 						  </tr>
-						  
+						  <tr>
+							<td><input placeholder="Zip code" type="text" class="signup <?php if (isset($zip_code) && empty($zip_code) || $formErr8) echo 'yellow'; ?>" id="postal_code" name="postal_code" size="15" value="<?php if (!empty($zip_code)) echo $zip_code; ?>" /></td>
+							<td><input placeholder="Country" type="text" class="signup <?php if (isset($country) && empty($country) || $formErr7) echo 'yellow'; ?>" id="country" name="country" size="15" value="<?php if (!empty($country)) echo $country; ?>" /></td><br />
+						  </tr>
+						  <tr>
+							<td colspan="2"><input placeholder="Enter Your Email" type="text" class="signup <?php if (isset($email2) && empty($email2) || $formErr) echo 'yellow'; ?>" id="email2" name="email2" size="20" value="<?php if (!empty($email2)) echo $email2; ?>" /></td>
+						  </tr>
 							<tr>
-								<td><label for="dob">Birthday:</label></td> <!-- color code for mm/dd/yyyy is #757575 -->
-								<td><input placeholder="mm/dd/yyyy" type="text" class="signup <?php if (isset($dob) && empty($dob) || $formErr6) echo 'yellow'; ?>" id="dob" name="dob" size="15" value="<?php if (!empty($_POST['dob'])) echo $_POST['dob']; ?>" /></td>
-							</tr>
-							<tr>
-								<td> 
-									<input class="gender" name="gender" type="radio" value="1" <?php if(isset($_POST['gender']) && $_POST['gender'] == 1) echo 'checked'; ?>/><span class="radioLabel">Male</span> 
-								</td>
-								<td>
-									<input class="gender" name="gender" type="radio" value="2" <?php if(isset($_POST['gender']) && $_POST['gender'] == 2) echo 'checked'; ?>/><span class="radioLabel">Female</span>  
-								</td>
-							</tr>
-							<tr>
-							  <td><input placeholder="Password" type="password" class="signup <?php if ($formErr4 || (isset($password2) && empty($password2))) echo 'yellow'; ?>" size="15" id="password2" name="password2" /></td>
-							  <td><input placeholder="Re-enter Password" type="password" class="signup <?php if ($formErr4 || (isset($password3) && empty($password3))) echo 'yellow'; ?>" size="15" id="password3" name="password3" /></td>
+							  <td><input placeholder="Password" type="password" class="signup <?php if ($formErr4 || (isset($password2) && empty($password2))) echo 'yellow'; ?>" size="15" id="password2" name="password2" value="<?php if (!empty($password2)) echo $password2; ?>"/></td>
+							  <td><input placeholder="Re-enter Password" type="password" class="signup <?php if ($formErr4 || (isset($password3) && empty($password3))) echo 'yellow'; ?>" size="15" id="password3" name="password3" value="<?php if (!empty($password3)) echo $password3; ?>"/></td>
 							</tr>	
 							<tr>
-							  <td id="asterisk" colspan="2">
-								  *Indicates mandatory field
-							  </td>
 							  <td></td>
 							</tr >
 							<tr>
-							  <td colspan="2" align="right">
-								<input type="reset" value="Reset" name="reset" id="resetbtn"/>
-								  <input type="submit" onclick="this.innerText='Submitting…';" value="Sign Up Now" name="signup" id="signupbtn"/>
+							  <td colspan="2">
+								<!-- <input type="reset" value="Reset" name="reset" id="resetbtn"/> -->
+								  <input type="button" onclick="validate_signup()" value="Sign Up Now" name="signup" id="signupbtn"/>
 							  </td>
 							</tr> 
+							<tr>
+								<td colspan="2" align="right" style="visibility: hidden;;">
+									<input type="submit" value="Sign Up Now" name="signupSubmit" id="signupSubmit"/>
+								</td>
+							</tr>
 							</tr>
 								<td>
 									<div class="formMsg">
 										<div>
 											<?php if(!empty($formErr))echo $formErr.'<br>'; ?>
-											<?php if(!empty($formErr1))echo $formErr1.'<br>'; ?>
 											<?php if(!empty($formErr2))echo $formErr2.'<br>'; ?>
 											<?php if(!empty($formErr3))echo $formErr3.'<br>'; ?>
-											<?php if(!empty($formErr6))echo $formErr6.'<br>'; ?>
 											<?php if(!empty($formErr4))echo $formErr4.'<br>'; ?>
-											<?php if(!empty($formErr5))echo $formErr5.'<br>'; ?>
+											<?php if(!empty($formErr1))echo $formErr1.'<br>'; ?>
+											<?php if(!empty($formErr7))echo $formErr7.'<br>'; ?>
+											<?php if(!empty($formErr5))echo $formErr8.'<br>'; ?>
+											<?php if(!empty($formErr6))echo $formErr6.'<br>'; ?>
+											<?php if(!empty($formErr8))echo $formErr5.'<br>'; ?>
+											<?php if(!empty($formErr9))echo $formErr5.'<br>'; ?>
 										</div>
 									</div>
 								</td>
@@ -123,69 +109,26 @@
 					  </form>
 				</div>
 			</section>
-			
-				
-			<!-- <section id="loginform">
-				<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="realform">
-					<div class="login">
-						<div class="loginErrMsg">
-							<p> 
-								<?php 
-									if (!empty($error_msg)) {
-										echo $error_msg;
-									} else if (!empty($msg)) {
-										echo $msg;
-									}
-								?> 
-							</p>
-						</div>	
-
-						<div class="fieldContainer"> -->
-							<!-- Login username input and label -->
-							<!-- <label for="username">Username:</label>
-							<input 
-								type="email" class="loginfield" id="email" name="email"
-								value= "<?php 
-									if (!empty($email1)) { 
-										echo $email1;
-									} else if(!empty($testEmail)) {
-										echo $testEmail;
-									} 
-								?>" 
-							/> 
-						</div>	 -->
-
-						<!-- <div class="fieldContainer"> -->
-							<!-- Login password input and label -->
-							<!-- <label for="password">Password:</label>
-							<input 
-								type="password" class="loginfield" id="password" name="password"
-								value="<?php 
-									if (!empty($password1)) {
-										echo $password1;
-									} else if (!empty($testPwd)) {
-										echo $testPwd;
-									} 
-								?>" 
-							/> 
-						</div>
-
-						<div>
-							<span>
-								<p class="subtext" >
-									Don't have a login?  <a href="#signUpPane"> Sign up now!</a>
-								</p> 
-							</span>
-						</div>
-
-						<div>
-							<span>
-								<a class="button" id="signup" href="#signUpPane">Sign Up</a>
-								<input type="submit" id="submit" value="Log In" name="login"/>
-							</span>
-						</div>	
-					</div>
-				</form>
-			</section> -->
 		</div>
 	</div>
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal-header">
+			  <span class="close">&times;</span>
+			  <h4>Would you like to use the following standardized address?</h4>
+			</div>
+			<div class="modal-body">
+			</div>
+			<div class="modal-footer">
+			  <table>
+				<tr>
+					<td><input type="button" id="oldAddress" value="Keep Address"/></td>
+					<td><input type="button" id="newAddress" value="Use Standard Address"/></td>
+				</tr>
+			  </table>
+			</div>
+		  </div>
+	  
+	  </div>

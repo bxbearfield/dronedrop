@@ -17,7 +17,7 @@
   session_start();
   
   //Import html head 
-  $page_title= 'Home';
+  $page_title= 'Sign Up';
   require_once('head.php');
   
   //Generate random temp password
@@ -40,12 +40,13 @@
   //Fb sign up temp pwd
   $temp_password = randomPassword();
   
-  require_once('login.php');
+  // require_once('login.php');
   require_once('signup.php'); 
-
   require_once('login.html');
+
   echo '<script src="js/nav.js"></script>';
   // require_once('signup.html');
   echo '<script src="js/utils.js"></script>';
+  echo '<script src="js/googlePlaces.js"></script>';
   require_once('js/signupFB.js.php');
 ?>

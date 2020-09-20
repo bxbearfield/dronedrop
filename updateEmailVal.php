@@ -2,7 +2,7 @@
 require_once ('PHPMailer/class.phpmailer.php');
 require_once ('PHPMailer/class.smtp.php');
 require_once ('PHPMailer/PHPMailerAutoload.php');
-$subject = "Account Update: E-mail Address | BBB";
+$subject = "Account Update: E-mail Address | DDD";
 $message = "
 <html>
     <head>
@@ -30,7 +30,7 @@ $message = "
                 <td>Please click the link below to verify your updated e-mail address:</td>
             </tr>
             <tr>
-                <td>http://localhost/bikinibottombuddies/verifyEmailUpdate.php?email1=$email1&email2=$email2&hash=$hash</td>
+                <td>http://localhost/dronedropdelivery/verifyEmailUpdate.php?email1=$email1&email2=$email2&hash=$hash</td>
             </tr>
         </table>
     </body>
@@ -51,10 +51,10 @@ try {
     $mail->Port       = '465';                                    // TCP port to connect to (465 or 587)
 
     //Recipients
-    $mail->setFrom('no-reply@BikiniBottomBuddies.com', 'Bikini Bottom Buddies');
+    $mail->setFrom('no-reply@DroneDropDelivery.com', 'Bikini Bottom Buddies');
     $mail->addAddress($email2, $firstname .' '. $lastname);     // Add a recipient
     // $mail->addAddress('ellen@example.com');               // Name is optional
-    $mail->addReplyTo('no-reply@BikiniBottomBuddies.com', 'Information');
+    $mail->addReplyTo('no-reply@DroneDropDelivery.com', 'Information');
     // $mail->addCC('cc@example.com');
     // $mail->addBCC('bcc@example.com');
 

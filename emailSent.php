@@ -18,7 +18,7 @@
                 ' Please click on the link in the e-mail to verify and activate your account. <a href="index.php">Go back</a>';      
         }  else {
         // Invalid approach
-        $serviceMsg = 'Invalid url. Please use the link that has been sent to your email or <a href="index.php#signUpPane"">sign up</a>.';
+        $serviceMsg = 'Invalid url. Please use the link that has been sent to your email or <a href="index.php"">sign up</a>.';
     }
     require_once('serviceMsg.html');
 ?>

@@ -1,0 +1,83 @@
+<html><head>
+
+    <title>Example courtesy of United States Postal Service</title>
+    
+    </head><body>
+        <button onClick="getAPI()">Build URL</button>
+        <form name="APIForm" method="get">
+    
+            <label for="APIName">API Name</label>
+            
+            <input type="text" name="APIName" size="25" style="margin:0 51px 0 10px">
+            
+            <button onClick="(function(e){ getAPIResponse(e,false);})()">Build URL</button><br>
+            
+            <label for="APIServer">API Server</label>
+            
+            <input type="text" size="30" name="APIServer" style="margin:0 13px 0 7px;">
+            
+            <input name="secure" type="checkbox">
+            
+            <label for="secure"> use https</label><br>
+            
+            <label for="tURI">URI path</label>
+            
+            <input name="tURI" type="text" value="/ShippingAPITest.dll" style="margin:0 21px 0 20px;" size="30">
+            
+            <button onClick="getAPIResponse(true);">Text is URL</button><br>
+            
+            <textarea id="XMLContent" name="XMLContent" cols="80" rows="5"></textarea>
+            
+            </form>
+            
+            <hr>
+            
+            <div style="width:100%"><span id="XMLResponse"></span></div>
+            <script src="js/utils.js"></script>
+    <script type="text/javascript">
+
+    var objSrvHTTP = createRequest();
+    
+    function getAPI(){
+    
+      var request = createRequest();
+      request.onreadystatechange=( request.status == 200) ? console.log(request.responseText):console.log('notokay');
+        request.open("GET", 'https://us-street.api.smartystreets.com/street-address?street=1600+amphitheatre+pkwy&city=mountain+view&state=CA&candidates=10&key=33312426711717008', false); 
+        
+        request.send();
+        XMLResponse.innerText = (request.status == 200) ?
+        request.responseText 
+        : 
+        "HTTP Error " + request.status + ' '+request.responseText;
+}
+    function getAPIResponse( e, style ) {
+        // e.preventDefault();
+        alert( e);
+    
+        var URL = (style) ? APIForm.XMLContent.value :
+    
+           ((APIForm.secure.checked)?"https://":"http://")+APIForm.APIServer.value+
+    
+           APIForm.tURI.value+"?API="+APIForm.APIName.value+"&XML="+
+    
+           APIForm.XMLContent.value;
+    
+    alert( URL );
+    
+          try {objSrvHTTP.open ("GET", URL, false); objSrvHTTP.send ();
+    
+                XMLResponse.innerText = (objSrvHTTP.status == 200) ?
+    
+                      objSrvHTTP.responseText : "HTTP Error " + objSrvHTTP.status;}
+    
+          catch(e) { XMLResponse.innerText = "Error condition " + e.description;}
+
+        
+    
+    }
+    
+    </script>
+    <script src="https://d79i1fxsrar4t.cloudfront.net/sdk/1.5.0/smartystreets-sdk-1.5.0.min.js"></script>
+    
+    
+    </body></html>

@@ -10,8 +10,8 @@ if (!isset($_COOKIE['user_id'])) {
 		$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('Error connecting to MYSQL Server');
 	
 		//Grab user-entered log-in data
-		$email1 = mysqli_real_escape_string($dbc, trim($_POST['email']));
-		$password1 = mysqli_real_escape_string($dbc, trim($_POST['password']));
+		$email1 = isset($_POST['email1']) ? mysqli_real_escape_string($dbc, trim($_POST['email1'])) : '' ;
+		$password1 = mysqli_real_escape_string($dbc, trim($_POST['password1']));
 	
 		if(!empty($email1) && !empty($password1)) {
 			// Look up email and passord in database

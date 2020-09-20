@@ -4,11 +4,12 @@
     require_once('head.php');
     require_once('connectvars.php');
 
+    $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die(mysqli_error());
+    
     $email = isset($_GET['email']) ? mysqli_real_escape_string($dbc, $_GET['email']) : ''; // Set email variable
     $hash = isset($_GET['hash']) ? mysqli_real_escape_string($dbc, $_GET['hash']) : ''; // Set hash variable
     
     if (isset($email) && !empty($email) AND isset($hash) && !empty($hash)) {
-        $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die(mysqli_error());
     
         // Verify data
         $query ="SELECT * FROM profile WHERE email='$email' AND hash='$hash' AND active=0";
@@ -19,10 +20,10 @@
             mysqli_query($dbc, "UPDATE profile SET active='1' WHERE email='$email' AND hash='$hash' AND active='0'") or die(mysqli_error());
             $serviceMsg = 'Your new account has been successfully created for \'$email!\' You will now be redirected to the homepage to <a href="index.php?verified=1">log in</a>...';
             mysqli_close($dbc);
-            header( "refresh:2;url=index.php"); //Wait 2 seconds before redirect
+            header( "refresh:2;url=signin.php"); //Wait 2 seconds before redirect
         } else {
             // No match -> invalid url or account has already been activated.
-            $serviceMsg = 'This url is invalid or has been activated. Please <a href="index.php">log in</a> or <a href="index.php#signUpPane">sign up</a>.';
+            $serviceMsg = 'This url is invalid or has been activated. Please <a href="signin.php">log in</a> or <a href="index.php">sign up</a>.';
         }
     } else {
         // Invalid approach

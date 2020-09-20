@@ -14,6 +14,7 @@
 	require_once('connectvars.php');
 	require_once('igBasicAPI.php');
 
+	$showUsersHTML = '';
 	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 	if(isset($_SESSION['user_id'])) {
@@ -27,16 +28,15 @@
 			$first_name = $row['first_name'];
 			$last_name = $row['last_name'];
 			$picture = $row['picture'];
-			$gender = $row['gender']==1?'M':'F';
-			$dob = $row['month'].'/'.$row['day'].'/'.$row['year'];
-			$user_id = $row['email'];
-			$accessToken = $row['IG_AccessToken'];
-			$private = $row['IG_Private'];
+			$address = $row['address'];
+			$lng = $row['lon'];
+			$lat = $row['lat'];
+			$city = $row['city'];
+			$state= $row['state'];
+			$zip_code= $row['zip_code'];
 
 			$query = "SELECT * FROM profile";
 			$data = mysqli_query($dbc, $query);
-
-			$showUsersHTML ='<p class="subtextScroll">Click a user and chat now!</p> ';
 
 			// Loop through the array, formatting it as HTML 
 			while ($row = mysqli_fetch_array($data)) { 
@@ -45,21 +45,6 @@
 				}
 			}
 			
-			//Declare parameters for IG API curl calls
-			$params = array(
-				'get_code' => isset( $_GET['code'] ) ? $_GET['code'] : '',
-				'access_token' => $accessToken
-			);
-			$ig = new instagram_basic_display_api( $params );
-			$showIgFeed = '';
-			if ($ig->getMedia() && !$private) {
-				foreach ($ig->getMedia()['data'] as $post) { 
-					//Display ig pictures
-					$showIgFeed .= '<img class="igImage" src="'.$post['media_url'].'" />';
-				}
-			} else {
-				$showIgFeed .= '<a href="editprofile.php?igAdd=1"><div class="noData"><span>Click here to retrieve IG profile feed</span></div></a>';
-			}
 			mysqli_close($dbc);
 		}
 	} else {
@@ -71,7 +56,7 @@
 	$imgDisplay = $picture ?
 		'<img src="images/uploads/user_'.$_SESSION['user_id'].'/'.$picture.'" id="profilePic"/>'
 		:
-		'<a href="editprofile.php?picAdd=1"><div class="noData"><i id="profilePic" class="fas fa-user"></i><div>Click to add photo</div></div></a>';
+		'<a href="editprofile.php?picAdd=1"><div class="noData"><i id="profilePic" class="fas fa-user"></i></div></a>';
 	echo '<script> var myRoom = "'.(isset($_SESSION['email']) ? md5($_SESSION['email']) : '').'";</script>';
 	require_once('myprofile.html');
 	echo '<script src="js/nav.js"></script>';

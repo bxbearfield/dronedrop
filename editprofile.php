@@ -20,41 +20,6 @@
   require_once('editprofile.html');
   require_once('igBasicAPI.php');
 
-  //Connect to the database
-  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-  $accessToken = '';
-
-  // Grab the profile data from the database
-  $query = "SELECT IG_AccessToken FROM profile WHERE user_id = '" . $_SESSION['user_id'] . "'";
-  $data = mysqli_query($dbc, $query) or die(' SQL_SELECT_ERR: ' . mysqli_error($dbc) . ' SQL_ERR_NO.: ' . mysqli_errno($dbc) . ' QUERY_USED: '. $query );
-  
-  if (mysqli_num_rows($data) == 1) {
-    //The user row was found so display the user data
-     $row = mysqli_fetch_array($data);
-     $accessToken = $row['IG_AccessToken'];
-  }
-	$params = array(
-		'get_code' => isset( $_GET['code'] ) ? $_GET['code'] : '',
-		'access_token' => $accessToken
-	);
-	$ig = new instagram_basic_display_api( $params );
-	$_SESSION['igActivateUrl'] = $ig->authorizationUrl;
-	
-	if ($ig->hasUserAccessToken) : 
-		$_SESSION['igUser'] = $ig->getUser();
-		$_SESSION['igUser']['tokenExpires'] = ceil($ig->getUserAccessTokenExpires()/86400);
-	endif;
-
-	if(!$accessToken && $ig->hasUserAccessToken ):
-		$query = "UPDATE profile SET IG_AccessToken = '".$ig->getUserAccessToken()."'" .
-		" WHERE user_id = '" . $_SESSION['user_id'] . "'";
-
-		$data = mysqli_query($dbc, $query)				
-		or die(' SQL_SELECT_ERR: ' . mysqli_error($dbc) . ' SQL_ERR_NO.: ' . mysqli_errno($dbc) . ' QUERY_USED: '. $query );
-  endif;
-  
-	mysqli_close($dbc);
-
   echo '</div>';
   echo '<script src="js/utils.js"></script>'; 
   echo '<script> igCode = "'.(isset($_GET["code"]) ? $_GET["code"] : '').'";</script>'; 

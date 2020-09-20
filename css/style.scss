@@ -18,16 +18,17 @@ body{
 	// overflow: hidden;
 }
 
+
 //Service pages
 body.servicePage{
-	background-color: initial;
-
+	background: linear-gradient(rgba(12, 12, 12, 0.67) 57%,rgba(12, 12, 12, 0.67) 65%) no-repeat, #c57600 url(../images/drone3.png)  fixed 0% 50%;
+	padding-top: 10rem;
 	div.serviceMsg{
 		border: 4px solid #fff51c;
 		padding: 100px 140px 140px 140px;
 		font-size: 12px;
-		margin: 10rem auto 0 auto;
-		background-color: rgba(0, 255, 255, 0.5);
+		margin: 0 auto;
+		background-color: rgb(197, 118, 0);
 		width: 700px;
 		text-align: center;
 		box-shadow: 1px 1px 12px grey inset;
@@ -42,12 +43,7 @@ body.servicePage{
 }
 
 div.content {
-	//font-family: 'Roboto', sans-serif;
-	// background: radial-gradient(#00808052 57%,teal 65%) no-repeat, teal url(../images/highres.jpg) no-repeat 70% 0%;
-	
-    background-color: teal;
-	// background-size: 60% 85%;
-    // background-position: bottom left;
+	background: linear-gradient(rgba(197, 118, 0, 0.37) 57%,rgba(197, 118, 0, 0.37) 65%) no-repeat, url(../images/suburbs.jpg) no-repeat fixed 0% 50%;
     width: 100%;
     text-align: center;
     height: 100vh;
@@ -58,6 +54,12 @@ div#loginContent.content {
 	div.nav_logged_out div#showHamburger.openHamburger {
 		background-color: #4fac9c;
 		border-top: 2px solid #36aa95;
+	}
+	div#localContent {
+		overflow: visible;
+	}
+	div.indexPgNav{
+		visibility: hidden;
 	}
 }
 div.content.signup {
@@ -72,7 +74,7 @@ div.content.signup {
 	}
 }
 div.content.editprofile{
-	background: aqua url(../images/spongebobblank.jpg) no-repeat 70% 0%;
+	background: linear-gradient(rgba(12, 12, 12, 0.47) 57%,rgba(12, 12, 12, 0.47) 65%) no-repeat, #c57600 url(../images/drone3.png)  fixed 0% 50%;
 	background-size: 100% 100%;
 	position: relative;
 }
@@ -139,7 +141,7 @@ input[type="reset"]:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover {
     background-color: #1581b2;
-    color: #fff;
+    color: yellow;
 }
 
 /* Active */
@@ -194,7 +196,72 @@ label {
 	float: right;
 	margin: 20px;
 }
-
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	padding-top: 150px;
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.82); /* Black w/ opacity */
+  }
+  /* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border-radius: 7px;
+	max-width: 450px;
+	width: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	animation-name: animatetop;
+	animation-duration: 0.4s
+  }
+  /* Modal Header */
+.modal-header {
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	padding: 2px 16px;
+	background-color: #c57600;
+	color: white;
+  }
+  
+  /* Modal Body */
+  .modal-body {padding: 2px 16px;}
+  
+  /* Modal Footer */
+  .modal-footer {
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	padding: 10px 16px;
+	background-color: #c57600;
+	color: white;
+  }
+  /* Add Animation */
+  @keyframes animatetop {
+	from {top: -300px; opacity: 0}
+	to {top: 0; opacity: 1}
+  }
+  /* The Close Button */
+  .close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
 div#content {
 	border: 2px solid yellow;
 	min-height: 728px;
@@ -212,7 +279,6 @@ div#loginContent.content div.nav_logged_out div#showHamburger.openHamburger {
 	}
 }
 div#topNavContainer{
-	box-shadow: 0px 0px 13px 1px rgb(59, 58, 58);
 	z-index: 1;
 
 	&.indexPgNav{
@@ -245,6 +311,9 @@ div#topNavContainer{
 				display: none;
 			}
 		}
+		input[type="button"] {
+			background-color:#ce7e1b;
+		}
 		
 		div#showHamburger {
 			visibility: hidden;
@@ -252,7 +321,7 @@ div#topNavContainer{
 			top: 70px;
 			right:0;
 			width: 215px;
-			background-color: rgba(50, 192, 218, 0.8);
+			background-color: rgba(218, 131, 50, 0.8);
 			font-size: 35px;
 			padding: 10px;
 			overflow: hidden;
@@ -287,9 +356,9 @@ div#settingsPane {
 	border-radius: 8px;
 	background-image: linear-gradient(
 		141deg, 
-		hsla(154, 15%, 67%, 0.5) 0%,
-		rgba(31, 199, 218, 0.5) 51%, 
-		hsla(196, 80%, 54%, .5) 75%);
+		hsla(156, 15%, 67%, 0.705) 0%,
+		rgba(218, 159, 31, 0.878) 51%, 
+		rgba(232, 144, 44, 0.823) 75%);
 }
 /*----------------------------------------- SIGNUP FORM ---------------------------------------------*/
 div.localContent.loginPage{
@@ -336,35 +405,39 @@ section#welcome {
 }
 
 section#signupdiv {
-	// float: right;
-	// position: absolute;
-	// margin: 5% 0 0 7.5%;
-	// box-shadow: 0 0 15px 1px gray;
 	color: white;
-	padding: 20px 0px;
+	padding-bottom: 20px;
 	vertical-align: top;
     display: inline-block;
-	// // min-width: 900px;
-	width: 40%;
-	// border-radius: 8px;
-	// background-image: linear-gradient(
-	// 	141deg, 
-	// 	hsla(154, 15%, 67%, 0.5) 0%,
-	// 	rgba(31, 199, 218, 0.5) 51%, 
-	// 	hsla(196, 80%, 54%, .5) 75%
-	// );
-
+	position: relative;
+	width: 47%;
+	box-shadow:  0 0 29px 6px black;
+	div#header {
+		background-color: #c57600;
+		padding: 20px 0;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+	}
 	h2 {
-		margin-bottom: 0px;
-		color: white;
-		letter-spacing: normal;
-		margin-top: 15px;
-	} 
+			margin-bottom: -59px;
+			color: #4a4a4a;
+			letter-spacing: normal;
+			margin-top: 11px;
+		}
+	img.droneImg {
+		position: absolute;
+		top: -52px;
+		left: -153px;
+		width: 350px;
+		transform: rotate(-46deg);
+	}
 	div#signupform {
 		position: relative;
-		// width: 50%;
+		padding: 20px 0px;
 		box-sizing: border-box;
-		// border-right: 3px solid rgb(31, 199, 218);
+		background-color: #ffffffd5;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
 
 		div.formMsg{
 			font-size: 12px;
@@ -376,13 +449,33 @@ section#signupdiv {
 		input.yellow {
 			background-color: #fff51c;
 		}
+		input#signupbtn {
+			width: 100%;
+			background-color: #c57600;
+			color: black;
+			font-weight: 800;
+
+			&:hover{
+				color: #ffd600;
+			}
+		}
+		input#submit {
+			width: 100%;
+			background-color: #c57600;
+			color: black;
+			font-weight: 800;
+
+			&:hover{
+				color: #ffd600;
+			}
+		}
 	}
 	
 	table#signuptable{
 		margin: 0px auto;
 		font-size: 18px;
 		text-align: initial;
-		width: 90%;
+		width: 70%;
 
 		td#asterisk{
 			font-size: 12px;
@@ -390,7 +483,7 @@ section#signupdiv {
 		}
 
 		td {
-			padding: 5px 0;
+			padding: 3px 0;
 		}
 
 		td input[type="text"], td input[type="password"]  {
@@ -528,17 +621,16 @@ form.topbutton{
 }
 
 .button2, #signup {
-	background-color: #fff51c !important;
-	border: 1px solid rgb(231, 230, 230) !important;
+	background-color:#ce7e1b !important;
 }
 
 #button1 {width: 13.5em;}
 
 .button2 {width: 14.5em;}
 
-.button2:hover, #signup:hover {
-	background-color: #ffd600 !important;
-}
+// .button2:hover, #signup:hover {
+// 	background-color: #ffd600 !important;
+// }
 /*----------------------------------------- EDIT PROFILE ----------------------------------------------*/
 div#settingsPane{
 
@@ -564,7 +656,7 @@ div#settingsPane{
 		padding-top: 15px;
 		position: relative;
 		text-align: left;
-		border-left: 1px solid aqua;
+		border-left: 1px solid white;
 		margin-left: 179px;
 		min-height: 450px;
 	/*   border: 1px solid yellow; */
@@ -593,7 +685,7 @@ div#settingsPane{
 	}
 
 	li a.selected{ 
-		background-color: rgba(0, 255, 255, .5);
+		background-color: rgba(255, 153, 0, 0.5);
 		
 		&:hover{ color: white; }
 	}
@@ -613,7 +705,7 @@ div#settingsPane{
 	}
 	form.settingsForm { 
 		border-top: 1px solid white;
-		background-color: rgb(93, 182, 204) !important;
+		background-color: #cca44b !important;
 		padding-right: 155px; 
 		font-size: 14px;
 	}
@@ -647,9 +739,10 @@ div#settingsPane{
 	.settings.disclaimer{
 		font-size: 14px;
 		line-height: 1.4em !important;
-		background-color: #199cd862;
+		background-color: #199cd8;
 		margin-bottom: 3px;
 		margin-top: 5px;
+		color: yellow;
 		padding: 3px;
 		border-radius: 4px;
 	}
@@ -684,14 +777,9 @@ div#settingsPane{
 }
 /*----------------------------------------- MY PROFILE ----------------------------------------------*/
 div.sunsetFilter{
-	background-image: linear-gradient(
-	141deg, 
-	rgba(31, 218, 177, 0.6) 70%, 
-	rgba(50, 192, 218, 0.8) 50%, 
-	rgba(236, 222, 29, 0.8) 91%
-);
+	background: linear-gradient(rgba(197, 118, 0, 0.37) 57%,rgba(197, 118, 0, 0.37) 65%) no-repeat, url(../images/suburbs.jpg) no-repeat fixed 0% 50%;
+
 	div.myProfilePgNav {
-		background-color: rgba(50, 192, 218, 0.8);
 		position: relative;
 	}
 }
@@ -723,10 +811,11 @@ section.myprofile {
 			height: 450px;
 			box-shadow: -3px 0px 15px 2px rgb(59, 58, 58);
 			border-radius: 6px;
+			min-width: 350px;
 			background-image: linear-gradient(
-				141deg, 
-				rgba(50, 192, 218, 0.8) 50%, 
-				rgba(236, 222, 29, 0.8) 91%
+				-2000deg, 
+				rgba(218, 151, 50, 0.8) 60%, 
+				rgba(3, 3, 2, 0.782) 90%
 			);
 			font-size: 16px;
 			text-align: center;
@@ -748,8 +837,7 @@ section.myprofile {
 				display: inline-block;
 				font-size: 145px;
 				color: #ffffff8c;
-				margin-top: 60px;
-				margin-bottom: 55px;
+				margin-top: 75px;
 			}
 			img#profilePic {
 				border: 3px solid white;
@@ -920,13 +1008,14 @@ section.myprofile {
 			height: 450px;
 			padding: 10px 12px;
 			overflow: scroll;
+			min-width: 350px;
 			margin-top: 3px;
 			box-shadow: 2px 0px 15px 1px rgb(59, 58, 58);
 			border-radius: 6px;
 			background-image: linear-gradient(
-				-141deg, 
-				rgba(50, 192, 218, 0.8) 40%, 
-				rgba(236, 222, 29, 0.8) 80%
+				-180deg, 
+				rgba(218, 151, 50, 0.8) 40%, 
+				rgba(3, 3, 2, 0.582) 80%
 			);
 			
 			div.usersOnline{

@@ -30,7 +30,26 @@ function statusChangeCallback(response) {
         callFbAPI();
     }
 }
+(function operateModal() {
+  // Get the modal
+var modal = document.getElementById("myModal");
 
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+})();
 function callFbAPI() {
     //Request name, email, dob form Fb
     FB.api('me?fields=name,email,birthday', function(response) {
@@ -65,10 +84,13 @@ function checkLoginState() {
 function validate_signup(){
     var fbAuth = getNode('input#fbAuth'),
         email2 = getNode('input#email2'),
-        email3 = getNode('input#email3'),
+        address = getNode('input#address'),
+        city = getNode('input#locality'),
+        state = getNode('input#administrative_area_level_1'),
+        zip = getNode('input#postal_code'),
+        country = getNode('input#country'),
         firstname = getNode('input#firstname'),
         lastname = getNode('input#lastname'),
-        dob = getNode('input#dob'),
         password2 = getNode('input#password2'),
         password3 = getNode('input#password3'),
         formErr = ''
@@ -79,20 +101,9 @@ function validate_signup(){
       if (!RegExp(/\S{2,}@\S{2,}\.\S{2,}/).test(email2.value) || email2.value.length < 5) {
         //If email contains 2+ non spaces,'@', 2+ non spaces,'.', 2+ non spaces
         formErr += '*Invalid e-mail address \n';
-        email2.classList.add('yellow');
-        email3.classList.add('yellow');  
+        email2.classList.add('yellow'); 
       } else {
           email2.removeClass('yellow');
-          email3.removeClass('yellow');
-      }
-      
-      if (email2.value !== email3.value) {
-        formErr += '*Email fields must contain same value \n';
-        if(!formErr) email2.classList.add('yellow');
-        if(!formErr) email3.classList.add('yellow');
-      }else if(!formErr){
-        email2.removeClass('yellow');
-        email3.removeClass('yellow');
       }
 
       if (RegExp(/[^-\'a-zA-Z]+/).test(firstname.value) || firstname.value.length < 2) {
@@ -108,12 +119,39 @@ function validate_signup(){
         lastname.classList.add('yellow');
       }
 
-      if (!RegExp(/^\d{2}\/\d{2}\/\d{4}$/).test(dob.value)) {
-        //Regex: 2 digits, fwd slash, 2 digits, fwd slash, 4 digits
-        formErr += '*Date must be in MM/DD/YYY format \n';
-        dob.classList.add('yellow');
+      if (address.value.length < 2 ) {
+        formErr += '*Please enter valid address \n';
+        address.classList.add('yellow');
       }else{
-        lastname.removeClass('yellow');
+        address.removeClass('yellow');
+      }
+
+      if (city.value.length < 2 ) {
+        formErr += '*Please enter valid city \n';
+        city.classList.add('yellow');
+      }else{
+        city.removeClass('yellow');
+      }
+      
+      if (state.value.length !== 2) {
+        formErr += '*Please enter valid state abbreviation \n';
+        state.classList.add('yellow');
+      }else{
+        state.removeClass('yellow');
+      }
+
+      if (country.value.length < 2 ) {
+        formErr += '*Please enter valid country \n';
+        country.classList.add('yellow');
+      }else{
+        country.removeClass('yellow');
+      }
+
+      if (zip.value.length < 5 ) {
+        formErr += '*Please enter a valid zip code\n';
+        zip.classList.add('yellow');
+      }else{
+        zip.removeClass('yellow');
       }
 
       if (!password2.value || !password3.value) {
@@ -130,18 +168,20 @@ function validate_signup(){
       } 
       else if (!RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[_|\W])/).test(password2.value) || password2.value.length < 8 ) {
         formErr += '*Passwords must be at least 8 characters long and '+
-                  'include one capital letter, one special character, and one number.';
+                  'include one capital letter, one special character, and one number.\n';
         password2.classList.add('yellow');
         password3.classList.add('yellow');
-      }else{
-        password2.remoceClass('yellow');
-        password3.remoceClass('yellow');
+      } else {
+        password2.removeClass('yellow');
+        password3.removeClass('yellow');
       }
+
       if (formErr){
-        formErr += '*Please enter all mandatory fields \n';  
+        formErr += '*Please revise all mandatory fields \n';  
         getNode('div.formMsg div').innerText = formErr;
-        return false
-      } else {return true}
+      } else {
+        validateAddress();
+      }
     } else {return true} 
 }
 </script>

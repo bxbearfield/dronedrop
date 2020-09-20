@@ -15,9 +15,9 @@
 		<div>
 			<header id="toplogo">
 				<p>
-					<a href="https://fontmeme.com/spongebob-squarepants-font/">
+					<a href="#">
 						<img 
-							src="https://fontmeme.com/permalink/191102/c07b7046cfb9a4665025c7879c02bd62.png" 
+							src="https://fontmeme.com/permalink/200916/12876b4bbadb7619bd59730549d15207.png" 
 							alt="spongebob-squarepants-font" border="0"
 						>
 					</a>			
@@ -31,18 +31,16 @@
 			</div>	
 			
 			<ul class="menu_standard" id="navbar">
-				<li><a href="#">Community</a></li>
 				<li><a href="editprofile.php">Edit Profile</a> </li>
-				<li><a href="myprofile.php"> My Profile </a></li>
+				<li><a href="myprofile.php"> Community </a></li>
 			</ul>
 		</nav>
 
 		<div id="showHamburger">
 			<div id="hamburgerContent">
 				<ul>
-					<li><a href="#">Community</a></li>
 					<li><a href="editprofile.php">Edit Profile</a> </li>
-					<li><a href="myprofile.php"> My Profile </a></li>
+					<li><a href="myprofile.php"> Community </a></li>
 				</ul>
 				<form class="topbutton" method="post" action="logout.php" onsubmit="return logout()">
 					<input type="submit" class="topbutton button2" value="Log Out"/>
@@ -107,9 +105,9 @@
 		<div id="toplogo">
 			<header>
 				<p>
-					<a href="https://fontmeme.com/spongebob-squarepants-font/">
+					<a href="#">
 						<img 
-							src="https://fontmeme.com/permalink/191102/c07b7046cfb9a4665025c7879c02bd62.png" 
+							src="https://fontmeme.com/permalink/200916/12876b4bbadb7619bd59730549d15207.png" 
 							alt="spongebob-squarepants-font" border="0"
 						>
 					</a>

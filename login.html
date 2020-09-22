@@ -51,24 +51,45 @@
 							<td><input type="hidden" class="signup" id="lon" name="lon" value="false" /></td>
 							<td><input type="hidden" class="signup" id="lat" name="lat" value="false" /></td>
 						  </tr>
+						  <tr class="errMsgTr">
+							  <td class="errMsgTd" id="firstnameErr"></td>
+							  <td class="errMsgTd" id="lastnameErr"></td>
+						  </tr>
 						  <tr>
 							<td><input placeholder="First Name" type="text" class="signup <?php if (isset($firstname) && empty($firstname) || $formErr2) echo 'yellow'; ?>" id="firstname" name="firstname" size="15" value="<?php if (!empty($firstname)) echo $firstname; ?>" /></td><br />
 							<td><input placeholder="Last Name" type="text" class="signup <?php if (isset($lastname) && empty($lastname) || $formErr3) echo 'yellow'; ?>" id="lastname" name="lastname" size="15" value="<?php if (!empty($lastname)) echo $lastname; ?>" /></td>
 						  </tr>
+						  <tr class="errMsgTr">
+							<td class="errMsgTd" id="addressErr" colspan="2"></td>
+						</tr>
 						  <tr>
 							<td colspan="2"><input placeholder="Type Your Address" type="text" class="signup <?php if (isset($address) && empty($address) || $formErr || $formErr1) echo 'yellow'; ?>" id="address" name="address" size="20" value="<?php if (!empty($address)) echo $address; ?>" /></td>
 						  </tr>
+						  <tr class="errMsgTr">
+							<td class="errMsgTd" id="cityErr"></td>
+							<td class="errMsgTd" id="stateErr"></td>
+						</tr>
 						  <tr>
 							<td><input placeholder="City" type="text" class="signup <?php if (isset($city) && empty($city) || $formErr9) echo 'yellow'; ?>" id="locality" name="locality" size="15" value="<?php if (!empty($city)) echo $city; ?>" /></td><br />
 							<td><input placeholder="State" type="text" class="signup <?php if (isset($state) && empty($state) || $formErr6) echo 'yellow'; ?>" id="administrative_area_level_1" name="administrative_area_level_1" size="15" value="<?php if (!empty($state)) echo $state; ?>" /> </td>
 						  </tr>
+						  <tr class="errMsgTr">
+							<td class="errMsgTd" id="zipErr"></td>
+							<td class="errMsgTd" id="countryErr"></td>
+						</tr>
 						  <tr>
 							<td><input placeholder="Zip code" type="text" class="signup <?php if (isset($zip_code) && empty($zip_code) || $formErr8) echo 'yellow'; ?>" id="postal_code" name="postal_code" size="15" value="<?php if (!empty($zip_code)) echo $zip_code; ?>" /></td>
 							<td><input placeholder="Country" type="text" class="signup <?php if (isset($country) && empty($country) || $formErr7) echo 'yellow'; ?>" id="country" name="country" size="15" value="<?php if (!empty($country)) echo $country; ?>" /></td><br />
 						  </tr>
+						  <tr class="errMsgTr">
+							<td class="errMsgTd" id="emailErr" colspan="2"></td>
+						</tr>
 						  <tr>
 							<td colspan="2"><input placeholder="Enter Your Email" type="text" class="signup <?php if (isset($email2) && empty($email2) || $formErr) echo 'yellow'; ?>" id="email2" name="email2" size="20" value="<?php if (!empty($email2)) echo $email2; ?>" /></td>
 						  </tr>
+						  <tr class="errMsgTr">
+							<td class="errMsgTd" id="passwordErr" colspan="2"></td>
+						</tr>
 							<tr>
 							  <td><input placeholder="Password" type="password" class="signup <?php if ($formErr4 || (isset($password2) && empty($password2))) echo 'yellow'; ?>" size="15" id="password2" name="password2" value="<?php if (!empty($password2)) echo $password2; ?>"/></td>
 							  <td><input placeholder="Re-enter Password" type="password" class="signup <?php if ($formErr4 || (isset($password3) && empty($password3))) echo 'yellow'; ?>" size="15" id="password3" name="password3" value="<?php if (!empty($password3)) echo $password3; ?>"/></td>

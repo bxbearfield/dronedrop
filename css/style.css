@@ -624,6 +624,16 @@ section#signupdiv table#signuptable td input[type="text"], section#signupdiv tab
   padding: 10px 10px;
 }
 
+section#signupdiv table#signuptable tr.errMsgTr {
+  line-height: initial;
+  color: red;
+  font-size: 12px;
+}
+
+section#signupdiv table#signuptable tr.errMsgTr td {
+  padding: 0 0 0 5px;
+}
+
 section#signupdiv div#signupfb {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

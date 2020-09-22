@@ -445,7 +445,6 @@ section#signupdiv {
 			position: absolute;
 			line-height: 1.1em;
 		}
-
 		input.yellow {
 			background-color: #fff51c;
 		}
@@ -490,6 +489,16 @@ section#signupdiv {
 			width: 100%;
 			font-size: 16px;
 			padding: 10px 10px;
+		}
+
+		tr.errMsgTr {
+			line-height: initial;
+			color: red;
+			font-size: 12px;
+
+			td{
+				padding: 0 0 0 5px;
+			}
 		}
 	}
 	
